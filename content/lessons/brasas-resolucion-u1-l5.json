@@ -1,0 +1,51 @@
+{
+  "id": "brasas-resolucion-u1-l5",
+  "paquete": "brasas",
+  "habilidad": "resolucion",
+  "objetivo": "Dividir un problema grande en partes pequeñas",
+  "lectura": { "dosis": "frase", "texto": "Lo grande se hace por partes." },
+  "modos": {
+    "interactivo": {
+      "gancho": "Fueguito tiene que ordenar todo el cuarto. ¡Uf! Hagámoslo por partes.",
+      "retos": [
+        {
+          "tipo": "ordenar_secuencia",
+          "enunciado": "Ordena para armar un rompecabezas.",
+          "datos": { "elementos": ["juntar_bordes", "buscar_piezas", "rellenar_centro"], "orden_correcto": ["buscar_piezas", "juntar_bordes", "rellenar_centro"] }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "Para ordenar el cuarto, ¿qué parte haces primero?",
+          "datos": { "opciones": ["guardar los juguetes", "todo a la vez sin mirar"], "correcta": "guardar los juguetes" }
+        },
+        {
+          "tipo": "clasificar",
+          "enunciado": "¿Qué va en cada caja al ordenar?",
+          "datos": {
+            "frases": [
+              { "texto": "pelota", "categoria": "juguetes" },
+              { "texto": "cuento", "categoria": "libros" },
+              { "texto": "carrito", "categoria": "juguetes" }
+            ],
+            "categorias": ["juguetes", "libros"]
+          }
+        }
+      ]
+    },
+    "audio_narrativo": {
+      "gancho_audio": "brasas/resolucion/u1l5/gancho.mp3",
+      "retos": [
+        { "tipo": "respuesta_voz", "enunciado": "Para preparar tu cumpleaños, di una parte pequeña que harías.", "datos": { "audio": "brasas/resolucion/u1l5/reto.mp3", "respuesta_esperada": "hacer las invitaciones" } }
+      ]
+    },
+    "manual": {
+      "instruccion": "Ordena un rincón de tu cuarto separando en dos grupos: juguetes y libros.",
+      "ficha_pdf": "brasas/resolucion/u1l5/ficha.pdf",
+      "retos": [
+        { "tipo": "manual_autoconfirmado", "enunciado": "Ordena por grupos y marca cuando termines.", "datos": { "confirmacion": "adulto" } }
+      ]
+    }
+  },
+  "personaje": "fueguito",
+  "recompensa": "medalla_organizador"
+}

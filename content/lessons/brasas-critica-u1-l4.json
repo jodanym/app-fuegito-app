@@ -1,0 +1,44 @@
+{
+  "id": "brasas-critica-u1-l4",
+  "paquete": "brasas",
+  "habilidad": "critica",
+  "objetivo": "Elegir una buena pregunta para entender algo",
+  "lectura": { "dosis": "frase", "texto": "Preguntar ayuda a entender." },
+  "modos": {
+    "interactivo": {
+      "gancho": "Desconocido adora preguntar '¿y por qué?'. Elige la mejor pregunta.",
+      "retos": [
+        {
+          "tipo": "seleccion",
+          "enunciado": "Tu amigo está triste. ¿Qué le preguntas?",
+          "datos": { "opciones": ["¿qué te pasó?", "¿de qué color es tu camisa?"], "correcta": "¿qué te pasó?" }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "Quieres saber si un juego es divertido. ¿Qué preguntas?",
+          "datos": { "opciones": ["¿cómo se juega?", "¿quién hizo la caja?"], "correcta": "¿cómo se juega?" }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "No sabes a dónde ir. ¿Qué pregunta sirve más?",
+          "datos": { "opciones": ["¿por dónde es el camino?", "¿qué hora era ayer?"], "correcta": "¿por dónde es el camino?" }
+        }
+      ]
+    },
+    "audio_narrativo": {
+      "gancho_audio": "brasas/critica/u1l4/gancho.mp3",
+      "retos": [
+        { "tipo": "respuesta_voz", "enunciado": "Inventa una buena pregunta para saber qué comió tu amigo.", "datos": { "audio": "brasas/critica/u1l4/reto.mp3", "respuesta_esperada": "¿qué comiste?" } }
+      ]
+    },
+    "manual": {
+      "instruccion": "Hazle 3 preguntas curiosas a tu adulto sobre su día y dibújalo.",
+      "ficha_pdf": "brasas/critica/u1l4/ficha.pdf",
+      "retos": [
+        { "tipo": "manual_autoconfirmado", "enunciado": "Haz tus 3 preguntas y marca cuando termines.", "datos": { "confirmacion": "adulto" } }
+      ]
+    }
+  },
+  "personaje": "desconocido",
+  "recompensa": "medalla_pregunton"
+}

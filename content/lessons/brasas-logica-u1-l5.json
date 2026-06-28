@@ -1,0 +1,44 @@
+{
+  "id": "brasas-logica-u1-l5",
+  "paquete": "brasas",
+  "habilidad": "logica",
+  "objetivo": "Ordenar elementos de menor a mayor",
+  "lectura": { "dosis": "frase", "texto": "De lo pequeño a lo grande." },
+  "modos": {
+    "interactivo": {
+      "gancho": "Acidito revolvió todo por tamaños. Ordénalo de menor a mayor.",
+      "retos": [
+        {
+          "tipo": "ordenar_secuencia",
+          "enunciado": "Ordena de la más pequeña a la más grande.",
+          "datos": { "elementos": ["grande", "mediana", "pequeña"], "orden_correcto": ["pequeña", "mediana", "grande"] }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "Entre un ratón, un perro y un elefante, ¿cuál es el más grande?",
+          "datos": { "opciones": ["ratón", "perro", "elefante"], "correcta": "elefante" }
+        },
+        {
+          "tipo": "ordenar_secuencia",
+          "enunciado": "Ordena los números de menor a mayor.",
+          "datos": { "elementos": ["3", "1", "2"], "orden_correcto": ["1", "2", "3"] }
+        }
+      ]
+    },
+    "audio_narrativo": {
+      "gancho_audio": "brasas/logica/u1l5/gancho.mp3",
+      "retos": [
+        { "tipo": "respuesta_voz", "enunciado": "Escucha y di cuál es el más pequeño.", "datos": { "audio": "brasas/logica/u1l5/tamanos.mp3", "respuesta_esperada": "la hormiga" } }
+      ]
+    },
+    "manual": {
+      "instruccion": "Busca 3 zapatos de la casa y ordénalos del más pequeño al más grande.",
+      "ficha_pdf": "brasas/logica/u1l5/ficha.pdf",
+      "retos": [
+        { "tipo": "manual_autoconfirmado", "enunciado": "Ordena tus objetos por tamaño y marca cuando termines.", "datos": { "confirmacion": "adulto" } }
+      ]
+    }
+  },
+  "personaje": "acidito",
+  "recompensa": "medalla_tamanos"
+}

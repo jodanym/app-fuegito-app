@@ -1,0 +1,44 @@
+{
+  "id": "brasas-logica-u1-l2",
+  "paquete": "brasas",
+  "habilidad": "logica",
+  "objetivo": "Continuar un patrón de dos elementos",
+  "lectura": { "dosis": "frase", "texto": "El patrón se repite igual." },
+  "modos": {
+    "interactivo": {
+      "gancho": "Desconocido dejó un camino a medio pintar. ¿Qué color sigue?",
+      "retos": [
+        {
+          "tipo": "seleccion",
+          "enunciado": "Rojo, azul, rojo, azul, rojo, ... ¿qué sigue?",
+          "datos": { "opciones": ["rojo", "azul", "verde"], "correcta": "azul" }
+        },
+        {
+          "tipo": "arrastrar_soltar",
+          "enunciado": "Toca la pieza que completa el patrón.",
+          "datos": { "secuencia": ["sol", "luna", "sol", "luna", "?"], "piezas": ["sol", "luna", "estrella"], "correcta": "sol" }
+        },
+        {
+          "tipo": "ordenar_secuencia",
+          "enunciado": "Ordena para repetir el patrón: arriba, abajo, arriba, abajo.",
+          "datos": { "elementos": ["arriba", "abajo", "arriba", "abajo"], "orden_correcto": ["arriba", "abajo", "arriba", "abajo"] }
+        }
+      ]
+    },
+    "audio_narrativo": {
+      "gancho_audio": "brasas/logica/u1l2/gancho.mp3",
+      "retos": [
+        { "tipo": "respuesta_voz", "enunciado": "Escucha el ritmo y di qué sonido sigue.", "datos": { "audio": "brasas/logica/u1l2/ritmo.mp3", "respuesta_esperada": "tambor" } }
+      ]
+    },
+    "manual": {
+      "instruccion": "Haz un collar de papel con dos colores que se repitan: rojo-azul-rojo-azul.",
+      "ficha_pdf": "brasas/logica/u1l2/ficha.pdf",
+      "retos": [
+        { "tipo": "manual_autoconfirmado", "enunciado": "Arma tu collar y marca cuando termines.", "datos": { "confirmacion": "adulto" } }
+      ]
+    }
+  },
+  "personaje": "desconocido",
+  "recompensa": "medalla_ritmo"
+}

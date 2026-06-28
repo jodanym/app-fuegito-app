@@ -1,0 +1,44 @@
+{
+  "id": "brasas-logica-u1-l4",
+  "paquete": "brasas",
+  "habilidad": "logica",
+  "objetivo": "Encontrar el elemento que no pertenece al grupo",
+  "lectura": { "dosis": "frase", "texto": "Uno no es como los demás." },
+  "modos": {
+    "interactivo": {
+      "gancho": "Desconocido escondió un intruso en cada grupo. ¡Encuéntralo!",
+      "retos": [
+        {
+          "tipo": "seleccion",
+          "enunciado": "¿Cuál NO es un animal?",
+          "datos": { "opciones": ["perro", "gato", "silla"], "correcta": "silla" }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "¿Cuál NO es una fruta?",
+          "datos": { "opciones": ["manzana", "zanahoria", "pera"], "correcta": "zanahoria" }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "¿Cuál NO va con los que vuelan?",
+          "datos": { "opciones": ["pájaro", "avión", "pez"], "correcta": "pez" }
+        }
+      ]
+    },
+    "audio_narrativo": {
+      "gancho_audio": "brasas/logica/u1l4/gancho.mp3",
+      "retos": [
+        { "tipo": "respuesta_voz", "enunciado": "Escucha los nombres y di cuál no encaja.", "datos": { "audio": "brasas/logica/u1l4/grupo.mp3", "respuesta_esperada": "martillo" } }
+      ]
+    },
+    "manual": {
+      "instruccion": "Pon 4 objetos donde uno sea distinto y pídele a tu adulto que adivine el intruso.",
+      "ficha_pdf": "brasas/logica/u1l4/ficha.pdf",
+      "retos": [
+        { "tipo": "manual_autoconfirmado", "enunciado": "Arma tu grupo con un intruso y marca cuando termines.", "datos": { "confirmacion": "adulto" } }
+      ]
+    }
+  },
+  "personaje": "desconocido",
+  "recompensa": "medalla_intruso"
+}

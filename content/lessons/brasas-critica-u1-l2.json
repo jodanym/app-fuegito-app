@@ -1,0 +1,51 @@
+{
+  "id": "brasas-critica-u1-l2",
+  "paquete": "brasas",
+  "habilidad": "critica",
+  "objetivo": "Distinguir un hecho de una opinión",
+  "lectura": { "dosis": "frase", "texto": "Un hecho se puede comprobar." },
+  "modos": {
+    "interactivo": {
+      "gancho": "Acidito dice cosas muy seguras... ¿serán todas verdad? Atrápalo cuando solo opine.",
+      "retos": [
+        {
+          "tipo": "seleccion",
+          "enunciado": "'El agua moja.' ¿Es hecho u opinión?",
+          "datos": { "opciones": ["hecho", "opinión"], "correcta": "hecho" }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "'El helado de fresa es el más rico.' ¿Es hecho u opinión?",
+          "datos": { "opciones": ["hecho", "opinión"], "correcta": "opinión" }
+        },
+        {
+          "tipo": "clasificar",
+          "enunciado": "Arrastra cada frase a su caja: hecho u opinión.",
+          "datos": {
+            "frases": [
+              { "texto": "El sol sale de día.", "categoria": "hecho" },
+              { "texto": "El azul es el mejor color.", "categoria": "opinión" },
+              { "texto": "Los peces viven en el agua.", "categoria": "hecho" }
+            ],
+            "categorias": ["hecho", "opinión"]
+          }
+        }
+      ]
+    },
+    "audio_narrativo": {
+      "gancho_audio": "brasas/critica/u1l2/gancho.mp3",
+      "retos": [
+        { "tipo": "respuesta_voz", "enunciado": "Escucha la frase y di 'hecho' u 'opinión'.", "datos": { "audio": "brasas/critica/u1l2/frase.mp3", "respuesta_esperada": "opinión" } }
+      ]
+    },
+    "manual": {
+      "instruccion": "Con tu adulto, escribe en papel un hecho y una opinión sobre tu comida favorita.",
+      "ficha_pdf": "brasas/critica/u1l2/ficha.pdf",
+      "retos": [
+        { "tipo": "manual_autoconfirmado", "enunciado": "Escribe tu hecho y tu opinión y marca cuando termines.", "datos": { "confirmacion": "adulto" } }
+      ]
+    }
+  },
+  "personaje": "acidito",
+  "recompensa": "medalla_detective"
+}

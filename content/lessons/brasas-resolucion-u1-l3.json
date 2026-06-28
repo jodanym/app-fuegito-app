@@ -1,0 +1,44 @@
+{
+  "id": "brasas-resolucion-u1-l3",
+  "paquete": "brasas",
+  "habilidad": "resolucion",
+  "objetivo": "Elegir el primer paso para resolver un problema",
+  "lectura": { "dosis": "frase", "texto": "¿Por dónde empiezo?" },
+  "modos": {
+    "interactivo": {
+      "gancho": "Acidito te reta: muchos problemas, ¿sabrás por dónde empezar?",
+      "retos": [
+        {
+          "tipo": "seleccion",
+          "enunciado": "Se cayó la torre de bloques. ¿Qué haces primero?",
+          "datos": { "opciones": ["recoger los bloques", "llorar y dejarlos"], "correcta": "recoger los bloques" }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "Tienes sed. ¿Cuál es el primer paso?",
+          "datos": { "opciones": ["buscar un vaso", "guardar el vaso"], "correcta": "buscar un vaso" }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "Tu juguete tiene una pieza suelta. ¿Qué haces primero?",
+          "datos": { "opciones": ["mirar dónde va la pieza", "esconder el juguete"], "correcta": "mirar dónde va la pieza" }
+        }
+      ]
+    },
+    "audio_narrativo": {
+      "gancho_audio": "brasas/resolucion/u1l3/gancho.mp3",
+      "retos": [
+        { "tipo": "respuesta_voz", "enunciado": "Se regó el agua. Di el primer paso para arreglarlo.", "datos": { "audio": "brasas/resolucion/u1l3/reto.mp3", "respuesta_esperada": "buscar un trapo" } }
+      ]
+    },
+    "manual": {
+      "instruccion": "Piensa un problemita de casa y dile a tu adulto cuál sería el primer paso.",
+      "ficha_pdf": "brasas/resolucion/u1l3/ficha.pdf",
+      "retos": [
+        { "tipo": "manual_autoconfirmado", "enunciado": "Di tu primer paso en voz alta y marca cuando termines.", "datos": { "confirmacion": "adulto" } }
+      ]
+    }
+  },
+  "personaje": "acidito",
+  "recompensa": "medalla_primerpaso"
+}

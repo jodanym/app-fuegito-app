@@ -1,0 +1,44 @@
+{
+  "id": "brasas-resolucion-u1-l1",
+  "paquete": "brasas",
+  "habilidad": "resolucion",
+  "objetivo": "Ordenar los pasos de una rutina",
+  "lectura": { "dosis": "frase", "texto": "Cada paso en su orden." },
+  "modos": {
+    "interactivo": {
+      "gancho": "Fueguito se va a dormir, pero todo está desordenado. Ayúdalo con los pasos.",
+      "retos": [
+        {
+          "tipo": "ordenar_secuencia",
+          "enunciado": "Ordena los pasos para lavarse los dientes.",
+          "datos": { "elementos": ["enjuagar", "poner_pasta", "cepillar"], "orden_correcto": ["poner_pasta", "cepillar", "enjuagar"] }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "Para hacer un sándwich, ¿qué va primero?",
+          "datos": { "opciones": ["sacar el pan", "morderlo"], "correcta": "sacar el pan" }
+        },
+        {
+          "tipo": "ordenar_secuencia",
+          "enunciado": "Ordena para vestirte: primero, después, al final.",
+          "datos": { "elementos": ["zapatos", "calcetines", "pantalón"], "orden_correcto": ["pantalón", "calcetines", "zapatos"] }
+        }
+      ]
+    },
+    "audio_narrativo": {
+      "gancho_audio": "brasas/resolucion/u1l1/gancho.mp3",
+      "retos": [
+        { "tipo": "respuesta_voz", "enunciado": "Di el primer paso para preparar tu mochila.", "datos": { "audio": "brasas/resolucion/u1l1/reto.mp3", "respuesta_esperada": "abrir la mochila" } }
+      ]
+    },
+    "manual": {
+      "instruccion": "Dibuja en 3 cuadros los pasos de tu mañana: levantarte, desayunar, salir.",
+      "ficha_pdf": "brasas/resolucion/u1l1/ficha.pdf",
+      "retos": [
+        { "tipo": "manual_autoconfirmado", "enunciado": "Dibuja tus 3 pasos en orden y marca cuando termines.", "datos": { "confirmacion": "adulto" } }
+      ]
+    }
+  },
+  "personaje": "fueguito",
+  "recompensa": "medalla_pasos"
+}

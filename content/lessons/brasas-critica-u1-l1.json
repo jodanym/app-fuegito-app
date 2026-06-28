@@ -1,0 +1,44 @@
+{
+  "id": "brasas-critica-u1-l1",
+  "paquete": "brasas",
+  "habilidad": "critica",
+  "objetivo": "Detectar lo que no encaja en una escena",
+  "lectura": { "dosis": "frase", "texto": "Algo aquí está raro." },
+  "modos": {
+    "interactivo": {
+      "gancho": "Desconocido cambió algo a escondidas. ¿Notas qué está fuera de lugar?",
+      "retos": [
+        {
+          "tipo": "seleccion",
+          "enunciado": "En la playa con sol, ¿qué NO encaja?",
+          "datos": { "opciones": ["arena", "olas", "muñeco de nieve"], "correcta": "muñeco de nieve" }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "En la cocina, ¿qué NO debería estar?",
+          "datos": { "opciones": ["olla", "cuchara", "bicicleta"], "correcta": "bicicleta" }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "De noche con estrellas, ¿qué está raro?",
+          "datos": { "opciones": ["luna", "sol brillando", "búho"], "correcta": "sol brillando" }
+        }
+      ]
+    },
+    "audio_narrativo": {
+      "gancho_audio": "brasas/critica/u1l1/gancho.mp3",
+      "retos": [
+        { "tipo": "respuesta_voz", "enunciado": "Escucha el cuento y di qué cosa no encaja.", "datos": { "audio": "brasas/critica/u1l1/cuento.mp3", "respuesta_esperada": "el pez volando" } }
+      ]
+    },
+    "manual": {
+      "instruccion": "Dibuja tu cuarto pero pon una cosa que no debería estar; pide a tu adulto que la encuentre.",
+      "ficha_pdf": "brasas/critica/u1l1/ficha.pdf",
+      "retos": [
+        { "tipo": "manual_autoconfirmado", "enunciado": "Haz tu dibujo con un detalle raro y marca cuando termines.", "datos": { "confirmacion": "adulto" } }
+      ]
+    }
+  },
+  "personaje": "desconocido",
+  "recompensa": "medalla_lupa"
+}

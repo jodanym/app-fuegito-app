@@ -1,0 +1,44 @@
+{
+  "id": "brasas-resolucion-u1-l2",
+  "paquete": "brasas",
+  "habilidad": "resolucion",
+  "objetivo": "Planificar el camino antes de avanzar",
+  "lectura": { "dosis": "frase", "texto": "Primero planeo, luego avanzo." },
+  "modos": {
+    "interactivo": {
+      "gancho": "Fueguito quiere llegar a la fogata. Pensemos el camino antes de correr.",
+      "retos": [
+        {
+          "tipo": "ordenar_secuencia",
+          "enunciado": "Ordena los pasos para llegar a la fogata.",
+          "datos": { "elementos": ["avanzar", "girar_derecha", "subir"], "orden_correcto": ["avanzar", "girar_derecha", "subir"] }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "Si el camino está cerrado, ¿qué haces primero?",
+          "datos": { "opciones": ["volver y probar otro camino", "empujar la pared"], "correcta": "volver y probar otro camino" }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "Antes de empezar un laberinto conviene...",
+          "datos": { "opciones": ["mirar el camino con la vista", "correr con los ojos cerrados"], "correcta": "mirar el camino con la vista" }
+        }
+      ]
+    },
+    "audio_narrativo": {
+      "gancho_audio": "brasas/resolucion/u1l2/gancho.mp3",
+      "retos": [
+        { "tipo": "respuesta_voz", "enunciado": "Di en voz alta el primer paso de tu plan.", "datos": { "audio": "brasas/resolucion/u1l2/laberinto.mp3", "respuesta_esperada": "avanzar" } }
+      ]
+    },
+    "manual": {
+      "instruccion": "Dibuja un laberinto sencillo y marca con flechas el plan antes de recorrerlo con el dedo.",
+      "ficha_pdf": "brasas/resolucion/u1l2/ficha.pdf",
+      "retos": [
+        { "tipo": "manual_autoconfirmado", "enunciado": "Dibuja tu plan con flechas y marca cuando termines.", "datos": { "confirmacion": "adulto" } }
+      ]
+    }
+  },
+  "personaje": "fueguito",
+  "recompensa": "medalla_explorador"
+}

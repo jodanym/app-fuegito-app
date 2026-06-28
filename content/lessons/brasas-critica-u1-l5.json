@@ -1,0 +1,50 @@
+{
+  "id": "brasas-critica-u1-l5",
+  "paquete": "brasas",
+  "habilidad": "critica",
+  "objetivo": "Darse cuenta de una exageración o trampa",
+  "lectura": { "dosis": "frase", "texto": "No todo lo que dicen es verdad." },
+  "modos": {
+    "interactivo": {
+      "gancho": "Acidito promete cosas exageradas para engañarte. ¡No te dejes!",
+      "retos": [
+        {
+          "tipo": "seleccion",
+          "enunciado": "'Este caramelo te hará volar.' ¿Es verdad o trampa?",
+          "datos": { "opciones": ["verdad", "trampa"], "correcta": "trampa" }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "'Todos los niños del mundo aman este juego.' ¿Es seguro?",
+          "datos": { "opciones": ["seguro", "exagerado"], "correcta": "exagerado" }
+        },
+        {
+          "tipo": "clasificar",
+          "enunciado": "¿Es creíble o exagerado?",
+          "datos": {
+            "frases": [
+              { "texto": "El perro corre rápido.", "categoria": "creíble" },
+              { "texto": "El perro corre más rápido que un cohete.", "categoria": "exagerado" }
+            ],
+            "categorias": ["creíble", "exagerado"]
+          }
+        }
+      ]
+    },
+    "audio_narrativo": {
+      "gancho_audio": "brasas/critica/u1l5/gancho.mp3",
+      "retos": [
+        { "tipo": "respuesta_voz", "enunciado": "Escucha el anuncio y di si es verdad o trampa.", "datos": { "audio": "brasas/critica/u1l5/anuncio.mp3", "respuesta_esperada": "trampa" } }
+      ]
+    },
+    "manual": {
+      "instruccion": "Inventa con tu adulto un anuncio exagerado y otro creíble, y compáralos.",
+      "ficha_pdf": "brasas/critica/u1l5/ficha.pdf",
+      "retos": [
+        { "tipo": "manual_autoconfirmado", "enunciado": "Crea tus dos anuncios y marca cuando termines.", "datos": { "confirmacion": "adulto" } }
+      ]
+    }
+  },
+  "personaje": "acidito",
+  "recompensa": "medalla_antitrampas"
+}

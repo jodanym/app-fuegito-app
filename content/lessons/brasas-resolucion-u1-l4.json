@@ -1,0 +1,44 @@
+{
+  "id": "brasas-resolucion-u1-l4",
+  "paquete": "brasas",
+  "habilidad": "resolucion",
+  "objetivo": "Probar otra forma cuando algo no funciona",
+  "lectura": { "dosis": "frase", "texto": "Si no sale, pruebo otra vez." },
+  "modos": {
+    "interactivo": {
+      "gancho": "A Fueguito no le salió a la primera. ¡No pasa nada! Probemos otra forma.",
+      "retos": [
+        {
+          "tipo": "seleccion",
+          "enunciado": "La pieza no entra por aquí. ¿Qué pruebas?",
+          "datos": { "opciones": ["girarla y probar de otro lado", "forzarla más fuerte"], "correcta": "girarla y probar de otro lado" }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "El nudo no se suelta. ¿Qué haces?",
+          "datos": { "opciones": ["probar por el otro extremo", "rendirte enseguida"], "correcta": "probar por el otro extremo" }
+        },
+        {
+          "tipo": "ordenar_secuencia",
+          "enunciado": "Ordena cómo se resuelve un problema.",
+          "datos": { "elementos": ["intentar", "ver_si_funciona", "probar_otra_forma"], "orden_correcto": ["intentar", "ver_si_funciona", "probar_otra_forma"] }
+        }
+      ]
+    },
+    "audio_narrativo": {
+      "gancho_audio": "brasas/resolucion/u1l4/gancho.mp3",
+      "retos": [
+        { "tipo": "respuesta_voz", "enunciado": "Si una puerta está trabada, di otra forma de abrirla.", "datos": { "audio": "brasas/resolucion/u1l4/reto.mp3", "respuesta_esperada": "empujar en vez de jalar" } }
+      ]
+    },
+    "manual": {
+      "instruccion": "Intenta una torre de bloques de dos formas distintas y mira cuál se sostiene mejor.",
+      "ficha_pdf": "brasas/resolucion/u1l4/ficha.pdf",
+      "retos": [
+        { "tipo": "manual_autoconfirmado", "enunciado": "Prueba dos formas y marca cuando termines.", "datos": { "confirmacion": "adulto" } }
+      ]
+    }
+  },
+  "personaje": "fueguito",
+  "recompensa": "medalla_perseverante"
+}
