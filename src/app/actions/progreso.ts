@@ -3,9 +3,23 @@
 // Guarda el progreso del nino al terminar una leccion y recalcula su maestria.
 // Se llama desde el reproductor. Si no hay sesion o nino activo, no falla:
 // simplemente no guarda (permite jugar de demo sin login).
+import { cookies } from "next/headers";
 import { createClient } from "@/lib/supabase/server";
-import { getNinoActivoId } from "@/lib/ninos";
+import { getNinoActivoId, COOKIE_PROGRESO_ANON } from "@/lib/ninos";
 import type { Habilidad, ModoLeccion } from "@/lib/lessons/schema";
+
+// Guarda una leccion completada en la cookie del navegador (juego sin perfil).
+async function guardarProgresoAnonimo(lessonId: string) {
+  const c = await cookies();
+  const previo = c.get(COOKIE_PROGRESO_ANON)?.value ?? "";
+  const hechas = new Set(previo.split(",").filter(Boolean));
+  hechas.add(lessonId);
+  c.set(COOKIE_PROGRESO_ANON, Array.from(hechas).join(","), {
+    httpOnly: false,
+    path: "/",
+    maxAge: 60 * 60 * 24 * 365,
+  });
+}
 
 export async function guardarProgreso(input: {
   lessonId: string;
@@ -19,10 +33,14 @@ export async function guardarProgreso(input: {
   const {
     data: { user },
   } = await supabase.auth.getUser();
-  if (!user) return { ok: false, motivo: "sin_sesion" };
+  const childId = user ? await getNinoActivoId() : null;
 
-  const childId = await getNinoActivoId();
-  if (!childId) return { ok: false, motivo: "sin_nino" };
+  // Sin perfil (anonimo): el progreso vive en el navegador para que el camino
+  // avance y se desbloqueen las misiones sin necesidad de registrarse.
+  if (!user || !childId) {
+    await guardarProgresoAnonimo(input.lessonId);
+    return { ok: true, motivo: "anonimo" };
+  }
 
   const { error } = await supabase.from("progress").insert({
     child_id: childId,

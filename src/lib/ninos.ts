@@ -3,6 +3,9 @@ import { cookies } from "next/headers";
 import type { Paquete } from "./lessons/schema";
 
 export const COOKIE_NINO = "fueguito_nino";
+// Progreso de quien juega SIN perfil (anonimo): lista de ids de lecciones
+// completadas, guardada en el navegador para que el camino avance sin registro.
+export const COOKIE_PROGRESO_ANON = "fueguito_progreso_anon";
 export const LIMITE_DIARIO_FREE = 5; // lecciones/dia en el tier gratis (PRD 9.1)
 
 // Asigna el paquete de edad segun PRD 3.1.

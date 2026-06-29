@@ -4,12 +4,13 @@
 //  - Con ?mundo=<habilidad>: muestra el CAMINO de ese mundo, misiones de la
 //    mas facil a la mas dificil (orden por unidad y leccion).
 //  El mapa respeta el PAQUETE de edad del nino activo (Chispas/Brasas/Llamas).
+import { cookies } from "next/headers";
 import Link from "next/link";
 import Image from "next/image";
 import { createClient } from "@/lib/supabase/server";
 import { PERSONAJES } from "@/lib/lessons/personajes";
 import type { Habilidad, Paquete, Personaje } from "@/lib/lessons/schema";
-import { getNinoActivoId, calcularRachaEscudo } from "@/lib/ninos";
+import { getNinoActivoId, calcularRachaEscudo, COOKIE_PROGRESO_ANON } from "@/lib/ninos";
 
 // Imagen del mundo: si existe el tile de marca en public/mundos/<archivo>.png
 // lo usa; si no, usa la imagen del personaje como placeholder.
@@ -164,6 +165,11 @@ export default async function JugarPage({
     racha = r.dias;
     escudoActivo = r.escudoActivo;
     for (const p of prog ?? []) completadas.add(p.lesson_id as string);
+  } else {
+    // Juego sin perfil (anonimo): el progreso vive en la cookie del navegador.
+    const c = await cookies();
+    const anon = c.get(COOKIE_PROGRESO_ANON)?.value ?? "";
+    for (const id of anon.split(",").filter(Boolean)) completadas.add(id);
   }
 
   // Lecciones del paquete de edad del nino (Chispas / Brasas / Llamas).
