@@ -1,0 +1,56 @@
+{
+  "id": "brasas-resolucion-u2-l3",
+  "version": 2,
+  "paquete": "brasas",
+  "habilidad": "resolucion",
+  "objetivo": "Ordenar tareas de varios pasos",
+  "lectura": { "dosis": "frase", "texto": "Cada paso va en su momento exacto." },
+  "personaje": "fueguito",
+  "recompensa": "medalla_plan",
+  "modos": {
+    "interactivo": {
+      "gancho": "Ahora hay cuatro pasos. ¿Sabes cuál va en cada momento?",
+      "retos": [
+        {
+          "tipo": "seleccion",
+          "enunciado": "Lavarte los dientes: mojar el cepillo, poner pasta, cepillar, enjuagar. ¿Qué va de ÚLTIMO?",
+          "datos": {
+            "opciones": [
+              { "emoji": "💦", "valor": "enjuagar", "texto": "Enjuagar" },
+              { "emoji": "🪥", "valor": "mojar", "texto": "Mojar el cepillo" },
+              { "emoji": "😬", "valor": "cepillar", "texto": "Cepillar" }
+            ],
+            "correcta": "enjuagar",
+            "pista": "Lo último, cuando ya terminaste."
+          }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "Plantar: cavar, poner la semilla, tapar, regar. ¿Qué va de SEGUNDO?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🌰", "valor": "semilla", "texto": "Poner la semilla" },
+              { "emoji": "🕳️", "valor": "cavar", "texto": "Cavar" },
+              { "emoji": "💧", "valor": "regar", "texto": "Regar" }
+            ],
+            "correcta": "semilla",
+            "pista": "Después de cavar, ¿qué pones en el hueco?"
+          }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "Hacer jugo: lavar la fruta, cortarla, exprimirla, servir. ¿Qué va de TERCERO?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🍊", "valor": "exprimir", "texto": "Exprimir" },
+              { "emoji": "🚿", "valor": "lavar", "texto": "Lavar" },
+              { "emoji": "🥤", "valor": "servir", "texto": "Servir" }
+            ],
+            "correcta": "exprimir",
+            "pista": "Lavas, cortas, y luego... ¿cómo sacas el jugo?"
+          }
+        }
+      ]
+    }
+  }
+}

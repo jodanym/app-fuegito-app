@@ -78,14 +78,14 @@ export default function ReproductorLeccion({
   }, [momento, buenos, totalRetos, leccion, modoNombre]);
 
   return (
-    <main className="flex min-h-screen flex-col items-center bg-orange-50 px-4 py-6">
+    <main className="flex min-h-screen flex-col items-center bg-papel px-4 py-6">
       {/* Barra de progreso de los 5 momentos */}
       <div className="mb-6 flex w-full max-w-lg gap-2">
         {ORDEN.map((m, i) => (
           <div
             key={m}
-            className={`h-2 flex-1 rounded-full ${
-              i <= paso ? "bg-orange-500" : "bg-orange-200"
+            className={`h-2.5 flex-1 rounded-full ${
+              i <= paso ? "bg-fuego" : "bg-chispa/30"
             }`}
           />
         ))}
@@ -112,7 +112,7 @@ export default function ReproductorLeccion({
         )}
         {momento === "practica" && modo.retos.length === 0 && (
           <div className="text-center">
-            <p className="text-gray-600">Esta leccion aun no tiene retos cargados.</p>
+            <p className="text-carbon/70">Esta leccion aun no tiene retos cargados.</p>
             <BotonPrimario onClick={avanzar}>Continuar</BotonPrimario>
           </div>
         )}
@@ -148,7 +148,7 @@ function BotonPrimario({
     <button
       onClick={onClick}
       disabled={disabled}
-      className="mt-6 w-full rounded-2xl bg-orange-500 px-6 py-4 text-lg font-bold text-white transition hover:bg-orange-600 active:scale-[0.98] disabled:opacity-40"
+      className="mt-6 w-full rounded-2xl bg-fuego px-6 py-4 text-lg font-bold text-white transition hover:bg-llama active:scale-[0.98] disabled:opacity-40"
     >
       {children}
     </button>
@@ -167,7 +167,7 @@ function Gancho({
 }) {
   return (
     <div className="text-center">
-      <span className="inline-block rounded-full bg-orange-100 px-4 py-1 text-sm font-bold uppercase tracking-wide text-orange-600">
+      <span className="inline-block rounded-full bg-chispa/25 px-4 py-1 text-sm font-bold uppercase tracking-wide text-llama">
         🎯 Tu mision
       </span>
       <Image
@@ -178,10 +178,10 @@ function Gancho({
         className="mx-auto mt-4 h-40 w-40 object-contain"
         priority
       />
-      <p className="mt-2 text-sm font-semibold uppercase tracking-wide text-orange-400">
+      <p className="mt-2 text-sm font-bold uppercase tracking-wide text-fuego/70">
         {personaje.nombre} te propone un reto
       </p>
-      <p className="mt-3 text-xl font-medium text-gray-800">{texto}</p>
+      <p className="mt-3 text-xl font-medium text-carbon">{texto}</p>
       <BotonPrimario onClick={onNext}>¡Vamos! 🔥</BotonPrimario>
     </div>
   );
@@ -191,11 +191,11 @@ function Gancho({
 function Explicacion({ objetivo, onNext }: { objetivo: string; onNext: () => void }) {
   return (
     <div className="text-center">
-      <p className="text-sm font-semibold uppercase tracking-wide text-orange-400">
+      <p className="text-sm font-bold uppercase tracking-wide text-fuego/70">
         Hoy vas a aprender a
       </p>
-      <p className="mt-3 text-2xl font-bold text-gray-800">{objetivo}</p>
-      <p className="mt-4 text-gray-500">Observa con atencion y luego practicamos.</p>
+      <p className="mt-3 text-2xl font-bold text-carbon">{objetivo}</p>
+      <p className="mt-4 text-carbon/60">Observa con atencion y luego practicamos.</p>
       <BotonPrimario onClick={onNext}>Entendido</BotonPrimario>
     </div>
   );
@@ -229,10 +229,10 @@ function Practica({
 
   return (
     <div>
-      <p className="mb-1 text-sm font-semibold text-orange-400">
+      <p className="mb-1 text-sm font-bold text-fuego/70">
         Reto {numero} de {total}
       </p>
-      <p className="mb-5 text-lg font-medium text-gray-800">{reto.enunciado}</p>
+      <p className="mb-5 text-lg font-medium text-carbon">{reto.enunciado}</p>
 
       <ContextoSecuencia reto={reto} />
 
@@ -240,7 +240,7 @@ function Practica({
         <>
           <Interaccion reto={reto} onAcierto={acertar} onError={fallar} />
           {mensajeError && (
-            <p className="mt-4 text-center text-sm font-medium text-amber-600">
+            <p className="mt-4 text-center text-sm font-bold text-fuego">
               {mensajeError}
             </p>
           )}
@@ -249,9 +249,9 @@ function Practica({
 
       {estado === "bien" && (
         <div className="text-center">
-          <div className="rounded-2xl bg-green-50 p-4 text-green-700">
+          <div className="rounded-2xl bg-resolucion/10 p-4 text-resolucion">
             <p className="text-lg font-bold">¡Correcto! ✅</p>
-            <p className="mt-1 text-sm">{personaje.celebra}</p>
+            <p className="mt-1 text-sm text-carbon/70">{personaje.celebra}</p>
           </div>
           <BotonPrimario onClick={() => onResuelto(!huboError)}>Siguiente</BotonPrimario>
         </div>
@@ -269,8 +269,8 @@ function ContextoSecuencia({ reto }: { reto: Reto }) {
 
   return (
     <div className="mb-5">
-      <p className="mb-2 text-sm text-gray-500">El patron va asi:</p>
-      <div className="flex flex-wrap items-center gap-2 rounded-2xl bg-orange-50 p-3">
+      <p className="mb-2 text-sm text-carbon/60">El patron va asi:</p>
+      <div className="flex flex-wrap items-center gap-2 rounded-2xl bg-papel p-3">
         {(secuencia as string[]).map((item, i) => {
           const esHueco = item === "?";
           return (
@@ -278,8 +278,8 @@ function ContextoSecuencia({ reto }: { reto: Reto }) {
               key={i}
               className={`rounded-xl px-3 py-2 text-base font-semibold ${
                 esHueco
-                  ? "border-2 border-dashed border-orange-400 bg-white text-orange-500"
-                  : "bg-white text-gray-800 shadow-sm"
+                  ? "border-2 border-dashed border-fuego bg-white text-fuego"
+                  : "bg-white text-carbon shadow-sm"
               }`}
             >
               {esHueco ? "?" : bonito(item)}
@@ -354,7 +354,7 @@ function Interaccion({
   // Por defecto: autoconfirmacion (voz / manual). Sin reconocimiento real en MVP.
   return (
     <div className="text-center">
-      <p className="text-gray-500">
+      <p className="text-carbon/60">
         Hazlo en el mundo real (o en voz alta) y confirma cuando termines.
       </p>
       <BotonPrimario onClick={onAcierto}>¡Listo! ✔️</BotonPrimario>
@@ -392,8 +392,8 @@ function OpcionUnica({
             onClick={() => elegir(op)}
             className={`rounded-2xl border-2 px-5 py-4 text-lg font-semibold transition active:scale-[0.98] ${
               esError
-                ? "border-amber-400 bg-amber-50 text-amber-700"
-                : "border-orange-200 bg-white text-gray-800 hover:border-orange-400 hover:bg-orange-50"
+                ? "border-fuego bg-chispa/25 text-fuego"
+                : "border-chispa bg-white text-carbon hover:border-fuego hover:bg-papel"
             }`}
           >
             {bonito(op)}
@@ -436,15 +436,15 @@ function Ordenar({
 
   return (
     <div>
-      <p className="mb-2 text-sm text-gray-500">Toca en orden:</p>
-      <div className="mb-4 flex min-h-[3rem] flex-wrap gap-2 rounded-xl bg-orange-50 p-3">
+      <p className="mb-2 text-sm text-carbon/60">Toca en orden:</p>
+      <div className="mb-4 flex min-h-[3rem] flex-wrap gap-2 rounded-xl bg-papel p-3">
         {secuencia.length === 0 && (
-          <span className="text-sm text-orange-300">(vacio)</span>
+          <span className="text-sm text-fuego/40">(vacio)</span>
         )}
         {secuencia.map((s, i) => (
           <span
             key={i}
-            className="rounded-lg bg-orange-500 px-3 py-1 text-sm font-semibold text-white"
+            className="rounded-lg bg-fuego px-3 py-1 text-sm font-semibold text-white"
           >
             {i + 1}. {bonito(s)}
           </span>
@@ -455,7 +455,7 @@ function Ordenar({
           <button
             key={`${el}-${i}`}
             onClick={() => tocar(el)}
-            className="rounded-2xl border-2 border-orange-200 bg-white px-4 py-3 font-semibold text-gray-800 transition hover:border-orange-400 hover:bg-orange-50 active:scale-[0.98]"
+            className="rounded-2xl border-2 border-chispa bg-white px-4 py-3 font-semibold text-carbon transition hover:border-fuego hover:bg-papel active:scale-[0.98]"
           >
             {bonito(el)}
           </button>
@@ -488,8 +488,8 @@ function Clasificar({
   return (
     <div className="space-y-4">
       {frases.map((f, i) => (
-        <div key={i} className="rounded-2xl border border-orange-100 p-3">
-          <p className="mb-2 font-medium text-gray-800">{f.texto}</p>
+        <div key={i} className="rounded-2xl border border-chispa/50 p-3">
+          <p className="mb-2 font-medium text-carbon">{f.texto}</p>
           <div className="flex gap-2">
             {categorias.map((cat) => (
               <button
@@ -497,8 +497,8 @@ function Clasificar({
                 onClick={() => setElecciones((e) => ({ ...e, [i]: cat }))}
                 className={`flex-1 rounded-xl border-2 px-3 py-2 text-sm font-semibold transition ${
                   elecciones[i] === cat
-                    ? "border-orange-500 bg-orange-500 text-white"
-                    : "border-orange-200 bg-white text-gray-700 hover:bg-orange-50"
+                    ? "border-fuego bg-fuego text-white"
+                    : "border-chispa bg-white text-carbon/80 hover:bg-papel"
                 }`}
               >
                 {bonito(cat)}
@@ -526,13 +526,13 @@ function Lectura({
 }) {
   return (
     <div className="text-center">
-      <p className="text-sm font-semibold uppercase tracking-wide text-orange-400">
+      <p className="text-sm font-bold uppercase tracking-wide text-fuego/70">
         Momento de lectura
       </p>
-      <p className="mt-4 rounded-2xl bg-orange-50 px-4 py-6 text-2xl font-bold text-gray-800">
+      <p className="mt-4 rounded-2xl bg-papel px-4 py-6 text-2xl font-bold text-carbon">
         {texto}
       </p>
-      <p className="mt-2 text-xs text-gray-400">Dosis: {dosis}</p>
+      <p className="mt-2 text-xs text-carbon/45">Dosis: {dosis}</p>
       <BotonPrimario onClick={onNext}>Lo lei 📖</BotonPrimario>
     </div>
   );
@@ -559,20 +559,20 @@ function Recompensa({
         height={140}
         className="mx-auto h-36 w-36 object-contain"
       />
-      <p className="mt-2 text-2xl font-extrabold text-orange-600">¡Lo lograste! 🎉</p>
-      <p className="mt-1 text-gray-600">{personaje.celebra}</p>
+      <p className="mt-2 text-2xl font-extrabold text-llama">¡Lo lograste! 🎉</p>
+      <p className="mt-1 text-carbon/70">{personaje.celebra}</p>
 
-      <div className="mt-5 rounded-2xl bg-orange-50 p-4">
-        <p className="text-sm text-gray-500">Ganaste la medalla</p>
-        <p className="text-lg font-bold text-orange-600">🏅 {bonito(recompensa.replace(/^medalla_/, ""))}</p>
-        <p className="mt-2 text-sm text-gray-500">
+      <div className="mt-5 rounded-2xl bg-papel p-4">
+        <p className="text-sm text-carbon/60">Ganaste la medalla</p>
+        <p className="text-lg font-bold text-llama">🏅 {bonito(recompensa.replace(/^medalla_/, ""))}</p>
+        <p className="mt-2 text-sm text-carbon/60">
           Aciertos al primer intento: {buenos} de {total}
         </p>
       </div>
 
       <Link
         href="/jugar"
-        className="mt-6 block w-full rounded-2xl bg-orange-500 px-6 py-4 text-lg font-bold text-white transition hover:bg-orange-600"
+        className="mt-6 block w-full rounded-2xl bg-fuego px-6 py-4 text-lg font-bold text-white transition hover:bg-llama"
       >
         Volver a las lecciones
       </Link>

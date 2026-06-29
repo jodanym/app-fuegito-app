@@ -1,0 +1,6 @@
+Tiles de los mundos (arte de marca, Kling).
+Pon aqui estos 3 archivos PNG (cuadrados, fondo limpio):
+  - misterios.png   (Mundo de los Misterios / Desconocido / critica)
+  - acertijos.png   (Mundo de los Acertijos / Acidito / logica)
+  - retos.png       (Mundo de los Retos / Fueguito / resolucion)
+La app los detecta solos. Mientras no esten, usa la imagen del personaje.

@@ -1,0 +1,56 @@
+{
+  "id": "brasas-critica-u2-l2",
+  "version": 2,
+  "paquete": "brasas",
+  "habilidad": "critica",
+  "objetivo": "Elegir la pista que de verdad ayuda",
+  "lectura": { "dosis": "frase", "texto": "No toda pista sirve; busca la que da información." },
+  "personaje": "desconocido",
+  "recompensa": "medalla_prueba",
+  "modos": {
+    "interactivo": {
+      "gancho": "Para resolver un misterio necesitas la pista correcta, no cualquiera. ¿Cuál ayuda?",
+      "retos": [
+        {
+          "tipo": "seleccion",
+          "enunciado": "Quieres saber si llovió. ¿Qué pista ayuda?",
+          "datos": {
+            "opciones": [
+              { "emoji": "💧", "valor": "mojado", "texto": "El suelo está mojado" },
+              { "emoji": "❤️", "valor": "gusta", "texto": "A mí me gusta la lluvia" },
+              { "emoji": "🍕", "valor": "pizza", "texto": "Hoy comí pizza" }
+            ],
+            "correcta": "mojado",
+            "pista": "¿Qué deja la lluvia que puedas ver?"
+          }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "Quieres saber si el bebé tiene sueño. ¿Qué pista ayuda?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🥱", "valor": "bosteza", "texto": "Está bostezando y se talla los ojos" },
+              { "emoji": "🎈", "valor": "globos", "texto": "Hay globos de colores" },
+              { "emoji": "🚗", "valor": "carro", "texto": "Pasó un carro afuera" }
+            ],
+            "correcta": "bosteza",
+            "pista": "¿Qué hace alguien con sueño?"
+          }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "Quieres saber si alguien cocinó. ¿Qué pista ayuda?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🍳", "valor": "cocina", "texto": "La cocina está caliente y huele a comida" },
+              { "emoji": "📺", "valor": "tele", "texto": "La tele está encendida" },
+              { "emoji": "🌙", "valor": "noche", "texto": "Es de noche" }
+            ],
+            "correcta": "cocina",
+            "pista": "¿Qué deja cocinar?"
+          }
+        }
+      ]
+    }
+  }
+}

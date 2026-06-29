@@ -22,20 +22,20 @@ export default async function DashboardPage() {
   }
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center gap-6 bg-orange-50 p-4">
-      <div className="w-full max-w-md rounded-2xl bg-white p-8 text-center shadow-lg">
-        <h1 className="text-2xl font-bold text-orange-600">Sesion iniciada</h1>
-        <p className="mt-2 text-gray-600">
+    <main className="flex min-h-screen flex-col items-center justify-center gap-6 bg-papel p-4">
+      <div className="w-full max-w-md rounded-3xl bg-white p-8 text-center shadow-lg">
+        <h1 className="text-2xl font-extrabold text-llama">Sesion iniciada</h1>
+        <p className="mt-2 text-carbon/70">
           Hola, <strong>{user.email}</strong>
         </p>
-        <p className="mt-4 text-sm text-gray-400">
+        <p className="mt-4 text-sm text-carbon/45">
           (Esta es una pagina de prueba de la Fase 0. El panel real del padre se
           construye en la Fase 1.)
         </p>
         <form action={cerrarSesion} className="mt-6">
           <button
             type="submit"
-            className="rounded-lg bg-gray-800 px-4 py-2 font-semibold text-white transition hover:bg-gray-900"
+            className="rounded-xl bg-noche px-4 py-2 font-bold text-white transition hover:opacity-90"
           >
             Cerrar sesion
           </button>

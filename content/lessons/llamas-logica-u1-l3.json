@@ -1,0 +1,62 @@
+{
+  "id": "llamas-logica-u1-l3",
+  "version": 2,
+  "paquete": "llamas",
+  "habilidad": "logica",
+  "objetivo": "Resolver analogías más complejas",
+  "lectura": { "dosis": "parrafo", "texto": "Una analogía es una relación que se repite. Encuentra la relación y aplícala." },
+  "personaje": "acidito",
+  "recompensa": "medalla_analogia",
+  "modos": {
+    "interactivo": {
+      "gancho": "Cada pareja esconde una relación. Descúbrela y completa la segunda.",
+      "retos": [
+        {
+          "tipo": "analogia",
+          "enunciado": "El médico trabaja en el hospital; el maestro trabaja en la...",
+          "datos": {
+            "par1": { "a": "🩺", "b": "🏥" },
+            "par2": { "a": "👩‍🏫", "b": "❓" },
+            "opciones": [
+              { "emoji": "🏫", "valor": "escuela", "texto": "Escuela" },
+              { "emoji": "🏖️", "valor": "playa", "texto": "Playa" },
+              { "emoji": "🏪", "valor": "tienda", "texto": "Tienda" }
+            ],
+            "correcta": "escuela",
+            "pista": "Cada quien en su lugar de trabajo."
+          }
+        },
+        {
+          "tipo": "analogia",
+          "enunciado": "El pájaro vive en el nido; la abeja vive en el...",
+          "datos": {
+            "par1": { "a": "🐦", "b": "🪹" },
+            "par2": { "a": "🐝", "b": "❓" },
+            "opciones": [
+              { "emoji": "🍯", "valor": "panal", "texto": "Panal" },
+              { "emoji": "🕳️", "valor": "cueva", "texto": "Cueva" },
+              { "emoji": "🌊", "valor": "mar", "texto": "Mar" }
+            ],
+            "correcta": "panal",
+            "pista": "El hogar de cada animal."
+          }
+        },
+        {
+          "tipo": "analogia",
+          "enunciado": "Caliente es lo opuesto de frío; arriba es lo opuesto de...",
+          "datos": {
+            "par1": { "a": "🔥", "b": "❄️" },
+            "par2": { "a": "⬆️", "b": "❓" },
+            "opciones": [
+              { "emoji": "⬇️", "valor": "abajo", "texto": "Abajo" },
+              { "emoji": "➡️", "valor": "derecha", "texto": "Derecha" },
+              { "emoji": "🔄", "valor": "vuelta", "texto": "Vuelta" }
+            ],
+            "correcta": "abajo",
+            "pista": "La relación son los opuestos."
+          }
+        }
+      ]
+    }
+  }
+}

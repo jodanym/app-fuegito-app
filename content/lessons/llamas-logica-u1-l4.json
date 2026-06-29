@@ -1,0 +1,57 @@
+{
+  "id": "llamas-logica-u1-l4",
+  "version": 2,
+  "paquete": "llamas",
+  "habilidad": "logica",
+  "objetivo": "Combinar varias pistas para deducir",
+  "lectura": { "dosis": "parrafo", "texto": "Cuando tienes varias pistas, ponlas en orden: una te lleva a la otra." },
+  "personaje": "acidito",
+  "recompensa": "medalla_deduccion",
+  "modos": {
+    "interactivo": {
+      "gancho": "El reto final del mundo: usa todas las pistas juntas para deducir.",
+      "retos": [
+        {
+          "tipo": "seleccion",
+          "enunciado": "Ana es mayor que Beto. Beto es mayor que Caro. ¿Quién es el MENOR?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🥉", "valor": "caro", "texto": "Caro" },
+              { "emoji": "🥈", "valor": "beto", "texto": "Beto" },
+              { "emoji": "🥇", "valor": "ana", "texto": "Ana" }
+            ],
+            "correcta": "caro",
+            "pista": "Ordénalos del mayor al menor."
+          }
+        },
+        {
+          "tipo": "cual_no_encaja",
+          "enunciado": "¿Cuál NO es un número par?",
+          "datos": {
+            "opciones": [
+              { "emoji": "2️⃣", "valor": "2", "texto": "2" },
+              { "emoji": "4️⃣", "valor": "4", "texto": "4" },
+              { "emoji": "7️⃣", "valor": "7", "texto": "7" },
+              { "emoji": "8️⃣", "valor": "8", "texto": "8" }
+            ],
+            "correcta": "7",
+            "pista": "Los pares se pueden repartir en dos grupos iguales."
+          }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "La caja roja pesa más que la azul. La azul pesa más que la verde. ¿Cuál pesa MENOS?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🟩", "valor": "verde", "texto": "La verde" },
+              { "emoji": "🟦", "valor": "azul", "texto": "La azul" },
+              { "emoji": "🟥", "valor": "roja", "texto": "La roja" }
+            ],
+            "correcta": "verde",
+            "pista": "Empieza por la más pesada y baja."
+          }
+        }
+      ]
+    }
+  }
+}

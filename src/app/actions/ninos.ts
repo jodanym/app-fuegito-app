@@ -66,5 +66,6 @@ export async function guardarPerfil(childId: string, vector: PerfilVector) {
     })
     .eq("child_id", childId);
 
-  redirect("/jugar");
+  // No redirige: el cliente muestra primero la pantalla de resultado
+  // (arquetipo con nombre) y desde ahí el nino entra a /jugar.
 }

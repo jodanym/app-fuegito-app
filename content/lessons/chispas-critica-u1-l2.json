@@ -1,0 +1,53 @@
+{
+  "id": "chispas-critica-u1-l2",
+  "version": 2,
+  "paquete": "chispas",
+  "habilidad": "critica",
+  "objetivo": "Adivinar con una pista",
+  "lectura": { "dosis": "palabra", "texto": "Adivina." },
+  "personaje": "desconocido",
+  "recompensa": "medalla_adivino",
+  "modos": {
+    "interactivo": {
+      "gancho": "Te doy una pista. ¿Qué soy?",
+      "retos": [
+        {
+          "tipo": "seleccion",
+          "enunciado": "Hago 'muu' y doy leche. ¿Qué soy?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🐄", "valor": "vaca", "texto": "Vaca" },
+              { "emoji": "🐶", "valor": "perro", "texto": "Perro" },
+              { "emoji": "🐱", "valor": "gato", "texto": "Gato" }
+            ],
+            "correcta": "vaca"
+          }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "Vuelo y hago 'pío pío'. ¿Qué soy?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🐦", "valor": "pajaro", "texto": "Pájaro" },
+              { "emoji": "🐠", "valor": "pez", "texto": "Pez" },
+              { "emoji": "🐢", "valor": "tortuga", "texto": "Tortuga" }
+            ],
+            "correcta": "pajaro"
+          }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "Soy amarillo y salgo de día. ¿Qué soy?",
+          "datos": {
+            "opciones": [
+              { "emoji": "☀️", "valor": "sol", "texto": "Sol" },
+              { "emoji": "🌙", "valor": "luna", "texto": "Luna" },
+              { "emoji": "☁️", "valor": "nube", "texto": "Nube" }
+            ],
+            "correcta": "sol"
+          }
+        }
+      ]
+    }
+  }
+}

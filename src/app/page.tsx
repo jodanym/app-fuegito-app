@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center gap-6 bg-orange-50 px-4 text-center">
+    <main className="flex min-h-screen flex-col items-center justify-center gap-6 bg-papel px-4 text-center">
       <Image
         src="/personajes/fueguito.png"
         alt="Fueguito"
@@ -14,21 +14,21 @@ export default function Home() {
         className="h-44 w-44 object-contain"
         priority
       />
-      <h1 className="text-4xl font-extrabold text-orange-600">Universo de Fueguito</h1>
-      <p className="max-w-sm text-gray-500">
+      <h1 className="font-display text-5xl font-extrabold text-llama">Universo de Fueguito</h1>
+      <p className="max-w-sm text-lg text-carbon/70">
         Juega, piensa y crece con Fueguito, Desconocido y Acidito.
       </p>
 
       <div className="mt-2 flex w-full max-w-xs flex-col gap-3">
         <Link
           href="/jugar"
-          className="rounded-2xl bg-orange-500 px-6 py-4 text-lg font-bold text-white transition hover:bg-orange-600 active:scale-[0.98]"
+          className="rounded-2xl bg-fuego px-6 py-4 text-lg font-display font-bold text-white shadow-sm transition hover:bg-llama active:scale-[0.98]"
         >
           Empezar a jugar 🔥
         </Link>
         <Link
           href="/login"
-          className="rounded-2xl border-2 border-orange-200 bg-white px-6 py-3 font-semibold text-orange-600 transition hover:bg-orange-100"
+          className="rounded-2xl border-2 border-chispa bg-white px-6 py-3 font-display font-semibold text-fuego transition hover:bg-chispa/20"
         >
           Soy adulto / Mi cuenta
         </Link>

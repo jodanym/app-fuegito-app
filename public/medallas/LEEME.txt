@@ -1,0 +1,5 @@
+Medallas por habilidad (arte de marca, Kling). PNG cuadrados, fondo transparente ideal:
+  - logica.png       (Mundo de los Acertijos / Acidito)
+  - critica.png      (Mundo de los Misterios / Desconocido)
+  - resolucion.png   (Mundo de los Retos / Fueguito)
+Se muestran al ganar una leccion. Mientras no esten, se usa el emoji medalla.

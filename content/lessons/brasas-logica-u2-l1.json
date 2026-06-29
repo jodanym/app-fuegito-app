@@ -1,0 +1,59 @@
+{
+  "id": "brasas-logica-u2-l1",
+  "version": 2,
+  "paquete": "brasas",
+  "habilidad": "logica",
+  "objetivo": "Continuar patrones de tres o más elementos",
+  "lectura": { "dosis": "frase", "texto": "El patrón es más largo, pero igual se repite." },
+  "personaje": "acidito",
+  "recompensa": "medalla_patron",
+  "modos": {
+    "interactivo": {
+      "gancho": "Estos patrones tienen más colores. Descubre el grupo que se repite.",
+      "retos": [
+        {
+          "tipo": "patron_visual",
+          "enunciado": "Patrón de 3 colores: ¿qué sigue?",
+          "datos": {
+            "secuencia": ["🔴", "🔵", "🟢", "🔴", "🔵", "❓"],
+            "opciones": [
+              { "emoji": "🟢", "valor": "verde", "texto": "Verde" },
+              { "emoji": "🔴", "valor": "rojo", "texto": "Rojo" },
+              { "emoji": "🔵", "valor": "azul", "texto": "Azul" }
+            ],
+            "correcta": "verde",
+            "pista": "El grupo es rojo, azul, verde."
+          }
+        },
+        {
+          "tipo": "patron_visual",
+          "enunciado": "¿Qué animalito sigue?",
+          "datos": {
+            "secuencia": ["🐶", "🐱", "🐭", "🐶", "🐱", "❓"],
+            "opciones": [
+              { "emoji": "🐭", "valor": "raton", "texto": "Ratón" },
+              { "emoji": "🐶", "valor": "perro", "texto": "Perro" },
+              { "emoji": "🐱", "valor": "gato", "texto": "Gato" }
+            ],
+            "correcta": "raton",
+            "pista": "Perro, gato, ratón... y vuelve a empezar."
+          }
+        },
+        {
+          "tipo": "patron_visual",
+          "enunciado": "Patrón de 4 colores: ¿qué sigue?",
+          "datos": {
+            "secuencia": ["🔴", "🔵", "🟢", "🟡", "🔴", "🔵", "🟢", "❓"],
+            "opciones": [
+              { "emoji": "🟡", "valor": "amarillo", "texto": "Amarillo" },
+              { "emoji": "🔴", "valor": "rojo", "texto": "Rojo" },
+              { "emoji": "🟢", "valor": "verde", "texto": "Verde" }
+            ],
+            "correcta": "amarillo",
+            "pista": "El grupo es rojo, azul, verde, amarillo."
+          }
+        }
+      ]
+    }
+  }
+}

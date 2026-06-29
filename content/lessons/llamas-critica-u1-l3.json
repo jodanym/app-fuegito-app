@@ -1,0 +1,56 @@
+{
+  "id": "llamas-critica-u1-l3",
+  "version": 2,
+  "paquete": "llamas",
+  "habilidad": "critica",
+  "objetivo": "Detectar argumentos tramposos",
+  "lectura": { "dosis": "parrafo", "texto": "Que muchos digan algo, o que pase una vez, no lo hace siempre verdad. Piensa antes de creer." },
+  "personaje": "desconocido",
+  "recompensa": "medalla_escudo",
+  "modos": {
+    "interactivo": {
+      "gancho": "Algunos argumentos suenan bien pero tienen trampa. ¿La descubres?",
+      "retos": [
+        {
+          "tipo": "seleccion",
+          "enunciado": "'Todos mis amigos tienen ese juego, así que es el mejor del mundo.' ¿Es buen argumento?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🚫", "valor": "no", "texto": "No: que muchos lo tengan no lo hace el mejor" },
+              { "emoji": "✅", "valor": "si", "texto": "Sí: si muchos lo tienen, es el mejor" },
+              { "emoji": "👥", "valor": "amigos", "texto": "Sí: los amigos siempre tienen razón" }
+            ],
+            "correcta": "no",
+            "pista": "Popular no es lo mismo que mejor."
+          }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "'Comí helado un día y me fue bien en el examen, así que el helado me hace sacar buenas notas.' ¿Es correcto?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🚫", "valor": "no", "texto": "No: una sola vez no prueba que siempre pase" },
+              { "emoji": "🍦", "valor": "si", "texto": "Sí: el helado da inteligencia" },
+              { "emoji": "📚", "valor": "tal", "texto": "Sí: siempre que comas helado pasará" }
+            ],
+            "correcta": "no",
+            "pista": "Que pasen juntos una vez no significa que uno cause al otro."
+          }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "'Las luces de la casa están apagadas, así que SEGURO es de noche.' ¿Es seguro?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🚫", "valor": "no", "texto": "No: podrían estar apagadas también de día" },
+              { "emoji": "🌙", "valor": "si", "texto": "Sí: apagadas siempre significa noche" },
+              { "emoji": "💡", "valor": "tal", "texto": "Sí: las luces solo se apagan de noche" }
+            ],
+            "correcta": "no",
+            "pista": "Hay más de una razón para tener las luces apagadas."
+          }
+        }
+      ]
+    }
+  }
+}

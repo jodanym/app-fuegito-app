@@ -8,11 +8,18 @@ import { createClient } from "@/lib/supabase/server";
 import { COOKIE_PIN } from "@/lib/padres";
 import { definirPin, verificarPin, salirZonaPadre } from "@/app/actions/padres";
 import { calcularRacha } from "@/lib/ninos";
+import { arquetipoDe } from "@/lib/onboarding/perfiles";
 
 const HAB_LABEL: Record<string, string> = {
   logica: "Lógica",
   critica: "Pensamiento crítico",
   resolucion: "Resolución de problemas",
+};
+
+const HAB_BARRA: Record<string, string> = {
+  logica: "bg-logica",
+  critica: "bg-critica",
+  resolucion: "bg-resolucion",
 };
 
 interface Perfil {
@@ -60,7 +67,7 @@ export default async function PadresPage({
       <PinShell titulo="Crea tu PIN de adulto" subtitulo="4 dígitos para entrar a esta zona. Será tu barrera contra manitas curiosas.">
         <form action={definirPin} className="space-y-4">
           <PinInput />
-          {error && <p className="text-center text-sm text-red-600">El PIN debe tener 4 dígitos.</p>}
+          {error && <p className="text-center text-sm font-medium text-fuego">El PIN debe tener 4 dígitos.</p>}
           <BotonPin>Guardar PIN</BotonPin>
         </form>
       </PinShell>
@@ -73,11 +80,11 @@ export default async function PadresPage({
       <PinShell titulo="Zona de adultos" subtitulo="Escribe tu PIN para continuar.">
         <form action={verificarPin} className="space-y-4">
           <PinInput />
-          {error && <p className="text-center text-sm text-red-600">PIN incorrecto. Intenta de nuevo.</p>}
+          {error && <p className="text-center text-sm font-medium text-fuego">PIN incorrecto. Intenta de nuevo.</p>}
           <BotonPin>Entrar</BotonPin>
         </form>
         <div className="mt-4 text-center">
-          <Link href="/jugar" className="text-sm text-gray-400 underline">Volver al juego</Link>
+          <Link href="/jugar" className="text-sm text-carbon/45 underline">Volver al juego</Link>
         </div>
       </PinShell>
     );
@@ -96,26 +103,26 @@ export default async function PadresPage({
   const tier = subs?.[0]?.tier ?? "free";
 
   return (
-    <main className="min-h-screen bg-gray-50 px-4 py-8">
+    <main className="min-h-screen bg-papel px-4 py-8">
       <div className="mx-auto max-w-lg">
         <div className="mb-6 flex items-center justify-between">
-          <h1 className="text-2xl font-extrabold text-gray-800">Panel de adultos</h1>
+          <h1 className="text-2xl font-extrabold text-carbon">Panel de adultos</h1>
           <form action={salirZonaPadre}>
-            <button className="text-sm text-gray-400 underline">Salir</button>
+            <button className="text-sm text-carbon/45 underline">Salir</button>
           </form>
         </div>
 
         {/* Suscripcion */}
         <div className="mb-6 flex items-center justify-between rounded-2xl bg-white p-4 shadow-sm">
           <div>
-            <p className="text-sm text-gray-500">Plan actual</p>
-            <p className="text-lg font-bold text-gray-800">
+            <p className="text-sm text-carbon/60">Plan actual</p>
+            <p className="text-lg font-bold text-carbon">
               {tier === "premium" ? "Premium ✨" : "Gratis"}
             </p>
           </div>
           <Link
             href="/padres/suscripcion"
-            className="rounded-xl bg-orange-500 px-4 py-2 text-sm font-semibold text-white hover:bg-orange-600"
+            className="rounded-xl bg-fuego px-4 py-2 text-sm font-bold text-white hover:bg-llama"
           >
             {tier === "premium" ? "Gestionar" : "Mejorar"}
           </Link>
@@ -125,6 +132,7 @@ export default async function PadresPage({
         <div className="space-y-5">
           {(ninos ?? []).map((n) => {
             const perfil = perfiles?.find((p) => p.child_id === n.id) as Perfil | undefined;
+            const arq = perfil ? arquetipoDe(perfil) : null;
             const masDeNino = (maestrias ?? []).filter((m) => m.child_id === n.id);
             const progDeNino = (progresos ?? []).filter((p) => p.child_id === n.id);
             const racha = calcularRacha(progDeNino.map((p) => p.created_at as string));
@@ -136,8 +144,8 @@ export default async function PadresPage({
             return (
               <div key={n.id} className="rounded-2xl bg-white p-5 shadow-sm">
                 <div className="mb-3 flex items-center justify-between">
-                  <p className="text-lg font-bold text-gray-800">{n.apodo}</p>
-                  <span className="text-sm text-gray-400">{n.edad} años</span>
+                  <p className="text-lg font-bold text-carbon">{n.apodo}</p>
+                  <span className="text-sm text-carbon/45">{n.edad} años</span>
                 </div>
 
                 <div className="mb-4 flex gap-4 text-center">
@@ -152,13 +160,13 @@ export default async function PadresPage({
                     const m = masDeNino.find((x) => x.habilidad === hab)?.maestria ?? 0;
                     return (
                       <div key={hab}>
-                        <div className="flex justify-between text-xs text-gray-500">
+                        <div className="flex justify-between text-xs text-carbon/60">
                           <span>{HAB_LABEL[hab]}</span>
                           <span>{m}%</span>
                         </div>
-                        <div className="h-2 rounded-full bg-gray-100">
+                        <div className="h-2.5 rounded-full bg-humo">
                           <div
-                            className="h-2 rounded-full bg-orange-500"
+                            className={`h-2.5 rounded-full ${HAB_BARRA[hab] ?? "bg-fuego"}`}
                             style={{ width: `${m}%` }}
                           />
                         </div>
@@ -167,16 +175,25 @@ export default async function PadresPage({
                   })}
                 </div>
 
-                <p className="mt-4 rounded-xl bg-orange-50 p-3 text-sm text-gray-600">
-                  💡 {describePerfil(perfil)}
-                </p>
+                {arq ? (
+                  <div className={`mt-4 rounded-xl ${arq.bg} p-3`}>
+                    <p className={`text-sm font-bold ${arq.color}`}>
+                      {arq.emoji} {arq.nombre}
+                    </p>
+                    <p className="mt-1 text-sm text-carbon/70">{arq.padre}</p>
+                  </div>
+                ) : (
+                  <p className="mt-4 rounded-xl bg-papel p-3 text-sm text-carbon/70">
+                    💡 {describePerfil(perfil)}
+                  </p>
+                )}
               </div>
             );
           })}
 
           {(!ninos || ninos.length === 0) && (
-            <p className="text-center text-gray-400">
-              Aún no hay perfiles de niños. <Link href="/onboarding" className="text-orange-600 underline">Crear uno</Link>.
+            <p className="text-center text-carbon/45">
+              Aún no hay perfiles de niños. <Link href="/onboarding" className="text-fuego underline">Crear uno</Link>.
             </p>
           )}
         </div>
@@ -187,9 +204,9 @@ export default async function PadresPage({
 
 function Stat({ valor, label }: { valor: string; label: string }) {
   return (
-    <div className="flex-1 rounded-xl bg-gray-50 py-2">
-      <p className="text-lg font-bold text-gray-800">{valor}</p>
-      <p className="text-xs text-gray-400">{label}</p>
+    <div className="flex-1 rounded-xl bg-papel py-2">
+      <p className="text-lg font-bold text-carbon">{valor}</p>
+      <p className="text-xs text-carbon/45">{label}</p>
     </div>
   );
 }
@@ -204,11 +221,11 @@ function PinShell({
   children: React.ReactNode;
 }) {
   return (
-    <main className="flex min-h-screen items-center justify-center bg-gray-50 p-4">
+    <main className="flex min-h-screen items-center justify-center bg-papel p-4">
       <div className="w-full max-w-sm rounded-3xl bg-white p-8 shadow-lg">
         <p className="text-center text-4xl">🔒</p>
-        <h1 className="mt-2 text-center text-xl font-extrabold text-gray-800">{titulo}</h1>
-        <p className="mb-6 mt-1 text-center text-sm text-gray-500">{subtitulo}</p>
+        <h1 className="mt-2 text-center text-xl font-extrabold text-carbon">{titulo}</h1>
+        <p className="mb-6 mt-1 text-center text-sm text-carbon/60">{subtitulo}</p>
         {children}
       </div>
     </main>
@@ -224,7 +241,7 @@ function PinInput() {
       maxLength={4}
       required
       placeholder="••••"
-      className="w-full rounded-xl border border-gray-300 px-4 py-3 text-center text-2xl tracking-[0.5em] text-gray-900 focus:border-orange-500 focus:outline-none"
+      className="w-full rounded-xl border-2 border-humo px-4 py-3 text-center text-2xl tracking-[0.5em] text-carbon focus:border-fuego focus:outline-none"
     />
   );
 }
@@ -233,7 +250,7 @@ function BotonPin({ children }: { children: React.ReactNode }) {
   return (
     <button
       type="submit"
-      className="w-full rounded-xl bg-gray-800 px-4 py-3 font-bold text-white transition hover:bg-gray-900"
+      className="w-full rounded-xl bg-noche px-4 py-3 font-bold text-white transition hover:opacity-90"
     >
       {children}
     </button>

@@ -1,0 +1,56 @@
+{
+  "id": "llamas-resolucion-u1-l1",
+  "version": 2,
+  "paquete": "llamas",
+  "habilidad": "resolucion",
+  "objetivo": "Resolver problemas de varios pasos",
+  "lectura": { "dosis": "parrafo", "texto": "Lee con calma, separa los datos y resuelve paso a paso." },
+  "personaje": "fueguito",
+  "recompensa": "medalla_estrella",
+  "modos": {
+    "interactivo": {
+      "gancho": "¡Hola! Soy Fueguito. Estos problemas tienen más de un paso. Piénsalos con calma.",
+      "retos": [
+        {
+          "tipo": "seleccion",
+          "enunciado": "Tienes 12 galletas y las repartes en partes iguales entre 3 amigos. ¿Cuántas le tocan a cada uno?",
+          "datos": {
+            "opciones": [
+              { "emoji": "4️⃣", "valor": "4", "texto": "4" },
+              { "emoji": "3️⃣", "valor": "3", "texto": "3" },
+              { "emoji": "6️⃣", "valor": "6", "texto": "6" }
+            ],
+            "correcta": "4",
+            "pista": "Reparte 12 en 3 grupos iguales."
+          }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "Hay 10 pájaros en un árbol. Llegan 5 más y después se van 3. ¿Cuántos quedan?",
+          "datos": {
+            "opciones": [
+              { "emoji": "✳️", "valor": "12", "texto": "12" },
+              { "emoji": "✴️", "valor": "10", "texto": "10" },
+              { "emoji": "❇️", "valor": "8", "texto": "8" }
+            ],
+            "correcta": "12",
+            "pista": "Primero suma los que llegan, luego quita los que se van: 10 + 5 - 3."
+          }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "Una caja trae 6 lápices. Compras 3 cajas. ¿Cuántos lápices tienes en total?",
+          "datos": {
+            "opciones": [
+              { "emoji": "✳️", "valor": "18", "texto": "18" },
+              { "emoji": "✴️", "valor": "9", "texto": "9" },
+              { "emoji": "❇️", "valor": "12", "texto": "12" }
+            ],
+            "correcta": "18",
+            "pista": "6 lápices por caja, 3 veces: 6 + 6 + 6."
+          }
+        }
+      ]
+    }
+  }
+}

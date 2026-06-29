@@ -1,0 +1,50 @@
+{
+  "id": "chispas-resolucion-u1-l4",
+  "version": 2,
+  "paquete": "chispas",
+  "habilidad": "resolucion",
+  "objetivo": "Saber qué va primero",
+  "lectura": { "dosis": "palabra", "texto": "Primero." },
+  "personaje": "fueguito",
+  "recompensa": "medalla_plan",
+  "modos": {
+    "interactivo": {
+      "gancho": "¿Qué hacemos primero? Toca lo que va al inicio.",
+      "retos": [
+        {
+          "tipo": "seleccion",
+          "enunciado": "Para bañarte, ¿qué va PRIMERO?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🚿", "valor": "agua", "texto": "Abrir el agua" },
+              { "emoji": "🧺", "valor": "toalla", "texto": "Secarte" }
+            ],
+            "correcta": "agua"
+          }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "Para comer, ¿qué va PRIMERO?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🍽️", "valor": "servir", "texto": "Servir la comida" },
+              { "emoji": "🧽", "valor": "lavar", "texto": "Lavar el plato" }
+            ],
+            "correcta": "servir"
+          }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "Para salir, ¿qué va PRIMERO?",
+          "datos": {
+            "opciones": [
+              { "emoji": "👕", "valor": "vestir", "texto": "Vestirte" },
+              { "emoji": "🚪", "valor": "salir", "texto": "Abrir la puerta" }
+            ],
+            "correcta": "vestir"
+          }
+        }
+      ]
+    }
+  }
+}

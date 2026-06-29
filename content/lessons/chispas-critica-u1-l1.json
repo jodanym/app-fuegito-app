@@ -1,0 +1,53 @@
+{
+  "id": "chispas-critica-u1-l1",
+  "version": 2,
+  "paquete": "chispas",
+  "habilidad": "critica",
+  "objetivo": "Ver qué está raro",
+  "lectura": { "dosis": "palabra", "texto": "Raro." },
+  "personaje": "desconocido",
+  "recompensa": "medalla_lupa",
+  "modos": {
+    "interactivo": {
+      "gancho": "Soy Desconocido. Una cosa está fuera de lugar. ¿Cuál?",
+      "retos": [
+        {
+          "tipo": "cual_no_encaja",
+          "enunciado": "Es de noche. ¿Qué está raro?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🌙", "valor": "luna", "texto": "Luna" },
+              { "emoji": "⭐", "valor": "estrella", "texto": "Estrella" },
+              { "emoji": "☀️", "valor": "sol", "texto": "Sol" }
+            ],
+            "correcta": "sol"
+          }
+        },
+        {
+          "tipo": "cual_no_encaja",
+          "enunciado": "En la cocina, ¿qué está raro?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🍳", "valor": "sarten", "texto": "Sartén" },
+              { "emoji": "🥄", "valor": "cuchara", "texto": "Cuchara" },
+              { "emoji": "🐠", "valor": "pez", "texto": "Pez" }
+            ],
+            "correcta": "pez"
+          }
+        },
+        {
+          "tipo": "cual_no_encaja",
+          "enunciado": "En la playa con sol, ¿qué está raro?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🏖️", "valor": "arena", "texto": "Arena" },
+              { "emoji": "⛄", "valor": "muneco", "texto": "Muñeco de nieve" },
+              { "emoji": "🌊", "valor": "olas", "texto": "Olas" }
+            ],
+            "correcta": "muneco"
+          }
+        }
+      ]
+    }
+  }
+}

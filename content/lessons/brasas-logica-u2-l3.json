@@ -1,0 +1,62 @@
+{
+  "id": "brasas-logica-u2-l3",
+  "version": 2,
+  "paquete": "brasas",
+  "habilidad": "logica",
+  "objetivo": "Resolver analogías con relaciones nuevas",
+  "lectura": { "dosis": "frase", "texto": "Descubro qué hace una pareja con la otra." },
+  "personaje": "acidito",
+  "recompensa": "medalla_analogia",
+  "modos": {
+    "interactivo": {
+      "gancho": "Estas analogías son más difíciles. Busca bien la relación escondida.",
+      "retos": [
+        {
+          "tipo": "analogia",
+          "enunciado": "La abeja produce miel; la vaca produce...",
+          "datos": {
+            "par1": { "a": "🐝", "b": "🍯" },
+            "par2": { "a": "🐄", "b": "❓" },
+            "opciones": [
+              { "emoji": "🥛", "valor": "leche", "texto": "Leche" },
+              { "emoji": "🥚", "valor": "huevo", "texto": "Huevo" },
+              { "emoji": "🧀", "valor": "queso", "texto": "Queso" }
+            ],
+            "correcta": "leche",
+            "pista": "¿Qué nos da la vaca?"
+          }
+        },
+        {
+          "tipo": "analogia",
+          "enunciado": "La semilla crece y se vuelve árbol; el bebé crece y se vuelve...",
+          "datos": {
+            "par1": { "a": "🌱", "b": "🌳" },
+            "par2": { "a": "👶", "b": "❓" },
+            "opciones": [
+              { "emoji": "🧓", "valor": "adulto", "texto": "Adulto" },
+              { "emoji": "🍼", "valor": "biberon", "texto": "Biberón" },
+              { "emoji": "🧸", "valor": "peluche", "texto": "Peluche" }
+            ],
+            "correcta": "adulto",
+            "pista": "La relación es crecer."
+          }
+        },
+        {
+          "tipo": "analogia",
+          "enunciado": "El avión viaja por el cielo; el barco viaja por el...",
+          "datos": {
+            "par1": { "a": "✈️", "b": "☁️" },
+            "par2": { "a": "🚢", "b": "❓" },
+            "opciones": [
+              { "emoji": "🌊", "valor": "mar", "texto": "Mar" },
+              { "emoji": "⛰️", "valor": "montana", "texto": "Montaña" },
+              { "emoji": "🛣️", "valor": "carretera", "texto": "Carretera" }
+            ],
+            "correcta": "mar",
+            "pista": "¿Por dónde navega un barco?"
+          }
+        }
+      ]
+    }
+  }
+}

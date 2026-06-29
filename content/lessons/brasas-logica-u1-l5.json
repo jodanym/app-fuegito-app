@@ -1,44 +1,57 @@
 {
   "id": "brasas-logica-u1-l5",
+  "version": 2,
   "paquete": "brasas",
   "habilidad": "logica",
-  "objetivo": "Ordenar elementos de menor a mayor",
-  "lectura": { "dosis": "frase", "texto": "De lo pequeño a lo grande." },
+  "objetivo": "Continuar secuencias que crecen",
+  "lectura": { "dosis": "frase", "texto": "Descubro de cuánto en cuánto avanza." },
+  "personaje": "desconocido",
+  "recompensa": "medalla_secuencia",
   "modos": {
     "interactivo": {
-      "gancho": "Acidito revolvió todo por tamaños. Ordénalo de menor a mayor.",
+      "gancho": "Estas secuencias no se repiten: ¡crecen! Descubre la regla y dime qué número sigue.",
       "retos": [
         {
-          "tipo": "ordenar_secuencia",
-          "enunciado": "Ordena de la más pequeña a la más grande.",
-          "datos": { "elementos": ["grande", "mediana", "pequeña"], "orden_correcto": ["pequeña", "mediana", "grande"] }
+          "tipo": "patron_visual",
+          "enunciado": "1, 2, 3, ... ¿qué número sigue?",
+          "datos": {
+            "secuencia": ["1️⃣", "2️⃣", "3️⃣", "❓"],
+            "opciones": [
+              { "emoji": "4️⃣", "valor": "cuatro", "texto": "4" },
+              { "emoji": "5️⃣", "valor": "cinco", "texto": "5" },
+              { "emoji": "2️⃣", "valor": "dos", "texto": "2" }
+            ],
+            "correcta": "cuatro",
+            "pista": "Sube de uno en uno."
+          }
         },
         {
           "tipo": "seleccion",
-          "enunciado": "Entre un ratón, un perro y un elefante, ¿cuál es el más grande?",
-          "datos": { "opciones": ["ratón", "perro", "elefante"], "correcta": "elefante" }
+          "enunciado": "2, 4, 6, 8, ... ¿qué número sigue?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🔟", "valor": "diez", "texto": "10" },
+              { "emoji": "9️⃣", "valor": "nueve", "texto": "9" },
+              { "emoji": "7️⃣", "valor": "siete", "texto": "7" }
+            ],
+            "correcta": "diez",
+            "pista": "Sube de dos en dos."
+          }
         },
         {
-          "tipo": "ordenar_secuencia",
-          "enunciado": "Ordena los números de menor a mayor.",
-          "datos": { "elementos": ["3", "1", "2"], "orden_correcto": ["1", "2", "3"] }
+          "tipo": "seleccion",
+          "enunciado": "5, 10, 15, ... ¿qué número sigue?",
+          "datos": {
+            "opciones": [
+              { "emoji": "2️⃣", "valor": "veinte", "texto": "20" },
+              { "emoji": "1️⃣", "valor": "dieciseis", "texto": "16" },
+              { "emoji": "5️⃣", "valor": "veinticinco", "texto": "25" }
+            ],
+            "correcta": "veinte",
+            "pista": "Cuenta de cinco en cinco."
+          }
         }
       ]
-    },
-    "audio_narrativo": {
-      "gancho_audio": "brasas/logica/u1l5/gancho.mp3",
-      "retos": [
-        { "tipo": "respuesta_voz", "enunciado": "Escucha y di cuál es el más pequeño.", "datos": { "audio": "brasas/logica/u1l5/tamanos.mp3", "respuesta_esperada": "la hormiga" } }
-      ]
-    },
-    "manual": {
-      "instruccion": "Busca 3 zapatos de la casa y ordénalos del más pequeño al más grande.",
-      "ficha_pdf": "brasas/logica/u1l5/ficha.pdf",
-      "retos": [
-        { "tipo": "manual_autoconfirmado", "enunciado": "Ordena tus objetos por tamaño y marca cuando termines.", "datos": { "confirmacion": "adulto" } }
-      ]
     }
-  },
-  "personaje": "acidito",
-  "recompensa": "medalla_tamanos"
+  }
 }

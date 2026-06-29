@@ -1,50 +1,56 @@
 {
   "id": "brasas-critica-u1-l5",
+  "version": 2,
   "paquete": "brasas",
   "habilidad": "critica",
-  "objetivo": "Darse cuenta de una exageración o trampa",
-  "lectura": { "dosis": "frase", "texto": "No todo lo que dicen es verdad." },
+  "objetivo": "Descubrir la causa de lo que pasó",
+  "lectura": { "dosis": "frase", "texto": "Me pregunto: ¿qué pudo causar esto?" },
+  "personaje": "desconocido",
+  "recompensa": "medalla_detective",
   "modos": {
     "interactivo": {
-      "gancho": "Acidito promete cosas exageradas para engañarte. ¡No te dejes!",
+      "gancho": "Algo ya pasó. Tú serás el detective: elige la causa que mejor lo explica.",
       "retos": [
         {
           "tipo": "seleccion",
-          "enunciado": "'Este caramelo te hará volar.' ¿Es verdad o trampa?",
-          "datos": { "opciones": ["verdad", "trampa"], "correcta": "trampa" }
+          "enunciado": "El piso de la cocina está mojado. ¿Qué pudo pasar?",
+          "datos": {
+            "opciones": [
+              { "emoji": "💧", "valor": "agua", "texto": "Se derramó agua" },
+              { "emoji": "☀️", "valor": "sol", "texto": "Entró mucho sol" },
+              { "emoji": "📚", "valor": "libro", "texto": "Alguien leyó un libro" }
+            ],
+            "correcta": "agua",
+            "pista": "¿Qué cosa moja el piso?"
+          }
         },
         {
           "tipo": "seleccion",
-          "enunciado": "'Todos los niños del mundo aman este juego.' ¿Es seguro?",
-          "datos": { "opciones": ["seguro", "exagerado"], "correcta": "exagerado" }
+          "enunciado": "La plantita se puso seca y triste. ¿Qué le faltó?",
+          "datos": {
+            "opciones": [
+              { "emoji": "💧", "valor": "agua", "texto": "Agua" },
+              { "emoji": "🎈", "valor": "globos", "texto": "Globos" },
+              { "emoji": "🎵", "valor": "musica", "texto": "Música" }
+            ],
+            "correcta": "agua",
+            "pista": "Las plantas beben para vivir."
+          }
         },
         {
-          "tipo": "clasificar",
-          "enunciado": "¿Es creíble o exagerado?",
+          "tipo": "seleccion",
+          "enunciado": "Juan llegó a casa todo empapado. ¿Qué pasó afuera?",
           "datos": {
-            "frases": [
-              { "texto": "El perro corre rápido.", "categoria": "creíble" },
-              { "texto": "El perro corre más rápido que un cohete.", "categoria": "exagerado" }
+            "opciones": [
+              { "emoji": "🌧️", "valor": "lluvia", "texto": "Estaba lloviendo" },
+              { "emoji": "🍃", "valor": "viento", "texto": "Hacía viento" },
+              { "emoji": "☀️", "valor": "sol", "texto": "Hacía mucho sol" }
             ],
-            "categorias": ["creíble", "exagerado"]
+            "correcta": "lluvia",
+            "pista": "¿Qué te moja cuando estás en la calle?"
           }
         }
       ]
-    },
-    "audio_narrativo": {
-      "gancho_audio": "brasas/critica/u1l5/gancho.mp3",
-      "retos": [
-        { "tipo": "respuesta_voz", "enunciado": "Escucha el anuncio y di si es verdad o trampa.", "datos": { "audio": "brasas/critica/u1l5/anuncio.mp3", "respuesta_esperada": "trampa" } }
-      ]
-    },
-    "manual": {
-      "instruccion": "Inventa con tu adulto un anuncio exagerado y otro creíble, y compáralos.",
-      "ficha_pdf": "brasas/critica/u1l5/ficha.pdf",
-      "retos": [
-        { "tipo": "manual_autoconfirmado", "enunciado": "Crea tus dos anuncios y marca cuando termines.", "datos": { "confirmacion": "adulto" } }
-      ]
     }
-  },
-  "personaje": "acidito",
-  "recompensa": "medalla_antitrampas"
+  }
 }

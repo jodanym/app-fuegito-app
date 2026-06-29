@@ -1,14 +1,16 @@
 "use client";
 
 // Quiz de perfilado interactivo (PRD 4.2). Se siente como juego, no formulario.
-// No se muestra la mecanica de ejes al usuario (PRD 4.2). Al terminar, calcula
-// el vector y lo guarda; el motor adaptativo lo usara para elegir contenido.
+// Al terminar calcula el vector, lo guarda, y muestra una pantalla de RESULTADO
+// con el arquetipo CON NOMBRE (El Detective, El Creador...) para motivar al nino.
 import { useState } from "react";
+import Link from "next/link";
 import { PREGUNTAS, calcularPerfil, quienResponde } from "@/lib/onboarding/quiz";
 import { guardarPerfil } from "@/app/actions/ninos";
+import { arquetipoDe, type Arquetipo } from "@/lib/onboarding/perfiles";
 import type { PerfilVector } from "@/lib/engine/motor";
 
-type Fase = "intro" | "quiz" | "guardando";
+type Fase = "intro" | "quiz" | "guardando" | "resultado";
 
 export default function QuizCliente({
   childId,
@@ -22,6 +24,7 @@ export default function QuizCliente({
   const [fase, setFase] = useState<Fase>("intro");
   const [idx, setIdx] = useState(0);
   const [respuestas, setRespuestas] = useState<Record<string, 0 | 1>>({});
+  const [arquetipo, setArquetipo] = useState<Arquetipo | null>(null);
 
   async function elegir(opcion: 0 | 1) {
     const pregunta = PREGUNTAS[idx];
@@ -33,26 +36,28 @@ export default function QuizCliente({
     } else {
       setFase("guardando");
       const vector: PerfilVector = calcularPerfil(nuevas);
-      await guardarPerfil(childId, vector); // redirige a /jugar
+      setArquetipo(arquetipoDe(vector));
+      await guardarPerfil(childId, vector);
+      setFase("resultado");
     }
   }
 
   return (
-    <main className="flex min-h-screen items-center justify-center bg-orange-50 p-4">
+    <main className="flex min-h-screen items-center justify-center bg-papel p-4">
       <div className="w-full max-w-md rounded-3xl bg-white p-8 shadow-lg">
         {fase === "intro" && (
           <div className="text-center">
             <p className="text-5xl">🎮</p>
-            <h1 className="mt-3 text-2xl font-extrabold text-orange-600">
+            <h1 className="mt-3 text-2xl font-extrabold text-llama">
               ¡Vamos a conocer a {apodo}!
             </h1>
-            <p className="mt-3 text-gray-600">{quienResponde(edad)}</p>
-            <p className="mt-2 text-sm text-gray-400">
+            <p className="mt-3 text-carbon/70">{quienResponde(edad)}</p>
+            <p className="mt-2 text-sm text-carbon/45">
               Son {PREGUNTAS.length} preguntas rapidas. No hay respuestas malas.
             </p>
             <button
               onClick={() => setFase("quiz")}
-              className="mt-6 w-full rounded-2xl bg-orange-500 px-6 py-4 text-lg font-bold text-white transition hover:bg-orange-600"
+              className="mt-6 w-full rounded-2xl bg-fuego px-6 py-4 text-lg font-bold text-white transition hover:bg-llama active:scale-[0.98]"
             >
               Empezar
             </button>
@@ -65,17 +70,17 @@ export default function QuizCliente({
               {PREGUNTAS.map((_, i) => (
                 <div
                   key={i}
-                  className={`h-2 flex-1 rounded-full ${
-                    i <= idx ? "bg-orange-500" : "bg-orange-200"
+                  className={`h-2.5 flex-1 rounded-full ${
+                    i <= idx ? "bg-fuego" : "bg-chispa/30"
                   }`}
                 />
               ))}
             </div>
 
-            <p className="mb-1 text-sm font-semibold text-orange-400">
+            <p className="mb-1 text-sm font-bold text-fuego/70">
               Pregunta {idx + 1} de {PREGUNTAS.length}
             </p>
-            <h2 className="mb-6 text-xl font-bold text-gray-800">
+            <h2 className="mb-6 text-xl font-bold text-carbon">
               {PREGUNTAS[idx].pregunta}
             </h2>
 
@@ -84,10 +89,10 @@ export default function QuizCliente({
                 <button
                   key={i}
                   onClick={() => elegir(i as 0 | 1)}
-                  className="flex items-center gap-4 rounded-2xl border-2 border-orange-200 bg-white px-5 py-4 text-left transition hover:border-orange-400 hover:bg-orange-50 active:scale-[0.98]"
+                  className="flex items-center gap-4 rounded-2xl border-2 border-chispa bg-white px-5 py-4 text-left transition hover:border-fuego hover:bg-papel active:scale-[0.98]"
                 >
                   <span className="text-4xl">{op.emoji}</span>
-                  <span className="text-lg font-semibold text-gray-800">{op.texto}</span>
+                  <span className="text-lg font-bold text-carbon/80">{op.texto}</span>
                 </button>
               ))}
             </div>
@@ -97,9 +102,31 @@ export default function QuizCliente({
         {fase === "guardando" && (
           <div className="text-center">
             <p className="text-5xl">✨</p>
-            <h2 className="mt-3 text-xl font-bold text-orange-600">
-              Fueguito esta preparando un mundo a la medida de {apodo}...
+            <h2 className="mt-3 text-xl font-bold text-llama">
+              Fueguito está descubriendo cómo aprende {apodo}...
             </h2>
+          </div>
+        )}
+
+        {fase === "resultado" && arquetipo && (
+          <div className="text-center">
+            <p className="text-6xl">{arquetipo.emoji}</p>
+            <p className="mt-2 text-sm font-bold uppercase tracking-wide text-carbon/50">
+              Fueguito descubrió que {apodo} es...
+            </p>
+            <h1 className={`mt-1 text-3xl font-extrabold ${arquetipo.color}`}>
+              {arquetipo.nombre}
+            </h1>
+            <p className="mt-1 italic text-carbon/70">“{arquetipo.lema}”</p>
+            <p className={`mt-4 rounded-2xl ${arquetipo.bg} p-4 text-carbon/80`}>
+              {arquetipo.nino}
+            </p>
+            <Link
+              href="/jugar"
+              className="mt-6 block w-full rounded-2xl bg-fuego px-6 py-4 text-lg font-bold text-white transition hover:bg-llama active:scale-[0.98]"
+            >
+              ¡Empezar a jugar! 🔥
+            </Link>
           </div>
         )}
       </div>

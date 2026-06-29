@@ -1,0 +1,53 @@
+{
+  "id": "chispas-critica-u1-l3",
+  "version": 2,
+  "paquete": "chispas",
+  "habilidad": "critica",
+  "objetivo": "Pensar qué usar",
+  "lectura": { "dosis": "palabra", "texto": "Piensa." },
+  "personaje": "desconocido",
+  "recompensa": "medalla_idea",
+  "modos": {
+    "interactivo": {
+      "gancho": "Piensa bien: ¿qué necesitas?",
+      "retos": [
+        {
+          "tipo": "seleccion",
+          "enunciado": "Está lloviendo. ¿Qué usas?",
+          "datos": {
+            "opciones": [
+              { "emoji": "☂️", "valor": "paraguas", "texto": "Paraguas" },
+              { "emoji": "🕶️", "valor": "gafas", "texto": "Gafas de sol" },
+              { "emoji": "🧦", "valor": "calcetin", "texto": "Calcetín" }
+            ],
+            "correcta": "paraguas"
+          }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "Hace mucho frío. ¿Qué te pones?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🧥", "valor": "abrigo", "texto": "Abrigo" },
+              { "emoji": "👙", "valor": "traje", "texto": "Traje de baño" },
+              { "emoji": "🩴", "valor": "chancla", "texto": "Chanclas" }
+            ],
+            "correcta": "abrigo"
+          }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "Está oscuro. ¿Qué prendes?",
+          "datos": {
+            "opciones": [
+              { "emoji": "💡", "valor": "luz", "texto": "La luz" },
+              { "emoji": "🧹", "valor": "escoba", "texto": "La escoba" },
+              { "emoji": "🍳", "valor": "sarten", "texto": "La sartén" }
+            ],
+            "correcta": "luz"
+          }
+        }
+      ]
+    }
+  }
+}

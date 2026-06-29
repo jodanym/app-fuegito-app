@@ -39,7 +39,7 @@ export default function BotonAudio({
       type="button"
       onClick={() => hablar(texto, personaje)}
       aria-label="Escuchar"
-      className={`inline-flex items-center justify-center rounded-full bg-orange-100 text-orange-600 transition hover:bg-orange-200 active:scale-95 ${
+      className={`inline-flex items-center justify-center rounded-full bg-chispa/25 text-llama transition hover:bg-chispa/40 active:scale-95 ${
         grande ? "h-14 w-14 text-2xl" : "h-10 w-10 text-lg"
       }`}
     >

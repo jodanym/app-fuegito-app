@@ -1,44 +1,56 @@
 {
   "id": "brasas-critica-u1-l1",
+  "version": 2,
   "paquete": "brasas",
   "habilidad": "critica",
   "objetivo": "Detectar lo que no encaja en una escena",
-  "lectura": { "dosis": "frase", "texto": "Algo aquí está raro." },
+  "lectura": { "dosis": "frase", "texto": "Observo bien antes de decidir." },
+  "personaje": "desconocido",
+  "recompensa": "medalla_lupa",
   "modos": {
     "interactivo": {
-      "gancho": "Desconocido cambió algo a escondidas. ¿Notas qué está fuera de lugar?",
+      "gancho": "Cambié algo a escondidas en cada lugar. Usa tus ojos de detective: ¿qué está fuera de lugar?",
       "retos": [
         {
-          "tipo": "seleccion",
-          "enunciado": "En la playa con sol, ¿qué NO encaja?",
-          "datos": { "opciones": ["arena", "olas", "muñeco de nieve"], "correcta": "muñeco de nieve" }
+          "tipo": "cual_no_encaja",
+          "enunciado": "En la playa con mucho sol, ¿qué NO encaja?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🏖️", "valor": "arena", "texto": "Arena" },
+              { "emoji": "🌊", "valor": "olas", "texto": "Olas" },
+              { "emoji": "⛄", "valor": "muneco_de_nieve", "texto": "Muñeco de nieve" }
+            ],
+            "correcta": "muneco_de_nieve",
+            "pista": "Con tanto calor, ¿qué se derretiría?"
+          }
         },
         {
-          "tipo": "seleccion",
+          "tipo": "cual_no_encaja",
           "enunciado": "En la cocina, ¿qué NO debería estar?",
-          "datos": { "opciones": ["olla", "cuchara", "bicicleta"], "correcta": "bicicleta" }
+          "datos": {
+            "opciones": [
+              { "emoji": "🍳", "valor": "sarten", "texto": "Sartén" },
+              { "emoji": "🥄", "valor": "cuchara", "texto": "Cuchara" },
+              { "emoji": "🚲", "valor": "bicicleta", "texto": "Bicicleta" }
+            ],
+            "correcta": "bicicleta",
+            "pista": "¿Con qué cocinas y comes?"
+          }
         },
         {
-          "tipo": "seleccion",
-          "enunciado": "De noche con estrellas, ¿qué está raro?",
-          "datos": { "opciones": ["luna", "sol brillando", "búho"], "correcta": "sol brillando" }
+          "tipo": "cual_no_encaja",
+          "enunciado": "En una noche con estrellas, ¿qué está raro?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🌙", "valor": "luna", "texto": "Luna" },
+              { "emoji": "🦉", "valor": "buho", "texto": "Búho" },
+              { "emoji": "☀️", "valor": "sol", "texto": "Sol brillando" }
+            ],
+            "correcta": "sol",
+            "pista": "De noche el sol no brilla."
+          }
         }
       ]
-    },
-    "audio_narrativo": {
-      "gancho_audio": "brasas/critica/u1l1/gancho.mp3",
-      "retos": [
-        { "tipo": "respuesta_voz", "enunciado": "Escucha el cuento y di qué cosa no encaja.", "datos": { "audio": "brasas/critica/u1l1/cuento.mp3", "respuesta_esperada": "el pez volando" } }
-      ]
-    },
-    "manual": {
-      "instruccion": "Dibuja tu cuarto pero pon una cosa que no debería estar; pide a tu adulto que la encuentre.",
-      "ficha_pdf": "brasas/critica/u1l1/ficha.pdf",
-      "retos": [
-        { "tipo": "manual_autoconfirmado", "enunciado": "Haz tu dibujo con un detalle raro y marca cuando termines.", "datos": { "confirmacion": "adulto" } }
-      ]
     }
-  },
-  "personaje": "desconocido",
-  "recompensa": "medalla_lupa"
+  }
 }

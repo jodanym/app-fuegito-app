@@ -1,51 +1,56 @@
 {
   "id": "brasas-critica-u1-l2",
+  "version": 2,
   "paquete": "brasas",
   "habilidad": "critica",
-  "objetivo": "Distinguir un hecho de una opinión",
-  "lectura": { "dosis": "frase", "texto": "Un hecho se puede comprobar." },
+  "objetivo": "Adivinar juntando varias pistas",
+  "lectura": { "dosis": "frase", "texto": "Junto todas las pistas antes de responder." },
+  "personaje": "desconocido",
+  "recompensa": "medalla_adivino",
   "modos": {
     "interactivo": {
-      "gancho": "Acidito dice cosas muy seguras... ¿serán todas verdad? Atrápalo cuando solo opine.",
+      "gancho": "Te daré varias pistas a la vez. Piénsalas todas juntas para adivinar.",
       "retos": [
         {
           "tipo": "seleccion",
-          "enunciado": "'El agua moja.' ¿Es hecho u opinión?",
-          "datos": { "opciones": ["hecho", "opinión"], "correcta": "hecho" }
+          "enunciado": "Vivo en el agua, tengo aletas y no puedo respirar fuera. ¿Qué soy?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🐟", "valor": "pez", "texto": "Pez" },
+              { "emoji": "🐸", "valor": "rana", "texto": "Rana" },
+              { "emoji": "🦆", "valor": "pato", "texto": "Pato" }
+            ],
+            "correcta": "pez",
+            "pista": "La rana y el pato sí pueden salir del agua."
+          }
         },
         {
           "tipo": "seleccion",
-          "enunciado": "'El helado de fresa es el más rico.' ¿Es hecho u opinión?",
-          "datos": { "opciones": ["hecho", "opinión"], "correcta": "opinión" }
+          "enunciado": "Soy fría, blanca y caigo del cielo solo en invierno. ¿Qué soy?",
+          "datos": {
+            "opciones": [
+              { "emoji": "❄️", "valor": "nieve", "texto": "Nieve" },
+              { "emoji": "🌧️", "valor": "lluvia", "texto": "Lluvia" },
+              { "emoji": "⭐", "valor": "estrella", "texto": "Estrella" }
+            ],
+            "correcta": "nieve",
+            "pista": "La lluvia no es blanca y cae todo el año."
+          }
         },
         {
-          "tipo": "clasificar",
-          "enunciado": "Arrastra cada frase a su caja: hecho u opinión.",
+          "tipo": "seleccion",
+          "enunciado": "Tengo muchas hojas pero no soy un árbol, y me puedes leer. ¿Qué soy?",
           "datos": {
-            "frases": [
-              { "texto": "El sol sale de día.", "categoria": "hecho" },
-              { "texto": "El azul es el mejor color.", "categoria": "opinión" },
-              { "texto": "Los peces viven en el agua.", "categoria": "hecho" }
+            "opciones": [
+              { "emoji": "📖", "valor": "libro", "texto": "Libro" },
+              { "emoji": "🍂", "valor": "hoja", "texto": "Hoja seca" },
+              { "emoji": "🌳", "valor": "arbol", "texto": "Árbol" }
             ],
-            "categorias": ["hecho", "opinión"]
+            "correcta": "libro",
+            "pista": "Mis hojas tienen letras."
           }
         }
       ]
-    },
-    "audio_narrativo": {
-      "gancho_audio": "brasas/critica/u1l2/gancho.mp3",
-      "retos": [
-        { "tipo": "respuesta_voz", "enunciado": "Escucha la frase y di 'hecho' u 'opinión'.", "datos": { "audio": "brasas/critica/u1l2/frase.mp3", "respuesta_esperada": "opinión" } }
-      ]
-    },
-    "manual": {
-      "instruccion": "Con tu adulto, escribe en papel un hecho y una opinión sobre tu comida favorita.",
-      "ficha_pdf": "brasas/critica/u1l2/ficha.pdf",
-      "retos": [
-        { "tipo": "manual_autoconfirmado", "enunciado": "Escribe tu hecho y tu opinión y marca cuando termines.", "datos": { "confirmacion": "adulto" } }
-      ]
     }
-  },
-  "personaje": "acidito",
-  "recompensa": "medalla_detective"
+  }
 }

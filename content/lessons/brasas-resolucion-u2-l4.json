@@ -1,0 +1,56 @@
+{
+  "id": "brasas-resolucion-u2-l4",
+  "version": 2,
+  "paquete": "brasas",
+  "habilidad": "resolucion",
+  "objetivo": "Planificar cuánto necesitas",
+  "lectura": { "dosis": "frase", "texto": "Pienso cuánto necesito antes de empezar." },
+  "personaje": "fueguito",
+  "recompensa": "medalla_constructor",
+  "modos": {
+    "interactivo": {
+      "gancho": "Reto final: haz un buen plan. Calcula lo que de verdad necesitas.",
+      "retos": [
+        {
+          "tipo": "seleccion",
+          "enunciado": "Vas a dibujar un sol amarillo y pasto verde. ¿Qué colores necesitas como mínimo?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🟡", "valor": "dos", "texto": "Amarillo y verde" },
+              { "emoji": "🌈", "valor": "todos", "texto": "Todos los colores" },
+              { "emoji": "🟨", "valor": "uno", "texto": "Solo amarillo" }
+            ],
+            "correcta": "dos",
+            "pista": "Un color para el sol y uno para el pasto."
+          }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "Hay 4 amigos y quieres darle 2 galletas a cada uno. ¿Cuántas galletas necesitas?",
+          "datos": {
+            "opciones": [
+              { "emoji": "8️⃣", "valor": "8", "texto": "8" },
+              { "emoji": "6️⃣", "valor": "6", "texto": "6" },
+              { "emoji": "4️⃣", "valor": "4", "texto": "4" }
+            ],
+            "correcta": "8",
+            "pista": "2 galletas, 4 veces: 2 + 2 + 2 + 2."
+          }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "El bus tarda 10 minutos y caminar al paradero tarda 5. ¿Con cuánto tiempo antes debes salir?",
+          "datos": {
+            "opciones": [
+              { "emoji": "⏱️", "valor": "15", "texto": "15 minutos" },
+              { "emoji": "⏰", "valor": "10", "texto": "10 minutos" },
+              { "emoji": "⌛", "valor": "5", "texto": "5 minutos" }
+            ],
+            "correcta": "15",
+            "pista": "Suma caminar (5) más el bus (10)."
+          }
+        }
+      ]
+    }
+  }
+}

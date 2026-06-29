@@ -1,0 +1,56 @@
+{
+  "id": "llamas-resolucion-u1-l3",
+  "version": 2,
+  "paquete": "llamas",
+  "habilidad": "resolucion",
+  "objetivo": "Ordenar con varias pistas",
+  "lectura": { "dosis": "parrafo", "texto": "Cuando hay muchas pistas de orden, encadénalas una con otra hasta ver el resultado." },
+  "personaje": "fueguito",
+  "recompensa": "medalla_podio",
+  "modos": {
+    "interactivo": {
+      "gancho": "Con varias pistas puedes ordenar a todos. Encadénalas con cuidado.",
+      "retos": [
+        {
+          "tipo": "seleccion",
+          "enunciado": "Ana es más alta que Beto. Beto más que Caro. Caro más que Dani. ¿Quién es el MÁS alto?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🥇", "valor": "ana", "texto": "Ana" },
+              { "emoji": "🥈", "valor": "beto", "texto": "Beto" },
+              { "emoji": "🥉", "valor": "dani", "texto": "Dani" }
+            ],
+            "correcta": "ana",
+            "pista": "Empieza por la que nadie supera."
+          }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "En la carrera: Sol llegó antes que Río. Río antes que Mar. ¿Quién ganó?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🏆", "valor": "sol", "texto": "Sol" },
+              { "emoji": "🏃", "valor": "rio", "texto": "Río" },
+              { "emoji": "🌊", "valor": "mar", "texto": "Mar" }
+            ],
+            "correcta": "sol",
+            "pista": "El que llegó antes que todos."
+          }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "La caja A pesa más que la B. La C pesa más que la A. ¿Cuál pesa MÁS de todas?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🇨", "valor": "c", "texto": "Caja C" },
+              { "emoji": "🇦", "valor": "a", "texto": "Caja A" },
+              { "emoji": "🇧", "valor": "b", "texto": "Caja B" }
+            ],
+            "correcta": "c",
+            "pista": "C supera a A, y A supera a B."
+          }
+        }
+      ]
+    }
+  }
+}

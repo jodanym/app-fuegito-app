@@ -1,0 +1,53 @@
+{
+  "id": "chispas-resolucion-u1-l3",
+  "version": 2,
+  "paquete": "chispas",
+  "habilidad": "resolucion",
+  "objetivo": "Saber qué número sigue",
+  "lectura": { "dosis": "palabra", "texto": "Número." },
+  "personaje": "fueguito",
+  "recompensa": "medalla_numeros",
+  "modos": {
+    "interactivo": {
+      "gancho": "Contamos en orden. ¿Qué número sigue?",
+      "retos": [
+        {
+          "tipo": "patron_visual",
+          "enunciado": "1, 2, ... ¿qué sigue?",
+          "datos": {
+            "secuencia": ["1️⃣", "2️⃣", "❓"],
+            "opciones": [
+              { "emoji": "3️⃣", "valor": "tres", "texto": "3" },
+              { "emoji": "5️⃣", "valor": "cinco", "texto": "5" }
+            ],
+            "correcta": "tres"
+          }
+        },
+        {
+          "tipo": "patron_visual",
+          "enunciado": "2, 3, ... ¿qué sigue?",
+          "datos": {
+            "secuencia": ["2️⃣", "3️⃣", "❓"],
+            "opciones": [
+              { "emoji": "4️⃣", "valor": "cuatro", "texto": "4" },
+              { "emoji": "1️⃣", "valor": "uno", "texto": "1" }
+            ],
+            "correcta": "cuatro"
+          }
+        },
+        {
+          "tipo": "patron_visual",
+          "enunciado": "3, 4, ... ¿qué sigue?",
+          "datos": {
+            "secuencia": ["3️⃣", "4️⃣", "❓"],
+            "opciones": [
+              { "emoji": "5️⃣", "valor": "cinco", "texto": "5" },
+              { "emoji": "2️⃣", "valor": "dos", "texto": "2" }
+            ],
+            "correcta": "cinco"
+          }
+        }
+      ]
+    }
+  }
+}

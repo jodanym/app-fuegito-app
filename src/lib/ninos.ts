@@ -18,13 +18,20 @@ export async function getNinoActivoId(): Promise<string | null> {
   return c.get(COOKIE_NINO)?.value ?? null;
 }
 
-// Calcula la racha de dias consecutivos con al menos una leccion completada.
-// Recibe fechas ISO (created_at). Si hoy no hay actividad, la racha puede
-// venir de ayer (no se pierde hasta fallar un dia completo).
-export function calcularRacha(fechasISO: string[]): number {
+// Racha de dias consecutivos con al menos una leccion completada, CON el
+// "Escudo de Fueguito": perdona UN dia faltante para no castigar un descuido
+// (estilo Streak Freeze de Duolingo, reduce el abandono). Si se falla un
+// segundo dia, ahi si se corta.
+//   dias        -> numero de la racha
+//   escudoActivo-> true si el escudo aun esta disponible; false si ya se uso
+//                  para salvar la racha (se "recarga" al mantener la racha)
+export function calcularRachaEscudo(
+  fechasISO: string[]
+): { dias: number; escudoActivo: boolean } {
   const dias = new Set(fechasISO.map((f) => f.slice(0, 10)));
   const hoy = new Date();
   let racha = 0;
+  let escudoActivo = true;
   for (let i = 0; ; i++) {
     const d = new Date(hoy);
     d.setUTCDate(hoy.getUTCDate() - i);
@@ -32,10 +39,18 @@ export function calcularRacha(fechasISO: string[]): number {
     if (dias.has(clave)) {
       racha++;
     } else if (i === 0) {
-      continue; // hoy sin actividad: seguimos mirando ayer
+      continue; // hoy aun sin actividad: miramos ayer
+    } else if (escudoActivo) {
+      escudoActivo = false; // el escudo cubre este dia faltante
+      continue;
     } else {
-      break;
+      break; // segundo dia faltante: la racha termina
     }
   }
-  return racha;
+  return { dias: racha, escudoActivo };
+}
+
+// Solo el numero de la racha (usa el mismo calculo con escudo).
+export function calcularRacha(fechasISO: string[]): number {
+  return calcularRachaEscudo(fechasISO).dias;
 }

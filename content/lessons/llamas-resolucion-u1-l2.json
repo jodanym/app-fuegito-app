@@ -1,0 +1,56 @@
+{
+  "id": "llamas-resolucion-u1-l2",
+  "version": 2,
+  "paquete": "llamas",
+  "habilidad": "resolucion",
+  "objetivo": "Resolver problemas de dinero",
+  "lectura": { "dosis": "parrafo", "texto": "Con dinero suele haber dos pasos: cuánto gastas y cuánto te queda." },
+  "personaje": "fueguito",
+  "recompensa": "medalla_moneda",
+  "modos": {
+    "interactivo": {
+      "gancho": "Vamos de compras. Calcula bien para no equivocarte con el dinero.",
+      "retos": [
+        {
+          "tipo": "seleccion",
+          "enunciado": "Compras 3 lápices a $2 cada uno y pagas con $10. ¿Cuánto te devuelven?",
+          "datos": {
+            "opciones": [
+              { "emoji": "4️⃣", "valor": "4", "texto": "$4" },
+              { "emoji": "6️⃣", "valor": "6", "texto": "$6" },
+              { "emoji": "2️⃣", "valor": "2", "texto": "$2" }
+            ],
+            "correcta": "4",
+            "pista": "Primero el costo: 3 × $2 = $6. Luego $10 - $6."
+          }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "Un jugo cuesta $3. Compras 2 jugos. ¿Cuánto pagas en total?",
+          "datos": {
+            "opciones": [
+              { "emoji": "6️⃣", "valor": "6", "texto": "$6" },
+              { "emoji": "5️⃣", "valor": "5", "texto": "$5" },
+              { "emoji": "3️⃣", "valor": "3", "texto": "$3" }
+            ],
+            "correcta": "6",
+            "pista": "$3 dos veces."
+          }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "Tienes $20. Gastas $7 en la mañana y $5 en la tarde. ¿Cuánto te queda?",
+          "datos": {
+            "opciones": [
+              { "emoji": "8️⃣", "valor": "8", "texto": "$8" },
+              { "emoji": "✳️", "valor": "13", "texto": "$13" },
+              { "emoji": "✴️", "valor": "12", "texto": "$12" }
+            ],
+            "correcta": "8",
+            "pista": "Suma lo que gastas ($7 + $5) y réstalo de $20."
+          }
+        }
+      ]
+    }
+  }
+}

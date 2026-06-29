@@ -1,0 +1,56 @@
+{
+  "id": "brasas-resolucion-u2-l2",
+  "version": 2,
+  "paquete": "brasas",
+  "habilidad": "resolucion",
+  "objetivo": "Encadenar pistas para comparar",
+  "lectura": { "dosis": "frase", "texto": "Una pista lleva a la otra." },
+  "personaje": "fueguito",
+  "recompensa": "medalla_podio",
+  "modos": {
+    "interactivo": {
+      "gancho": "Con dos pistas puedes ordenar a tres. Encadénalas con cuidado.",
+      "retos": [
+        {
+          "tipo": "seleccion",
+          "enunciado": "El tren es más rápido que el carro. El carro es más rápido que la bici. ¿Qué es lo MÁS lento?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🚲", "valor": "bici", "texto": "La bici" },
+              { "emoji": "🚗", "valor": "carro", "texto": "El carro" },
+              { "emoji": "🚆", "valor": "tren", "texto": "El tren" }
+            ],
+            "correcta": "bici",
+            "pista": "Ordénalos de más rápido a más lento."
+          }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "Lía tiene más stickers que Max. Max tiene más que Bea. ¿Quién tiene MENOS?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🥉", "valor": "bea", "texto": "Bea" },
+              { "emoji": "🥈", "valor": "max", "texto": "Max" },
+              { "emoji": "🥇", "valor": "lia", "texto": "Lía" }
+            ],
+            "correcta": "bea",
+            "pista": "Bea está debajo de Max, y Max debajo de Lía."
+          }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "La torre verde es más alta que la roja. La roja es más alta que la azul. ¿Cuál es la MÁS alta?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🟩", "valor": "verde", "texto": "La verde" },
+              { "emoji": "🟥", "valor": "roja", "texto": "La roja" },
+              { "emoji": "🟦", "valor": "azul", "texto": "La azul" }
+            ],
+            "correcta": "verde",
+            "pista": "La verde supera a la roja, y la roja a la azul."
+          }
+        }
+      ]
+    }
+  }
+}

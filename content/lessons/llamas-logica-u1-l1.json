@@ -1,0 +1,56 @@
+{
+  "id": "llamas-logica-u1-l1",
+  "version": 2,
+  "paquete": "llamas",
+  "habilidad": "logica",
+  "objetivo": "Razonar con 'si... entonces'",
+  "lectura": { "dosis": "parrafo", "texto": "Si una regla es verdad para todos, también es verdad para cada uno." },
+  "personaje": "acidito",
+  "recompensa": "medalla_deduccion",
+  "modos": {
+    "interactivo": {
+      "gancho": "Soy Acidito. Estos acertijos usan reglas. Si la sigues, la respuesta aparece sola.",
+      "retos": [
+        {
+          "tipo": "seleccion",
+          "enunciado": "Todos los gatos dicen 'miau'. Tom es un gato. ¿Qué dice Tom?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🐱", "valor": "miau", "texto": "Miau" },
+              { "emoji": "🐶", "valor": "guau", "texto": "Guau" },
+              { "emoji": "🐦", "valor": "pio", "texto": "Pío" }
+            ],
+            "correcta": "miau",
+            "pista": "La regla vale para TODOS los gatos."
+          }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "Si llueve, el suelo se moja. Está lloviendo. Entonces el suelo está...",
+          "datos": {
+            "opciones": [
+              { "emoji": "💧", "valor": "mojado", "texto": "Mojado" },
+              { "emoji": "🏜️", "valor": "seco", "texto": "Seco" },
+              { "emoji": "🔥", "valor": "caliente", "texto": "Caliente" }
+            ],
+            "correcta": "mojado",
+            "pista": "Aplica la regla: si llueve → se moja."
+          }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "Ningún pez puede caminar. Nemo es un pez. ¿Nemo puede caminar?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🚫", "valor": "no", "texto": "No, ningún pez camina" },
+              { "emoji": "✅", "valor": "si", "texto": "Sí, puede" },
+              { "emoji": "🤔", "valor": "aveces", "texto": "A veces" }
+            ],
+            "correcta": "no",
+            "pista": "Si NINGÚN pez camina, Nemo tampoco."
+          }
+        }
+      ]
+    }
+  }
+}

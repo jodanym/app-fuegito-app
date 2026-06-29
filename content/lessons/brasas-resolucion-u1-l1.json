@@ -1,44 +1,56 @@
 {
   "id": "brasas-resolucion-u1-l1",
+  "version": 2,
   "paquete": "brasas",
   "habilidad": "resolucion",
-  "objetivo": "Ordenar los pasos de una rutina",
-  "lectura": { "dosis": "frase", "texto": "Cada paso en su orden." },
+  "objetivo": "Ordenar los pasos de una tarea",
+  "lectura": { "dosis": "frase", "texto": "Pienso qué va primero, en medio y al final." },
+  "personaje": "fueguito",
+  "recompensa": "medalla_plan",
   "modos": {
     "interactivo": {
-      "gancho": "Fueguito se va a dormir, pero todo está desordenado. Ayúdalo con los pasos.",
+      "gancho": "¡Hola! Soy Fueguito. Toda tarea tiene un orden. Vamos a descubrir qué paso va en cada momento.",
       "retos": [
         {
-          "tipo": "ordenar_secuencia",
-          "enunciado": "Ordena los pasos para lavarse los dientes.",
-          "datos": { "elementos": ["enjuagar", "poner_pasta", "cepillar"], "orden_correcto": ["poner_pasta", "cepillar", "enjuagar"] }
+          "tipo": "seleccion",
+          "enunciado": "Para plantar una semilla, ¿qué haces PRIMERO?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🕳️", "valor": "hueco", "texto": "Hacer un hueco en la tierra" },
+              { "emoji": "💧", "valor": "regar", "texto": "Regar con agua" },
+              { "emoji": "🌱", "valor": "crecer", "texto": "Ver crecer la planta" }
+            ],
+            "correcta": "hueco",
+            "pista": "Antes de regar, ¿dónde pones la semilla?"
+          }
         },
         {
           "tipo": "seleccion",
-          "enunciado": "Para hacer un sándwich, ¿qué va primero?",
-          "datos": { "opciones": ["sacar el pan", "morderlo"], "correcta": "sacar el pan" }
+          "enunciado": "Para hacer un dibujo y colgarlo, ¿qué va de ÚLTIMO?",
+          "datos": {
+            "opciones": [
+              { "emoji": "📌", "valor": "colgar", "texto": "Colgar el dibujo" },
+              { "emoji": "✏️", "valor": "dibujar", "texto": "Dibujar las líneas" },
+              { "emoji": "🎨", "valor": "pintar", "texto": "Pintar los colores" }
+            ],
+            "correcta": "colgar",
+            "pista": "Solo cuelgas el dibujo cuando ya está terminado."
+          }
         },
         {
-          "tipo": "ordenar_secuencia",
-          "enunciado": "Ordena para vestirte: primero, después, al final.",
-          "datos": { "elementos": ["zapatos", "calcetines", "pantalón"], "orden_correcto": ["pantalón", "calcetines", "zapatos"] }
+          "tipo": "seleccion",
+          "enunciado": "Para preparar un sándwich, ¿qué va en el MEDIO?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🧀", "valor": "queso", "texto": "Poner el queso" },
+              { "emoji": "🍞", "valor": "pan", "texto": "Sacar el pan" },
+              { "emoji": "🍽️", "valor": "comer", "texto": "Comerlo" }
+            ],
+            "correcta": "queso",
+            "pista": "Primero el pan, al final comer... ¿y en medio?"
+          }
         }
       ]
-    },
-    "audio_narrativo": {
-      "gancho_audio": "brasas/resolucion/u1l1/gancho.mp3",
-      "retos": [
-        { "tipo": "respuesta_voz", "enunciado": "Di el primer paso para preparar tu mochila.", "datos": { "audio": "brasas/resolucion/u1l1/reto.mp3", "respuesta_esperada": "abrir la mochila" } }
-      ]
-    },
-    "manual": {
-      "instruccion": "Dibuja en 3 cuadros los pasos de tu mañana: levantarte, desayunar, salir.",
-      "ficha_pdf": "brasas/resolucion/u1l1/ficha.pdf",
-      "retos": [
-        { "tipo": "manual_autoconfirmado", "enunciado": "Dibuja tus 3 pasos en orden y marca cuando termines.", "datos": { "confirmacion": "adulto" } }
-      ]
     }
-  },
-  "personaje": "fueguito",
-  "recompensa": "medalla_pasos"
+  }
 }

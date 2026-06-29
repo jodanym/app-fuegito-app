@@ -1,0 +1,43 @@
+{
+  "id": "brasas-critica-u2-l1",
+  "version": 2,
+  "paquete": "brasas",
+  "habilidad": "critica",
+  "objetivo": "Separar hechos de opiniones con cuidado",
+  "lectura": { "dosis": "frase", "texto": "Un hecho lo comprueba cualquiera; una opinión es un gusto." },
+  "personaje": "desconocido",
+  "recompensa": "medalla_juez",
+  "modos": {
+    "interactivo": {
+      "gancho": "Algunas frases parecen verdad pero solo son gustos. Sepáralas bien.",
+      "retos": [
+        {
+          "tipo": "clasificar",
+          "enunciado": "¿Hecho u opinión?",
+          "datos": {
+            "items": [
+              { "emoji": "🍋", "texto": "El limón es agrio", "categoria": "hecho" },
+              { "emoji": "🤢", "texto": "El limón es asqueroso", "categoria": "opinion" },
+              { "emoji": "🌈", "texto": "El arcoíris tiene varios colores", "categoria": "hecho" },
+              { "emoji": "☀️", "texto": "El verano es la mejor época", "categoria": "opinion" }
+            ],
+            "categorias": ["hecho", "opinion"]
+          }
+        },
+        {
+          "tipo": "clasificar",
+          "enunciado": "Más difícil: ¿hecho u opinión?",
+          "datos": {
+            "items": [
+              { "emoji": "🐧", "texto": "Los pingüinos no vuelan", "categoria": "hecho" },
+              { "emoji": "🥰", "texto": "Los pingüinos son los más tiernos", "categoria": "opinion" },
+              { "emoji": "🧊", "texto": "El hielo es agua congelada", "categoria": "hecho" },
+              { "emoji": "🏊", "texto": "Nadar es mejor que correr", "categoria": "opinion" }
+            ],
+            "categorias": ["hecho", "opinion"]
+          }
+        }
+      ]
+    }
+  }
+}

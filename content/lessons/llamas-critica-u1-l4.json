@@ -1,0 +1,56 @@
+{
+  "id": "llamas-critica-u1-l4",
+  "version": 2,
+  "paquete": "llamas",
+  "habilidad": "critica",
+  "objetivo": "Sacar la conclusión correcta",
+  "lectura": { "dosis": "parrafo", "texto": "Con las pistas correctas puedes saber qué pasó, aunque no lo hayas visto." },
+  "personaje": "desconocido",
+  "recompensa": "medalla_detective",
+  "modos": {
+    "interactivo": {
+      "gancho": "Reto final: lee las pistas y deduce qué ocurrió de verdad.",
+      "retos": [
+        {
+          "tipo": "seleccion",
+          "enunciado": "Lola llegó con el paraguas chorreando y las botas llenas de barro. ¿Qué pasó afuera?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🌧️", "valor": "lluvia", "texto": "Estuvo lloviendo" },
+              { "emoji": "☀️", "valor": "sol", "texto": "Hizo mucho sol" },
+              { "emoji": "🍃", "valor": "viento", "texto": "Solo hizo viento" }
+            ],
+            "correcta": "lluvia",
+            "pista": "Paraguas mojado + barro = ¿qué clima?"
+          }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "La cocina huele a pan recién hecho y el horno todavía está caliente. ¿Qué pasó?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🍞", "valor": "horneo", "texto": "Alguien horneó pan" },
+              { "emoji": "🧊", "valor": "nada", "texto": "Nadie usó la cocina" },
+              { "emoji": "🥗", "valor": "ensalada", "texto": "Alguien hizo una ensalada fría" }
+            ],
+            "correcta": "horneo",
+            "pista": "Olor a pan + horno caliente."
+          }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "Las plantas del parque están secas y no llueve desde hace semanas. ¿Por qué se secaron?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🏜️", "valor": "agua", "texto": "Les faltó agua" },
+              { "emoji": "🌊", "valor": "mucha", "texto": "Recibieron demasiada agua" },
+              { "emoji": "🌙", "valor": "luna", "texto": "Por la luz de la luna" }
+            ],
+            "correcta": "agua",
+            "pista": "Sin lluvia por semanas, ¿qué les faltó?"
+          }
+        }
+      ]
+    }
+  }
+}

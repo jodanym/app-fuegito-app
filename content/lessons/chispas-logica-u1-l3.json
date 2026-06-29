@@ -1,0 +1,41 @@
+{
+  "id": "chispas-logica-u1-l3",
+  "version": 2,
+  "paquete": "chispas",
+  "habilidad": "logica",
+  "objetivo": "Poner cada cosa en su grupo",
+  "lectura": { "dosis": "palabra", "texto": "Grupo." },
+  "personaje": "acidito",
+  "recompensa": "medalla_grupos",
+  "modos": {
+    "interactivo": {
+      "gancho": "Ayúdame: ¿es fruta o es animal? Toca su grupo.",
+      "retos": [
+        {
+          "tipo": "clasificar",
+          "enunciado": "¿Fruta o animal?",
+          "datos": {
+            "items": [
+              { "emoji": "🍎", "texto": "manzana", "categoria": "fruta" },
+              { "emoji": "🐶", "texto": "perro", "categoria": "animal" },
+              { "emoji": "🍌", "texto": "banana", "categoria": "fruta" }
+            ],
+            "categorias": ["fruta", "animal"]
+          }
+        },
+        {
+          "tipo": "clasificar",
+          "enunciado": "¿De día o de noche?",
+          "datos": {
+            "items": [
+              { "emoji": "☀️", "texto": "sol", "categoria": "dia" },
+              { "emoji": "🌙", "texto": "luna", "categoria": "noche" },
+              { "emoji": "⭐", "texto": "estrellas", "categoria": "noche" }
+            ],
+            "categorias": ["dia", "noche"]
+          }
+        }
+      ]
+    }
+  }
+}

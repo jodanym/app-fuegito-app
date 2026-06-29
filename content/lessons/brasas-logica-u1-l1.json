@@ -3,67 +3,54 @@
   "version": 2,
   "paquete": "brasas",
   "habilidad": "logica",
-  "objetivo": "Descubrir patrones, diferencias y relaciones",
-  "lectura": { "dosis": "frase", "texto": "Pienso antes de responder." },
+  "objetivo": "Descubrir patrones que se repiten",
+  "lectura": { "dosis": "frase", "texto": "Miro el patrón y descubro la regla." },
   "personaje": "desconocido",
-  "recompensa": "medalla_detective",
+  "recompensa": "medalla_patron",
   "modos": {
     "interactivo": {
-      "gancho": "¡Hola! Soy Desconocido. Escondí cuatro acertijos. ¿Me ayudas a resolverlos?",
+      "gancho": "Soy Desconocido. Cada patrón esconde una regla secreta. Descúbrela y dime qué sigue.",
       "retos": [
         {
           "tipo": "patron_visual",
-          "enunciado": "¿Qué figura sigue en el patrón?",
+          "enunciado": "Patrón ABAB: ¿qué figura sigue?",
           "datos": {
-            "secuencia": ["🔴", "🔵", "🔴", "🔵", "❓"],
+            "secuencia": ["🔺", "🔵", "🔺", "🔵", "❓"],
             "opciones": [
-              { "emoji": "🔴", "valor": "rojo", "texto": "Rojo" },
+              { "emoji": "🔺", "valor": "triangulo", "texto": "Triángulo" },
+              { "emoji": "🔵", "valor": "circulo", "texto": "Círculo" },
+              { "emoji": "🟩", "valor": "cuadrado", "texto": "Cuadrado" }
+            ],
+            "correcta": "triangulo",
+            "pista": "Se turnan de uno en uno."
+          }
+        },
+        {
+          "tipo": "patron_visual",
+          "enunciado": "Patrón AAB: mira con cuidado, ¿qué sigue?",
+          "datos": {
+            "secuencia": ["🟢", "🟢", "🟡", "🟢", "🟢", "❓"],
+            "opciones": [
+              { "emoji": "🟢", "valor": "verde", "texto": "Verde" },
+              { "emoji": "🟡", "valor": "amarillo", "texto": "Amarillo" },
+              { "emoji": "🔴", "valor": "rojo", "texto": "Rojo" }
+            ],
+            "correcta": "amarillo",
+            "pista": "Dos verdes y un amarillo, una y otra vez."
+          }
+        },
+        {
+          "tipo": "patron_visual",
+          "enunciado": "Patrón ABB: el más difícil. ¿Qué sigue?",
+          "datos": {
+            "secuencia": ["🔵", "🔴", "🔴", "🔵", "🔴", "🔴", "❓"],
+            "opciones": [
               { "emoji": "🔵", "valor": "azul", "texto": "Azul" },
-              { "emoji": "🟡", "valor": "amarillo", "texto": "Amarillo" }
+              { "emoji": "🔴", "valor": "rojo", "texto": "Rojo" },
+              { "emoji": "🟣", "valor": "morado", "texto": "Morado" }
             ],
-            "correcta": "rojo"
-          }
-        },
-        {
-          "tipo": "cual_no_encaja",
-          "enunciado": "¿Cuál NO encaja con los demás?",
-          "datos": {
-            "opciones": [
-              { "emoji": "🐶", "valor": "perro", "texto": "Perro" },
-              { "emoji": "🐱", "valor": "gato", "texto": "Gato" },
-              { "emoji": "🚗", "valor": "carro", "texto": "Carro" },
-              { "emoji": "🐰", "valor": "conejo", "texto": "Conejo" }
-            ],
-            "correcta": "carro",
-            "pista": "Tres son animales y uno no."
-          }
-        },
-        {
-          "tipo": "analogia",
-          "enunciado": "El pájaro vuela en el cielo; el pez nada en el...",
-          "datos": {
-            "par1": { "a": "🐦", "b": "☁️" },
-            "par2": { "a": "🐟", "b": "❓" },
-            "opciones": [
-              { "emoji": "💧", "valor": "agua", "texto": "Agua" },
-              { "emoji": "🔥", "valor": "fuego", "texto": "Fuego" },
-              { "emoji": "🌳", "valor": "arbol", "texto": "Árbol" }
-            ],
-            "correcta": "agua",
-            "pista": "¿Dónde vive el pez?"
-          }
-        },
-        {
-          "tipo": "clasificar",
-          "enunciado": "Pon cada cosa en su grupo.",
-          "datos": {
-            "items": [
-              { "emoji": "🍎", "texto": "manzana", "categoria": "fruta" },
-              { "emoji": "🐶", "texto": "perro", "categoria": "animal" },
-              { "emoji": "🍌", "texto": "banana", "categoria": "fruta" },
-              { "emoji": "🐱", "texto": "gato", "categoria": "animal" }
-            ],
-            "categorias": ["fruta", "animal"]
+            "correcta": "azul",
+            "pista": "Un azul y dos rojos forman cada grupo."
           }
         }
       ]

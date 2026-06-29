@@ -1,0 +1,53 @@
+{
+  "id": "chispas-resolucion-u1-l2",
+  "version": 2,
+  "paquete": "chispas",
+  "habilidad": "resolucion",
+  "objetivo": "Contar cuántos hay",
+  "lectura": { "dosis": "palabra", "texto": "Cuenta." },
+  "personaje": "fueguito",
+  "recompensa": "medalla_contar",
+  "modos": {
+    "interactivo": {
+      "gancho": "Cuenta conmigo. ¿Cuántos hay?",
+      "retos": [
+        {
+          "tipo": "seleccion",
+          "enunciado": "🍎🍎 ¿Cuántas manzanas hay?",
+          "datos": {
+            "opciones": [
+              { "emoji": "2️⃣", "valor": "dos", "texto": "2" },
+              { "emoji": "3️⃣", "valor": "tres", "texto": "3" },
+              { "emoji": "1️⃣", "valor": "uno", "texto": "1" }
+            ],
+            "correcta": "dos"
+          }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "⭐⭐⭐ ¿Cuántas estrellas hay?",
+          "datos": {
+            "opciones": [
+              { "emoji": "3️⃣", "valor": "tres", "texto": "3" },
+              { "emoji": "2️⃣", "valor": "dos", "texto": "2" },
+              { "emoji": "4️⃣", "valor": "cuatro", "texto": "4" }
+            ],
+            "correcta": "tres"
+          }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "🐶 ¿Cuántos perritos hay?",
+          "datos": {
+            "opciones": [
+              { "emoji": "1️⃣", "valor": "uno", "texto": "1" },
+              { "emoji": "2️⃣", "valor": "dos", "texto": "2" },
+              { "emoji": "3️⃣", "valor": "tres", "texto": "3" }
+            ],
+            "correcta": "uno"
+          }
+        }
+      ]
+    }
+  }
+}

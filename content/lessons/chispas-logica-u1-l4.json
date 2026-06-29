@@ -1,0 +1,53 @@
+{
+  "id": "chispas-logica-u1-l4",
+  "version": 2,
+  "paquete": "chispas",
+  "habilidad": "logica",
+  "objetivo": "Descubrir cuál no es animal",
+  "lectura": { "dosis": "palabra", "texto": "Animal." },
+  "personaje": "acidito",
+  "recompensa": "medalla_intruso",
+  "modos": {
+    "interactivo": {
+      "gancho": "Uno de estos no es un animalito. ¿Cuál?",
+      "retos": [
+        {
+          "tipo": "cual_no_encaja",
+          "enunciado": "¿Cuál NO es un animal?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🐶", "valor": "perro", "texto": "Perro" },
+              { "emoji": "🐱", "valor": "gato", "texto": "Gato" },
+              { "emoji": "🚗", "valor": "carro", "texto": "Carro" }
+            ],
+            "correcta": "carro"
+          }
+        },
+        {
+          "tipo": "cual_no_encaja",
+          "enunciado": "¿Cuál NO es un animal?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🐰", "valor": "conejo", "texto": "Conejo" },
+              { "emoji": "🍎", "valor": "manzana", "texto": "Manzana" },
+              { "emoji": "🐦", "valor": "pajaro", "texto": "Pájaro" }
+            ],
+            "correcta": "manzana"
+          }
+        },
+        {
+          "tipo": "cual_no_encaja",
+          "enunciado": "¿Cuál NO es un animal?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🐠", "valor": "pez", "texto": "Pez" },
+              { "emoji": "🎈", "valor": "globo", "texto": "Globo" },
+              { "emoji": "🐢", "valor": "tortuga", "texto": "Tortuga" }
+            ],
+            "correcta": "globo"
+          }
+        }
+      ]
+    }
+  }
+}

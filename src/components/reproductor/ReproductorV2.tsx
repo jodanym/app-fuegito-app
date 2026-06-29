@@ -15,6 +15,8 @@ import type { Leccion, ModoLeccion, Reto } from "@/lib/lessons/schema";
 import { PERSONAJES } from "@/lib/lessons/personajes";
 import BotonAudio, { hablar } from "@/components/audio/BotonAudio";
 import { guardarProgreso } from "@/app/actions/progreso";
+import Confeti from "@/components/ui/Confeti";
+import { sonarAcierto, sonarLogro } from "@/lib/ui/celebracion";
 
 interface Opcion {
   emoji: string;
@@ -28,9 +30,11 @@ const ORDEN: Paso[] = ["gancho", "retos", "lectura", "recompensa"];
 export default function ReproductorV2({
   leccion,
   modoNombre,
+  medalla = null,
 }: {
   leccion: Leccion;
   modoNombre: ModoLeccion;
+  medalla?: string | null;
 }) {
   const personaje = PERSONAJES[leccion.personaje];
   const retos = useMemo(
@@ -81,12 +85,12 @@ export default function ReproductorV2({
     paso === "gancho" ? 0 : paso === "retos" ? 1 + retoIdx : paso === "lectura" ? 1 + retos.length : totalSegmentos;
 
   return (
-    <main className="flex min-h-screen flex-col items-center bg-orange-50 px-4 py-6">
+    <main className="flex min-h-screen flex-col items-center bg-papel px-4 py-6">
       <div className="mb-6 flex w-full max-w-lg gap-1.5">
         {Array.from({ length: totalSegmentos }).map((_, i) => (
           <div
             key={i}
-            className={`h-2 flex-1 rounded-full ${i <= segmentoActual ? "bg-orange-500" : "bg-orange-200"}`}
+            className={`h-2.5 flex-1 rounded-full ${i <= segmentoActual ? "bg-fuego" : "bg-chispa/30"}`}
           />
         ))}
       </div>
@@ -94,7 +98,7 @@ export default function ReproductorV2({
       <div className="w-full max-w-lg rounded-3xl bg-white p-6 shadow-lg">
         {paso === "gancho" && (
           <div className="text-center">
-            <span className="inline-block rounded-full bg-orange-100 px-4 py-1 text-sm font-bold uppercase tracking-wide text-orange-600">
+            <span className="inline-block rounded-full bg-chispa/25 px-4 py-1 text-sm font-bold uppercase tracking-wide text-llama">
               🎯 Tu misión
             </span>
             <Image
@@ -106,12 +110,12 @@ export default function ReproductorV2({
               priority
             />
             <div className="mt-3 flex items-center justify-center gap-2">
-              <p className="text-xl font-medium text-gray-800">{gancho}</p>
+              <p className="text-xl font-medium text-carbon">{gancho}</p>
               <BotonAudio texto={gancho} personaje={leccion.personaje} />
             </div>
             <button
               onClick={avanzar}
-              className="mt-6 w-full rounded-2xl bg-orange-500 px-6 py-4 text-lg font-bold text-white transition hover:bg-orange-600 active:scale-[0.98]"
+              className="mt-6 w-full rounded-2xl bg-fuego px-6 py-4 text-lg font-bold text-white transition hover:bg-llama active:scale-[0.98]"
             >
               ¡Vamos! 🔥
             </button>
@@ -143,6 +147,7 @@ export default function ReproductorV2({
             personaje={personaje}
             personajeId={leccion.personaje}
             recompensa={leccion.recompensa}
+            medalla={medalla}
             buenos={buenos}
             total={retos.length}
           />
@@ -182,6 +187,7 @@ function RetoVisual({
 
   function acertar() {
     setEstado("bien");
+    sonarAcierto();
     hablar("¡Correcto!", personaje);
   }
   function fallar() {
@@ -191,11 +197,11 @@ function RetoVisual({
 
   return (
     <div>
-      <p className="mb-1 text-sm font-semibold text-orange-400">
+      <p className="mb-1 text-sm font-bold text-fuego/70">
         Reto {numero} de {total}
       </p>
       <div className="mb-5 flex items-start gap-2">
-        <p className="text-lg font-medium text-gray-800">{reto.enunciado}</p>
+        <p className="text-lg font-medium text-carbon">{reto.enunciado}</p>
         <BotonAudio texto={reto.enunciado} personaje={personaje} />
       </div>
 
@@ -203,20 +209,21 @@ function RetoVisual({
         <>
           <Interaccion reto={reto} onAcierto={acertar} onError={fallar} />
           {aviso && (
-            <p className="mt-4 text-center text-sm font-medium text-amber-600">{aviso}</p>
+            <p className="mt-4 text-center text-sm font-bold text-fuego">{aviso}</p>
           )}
         </>
       )}
 
       {estado === "bien" && (
-        <div className="text-center">
-          <div className="rounded-2xl bg-green-50 p-4 text-green-700">
+        <div className="relative text-center">
+          <Confeti />
+          <div className="rounded-2xl bg-resolucion/10 p-4 text-resolucion">
             <p className="text-2xl font-bold">¡Correcto! ✅</p>
-            <p className="mt-1 text-sm">{celebra}</p>
+            <p className="mt-1 text-sm text-carbon/70">{celebra}</p>
           </div>
           <button
             onClick={() => onResuelto(!huboError)}
-            className="mt-6 w-full rounded-2xl bg-orange-500 px-6 py-4 text-lg font-bold text-white transition hover:bg-orange-600"
+            className="mt-6 w-full rounded-2xl bg-fuego px-6 py-4 text-lg font-bold text-white transition hover:bg-llama"
           >
             Siguiente
           </button>
@@ -306,12 +313,12 @@ function PatronVisual({
 }) {
   return (
     <div>
-      <div className="mb-5 flex flex-wrap items-center justify-center gap-2 rounded-2xl bg-orange-50 p-4">
+      <div className="mb-5 flex flex-wrap items-center justify-center gap-2 rounded-2xl bg-papel p-4">
         {secuencia.map((s, i) => (
           <span
             key={i}
             className={`flex h-14 w-14 items-center justify-center rounded-xl text-3xl ${
-              s === "❓" ? "border-2 border-dashed border-orange-400 bg-white" : "bg-white shadow-sm"
+              s === "❓" ? "border-2 border-dashed border-fuego bg-white" : "bg-white shadow-sm"
             }`}
           >
             {s}
@@ -353,12 +360,12 @@ function Opciones({
           onClick={() => elegir(op)}
           className={`flex flex-col items-center gap-1 rounded-2xl border-2 px-3 py-4 transition active:scale-95 ${
             errada === op.valor
-              ? "border-amber-400 bg-amber-50"
-              : "border-orange-200 bg-white hover:border-orange-400 hover:bg-orange-50"
+              ? "border-fuego bg-chispa/25"
+              : "border-chispa bg-white hover:border-fuego hover:bg-papel"
           }`}
         >
           <span className="text-4xl">{op.emoji}</span>
-          <span className="text-sm font-semibold text-gray-700">{op.texto ?? bonito(op.valor)}</span>
+          <span className="text-sm font-semibold text-carbon/80">{op.texto ?? bonito(op.valor)}</span>
         </button>
       ))}
     </div>
@@ -383,13 +390,13 @@ function Analogia({
 }) {
   return (
     <div>
-      <div className="mb-5 space-y-3 rounded-2xl bg-orange-50 p-4">
+      <div className="mb-5 space-y-3 rounded-2xl bg-papel p-4">
         <div className="flex items-center justify-center gap-3 text-3xl">
-          <span>{par1.a}</span> <span className="text-orange-400">→</span> <span>{par1.b}</span>
+          <span>{par1.a}</span> <span className="text-fuego/70">→</span> <span>{par1.b}</span>
         </div>
         <div className="flex items-center justify-center gap-3 text-3xl">
-          <span>{par2.a}</span> <span className="text-orange-400">→</span>
-          <span className="flex h-12 w-12 items-center justify-center rounded-xl border-2 border-dashed border-orange-400 bg-white text-orange-500">
+          <span>{par2.a}</span> <span className="text-fuego/70">→</span>
+          <span className="flex h-12 w-12 items-center justify-center rounded-xl border-2 border-dashed border-fuego bg-white text-fuego">
             ❓
           </span>
         </div>
@@ -423,10 +430,10 @@ function Clasificar({
   return (
     <div className="space-y-3">
       {items.map((it, i) => (
-        <div key={i} className="flex items-center justify-between rounded-2xl border border-orange-100 p-3">
+        <div key={i} className="flex items-center justify-between rounded-2xl border border-chispa/50 p-3">
           <span className="flex items-center gap-2 text-lg">
             <span className="text-3xl">{it.emoji}</span>
-            <span className="font-medium text-gray-800">{bonito(it.texto)}</span>
+            <span className="font-medium text-carbon">{bonito(it.texto)}</span>
           </span>
           <div className="flex gap-2">
             {categorias.map((cat) => (
@@ -435,8 +442,8 @@ function Clasificar({
                 onClick={() => setAsign((a) => ({ ...a, [i]: cat }))}
                 className={`rounded-xl border-2 px-3 py-2 text-sm font-semibold transition ${
                   asign[i] === cat
-                    ? "border-orange-500 bg-orange-500 text-white"
-                    : "border-orange-200 bg-white text-gray-700 hover:bg-orange-50"
+                    ? "border-fuego bg-fuego text-white"
+                    : "border-chispa bg-white text-carbon/80 hover:bg-papel"
                 }`}
               >
                 {bonito(cat)}
@@ -448,7 +455,7 @@ function Clasificar({
       <button
         onClick={comprobar}
         disabled={!completo}
-        className="mt-2 w-full rounded-2xl bg-orange-500 px-6 py-4 text-lg font-bold text-white transition hover:bg-orange-600 disabled:opacity-40"
+        className="mt-2 w-full rounded-2xl bg-fuego px-6 py-4 text-lg font-bold text-white transition hover:bg-llama disabled:opacity-40"
       >
         Comprobar
       </button>
@@ -468,10 +475,10 @@ function Lectura({
 }) {
   return (
     <div className="text-center">
-      <p className="text-sm font-semibold uppercase tracking-wide text-orange-400">
+      <p className="text-sm font-bold uppercase tracking-wide text-fuego/70">
         Escucha y lee
       </p>
-      <p className="mt-4 rounded-2xl bg-orange-50 px-4 py-6 text-2xl font-bold text-gray-800">
+      <p className="mt-4 rounded-2xl bg-papel px-4 py-6 text-2xl font-bold text-carbon">
         {texto}
       </p>
       <div className="mt-3 flex justify-center">
@@ -479,7 +486,7 @@ function Lectura({
       </div>
       <button
         onClick={onNext}
-        className="mt-6 w-full rounded-2xl bg-orange-500 px-6 py-4 text-lg font-bold text-white transition hover:bg-orange-600"
+        className="mt-6 w-full rounded-2xl bg-fuego px-6 py-4 text-lg font-bold text-white transition hover:bg-llama"
       >
         Continuar
       </button>
@@ -492,22 +499,26 @@ function Recompensa({
   personaje,
   personajeId,
   recompensa,
+  medalla,
   buenos,
   total,
 }: {
   personaje: (typeof PERSONAJES)[keyof typeof PERSONAJES];
   personajeId: import("@/lib/lessons/schema").Personaje;
   recompensa: string;
+  medalla?: string | null;
   buenos: number;
   total: number;
 }) {
   useEffect(() => {
+    sonarLogro();
     const t = setTimeout(() => hablar(personaje.celebra, personajeId), 300);
     return () => clearTimeout(t);
   }, [personaje.celebra, personajeId]);
 
   return (
-    <div className="text-center">
+    <div className="relative text-center">
+      <Confeti cantidad={44} />
       <Image
         src={personaje.imagen}
         alt={personaje.nombre}
@@ -515,20 +526,30 @@ function Recompensa({
         height={140}
         className="mx-auto h-36 w-36 object-contain"
       />
-      <p className="mt-2 text-2xl font-extrabold text-orange-600">¡Lo lograste! 🎉</p>
-      <p className="mt-1 text-gray-600">{personaje.celebra}</p>
-      <div className="mt-5 rounded-2xl bg-orange-50 p-4">
-        <p className="text-sm text-gray-500">Ganaste la medalla</p>
-        <p className="text-lg font-bold text-orange-600">
-          🏅 {bonito(recompensa.replace(/^medalla_/, ""))}
+      <p className="mt-2 text-2xl font-extrabold text-llama">¡Lo lograste! 🎉</p>
+      <p className="mt-1 text-carbon/70">{personaje.celebra}</p>
+      <div className="mt-5 rounded-2xl bg-papel p-4">
+        <p className="text-sm text-carbon/60">Ganaste la medalla</p>
+        {medalla ? (
+          <Image
+            src={medalla}
+            alt={bonito(recompensa.replace(/^medalla_/, ""))}
+            width={96}
+            height={96}
+            className="mx-auto mt-1 h-20 w-20 object-contain"
+          />
+        ) : null}
+        <p className="text-lg font-bold text-llama">
+          {medalla ? "" : "🏅 "}
+          {bonito(recompensa.replace(/^medalla_/, ""))}
         </p>
-        <p className="mt-2 text-sm text-gray-500">
+        <p className="mt-2 text-sm text-carbon/60">
           Aciertos al primer intento: {buenos} de {total}
         </p>
       </div>
       <Link
         href="/jugar"
-        className="mt-6 block w-full rounded-2xl bg-orange-500 px-6 py-4 text-lg font-bold text-white transition hover:bg-orange-600"
+        className="mt-6 block w-full rounded-2xl bg-fuego px-6 py-4 text-lg font-bold text-white transition hover:bg-llama"
       >
         Volver al mapa
       </Link>

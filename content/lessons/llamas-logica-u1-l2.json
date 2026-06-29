@@ -1,0 +1,56 @@
+{
+  "id": "llamas-logica-u1-l2",
+  "version": 2,
+  "paquete": "llamas",
+  "habilidad": "logica",
+  "objetivo": "Descubrir reglas de secuencias difíciles",
+  "lectura": { "dosis": "parrafo", "texto": "No todas las secuencias suben de uno en uno. Busca la regla escondida." },
+  "personaje": "acidito",
+  "recompensa": "medalla_secuencia",
+  "modos": {
+    "interactivo": {
+      "gancho": "Estas secuencias tienen trampa. Descubre la regla para saber qué sigue.",
+      "retos": [
+        {
+          "tipo": "seleccion",
+          "enunciado": "2, 4, 8, 16, ... ¿qué número sigue?",
+          "datos": {
+            "opciones": [
+              { "emoji": "✳️", "valor": "32", "texto": "32" },
+              { "emoji": "✴️", "valor": "24", "texto": "24" },
+              { "emoji": "❇️", "valor": "20", "texto": "20" }
+            ],
+            "correcta": "32",
+            "pista": "Cada número es el doble del anterior."
+          }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "1, 3, 5, 7, ... ¿qué número sigue?",
+          "datos": {
+            "opciones": [
+              { "emoji": "9️⃣", "valor": "9", "texto": "9" },
+              { "emoji": "8️⃣", "valor": "8", "texto": "8" },
+              { "emoji": "🔟", "valor": "10", "texto": "10" }
+            ],
+            "correcta": "9",
+            "pista": "Son los números impares: saltan de 2 en 2."
+          }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "1, 4, 9, 16, ... ¿qué número sigue?",
+          "datos": {
+            "opciones": [
+              { "emoji": "✳️", "valor": "25", "texto": "25" },
+              { "emoji": "✴️", "valor": "20", "texto": "20" },
+              { "emoji": "❇️", "valor": "24", "texto": "24" }
+            ],
+            "correcta": "25",
+            "pista": "1×1, 2×2, 3×3, 4×4... sigue 5×5."
+          }
+        }
+      ]
+    }
+  }
+}

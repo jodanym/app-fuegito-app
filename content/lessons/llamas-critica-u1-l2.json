@@ -1,0 +1,56 @@
+{
+  "id": "llamas-critica-u1-l2",
+  "version": 2,
+  "paquete": "llamas",
+  "habilidad": "critica",
+  "objetivo": "Elegir la evidencia que prueba algo",
+  "lectura": { "dosis": "parrafo", "texto": "Una buena prueba se puede ver o medir. Lo que solo es un gusto no prueba nada." },
+  "personaje": "desconocido",
+  "recompensa": "medalla_prueba",
+  "modos": {
+    "interactivo": {
+      "gancho": "Un buen detective no adivina: busca pruebas. ¿Cuál prueba de verdad?",
+      "retos": [
+        {
+          "tipo": "seleccion",
+          "enunciado": "Afirmación: 'Anoche llovió.' ¿Qué lo prueba?",
+          "datos": {
+            "opciones": [
+              { "emoji": "💧", "valor": "charcos", "texto": "Hay charcos y el suelo está mojado" },
+              { "emoji": "☀️", "valor": "sol", "texto": "Ahora mismo hace sol" },
+              { "emoji": "❤️", "valor": "gusta", "texto": "A mí me gusta la lluvia" }
+            ],
+            "correcta": "charcos",
+            "pista": "Busca algo que se pueda ver y que la lluvia haya dejado."
+          }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "Afirmación: 'Alguien se comió las galletas.' ¿Qué pista lo prueba?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🍪", "valor": "migas", "texto": "El frasco está vacío y hay migas" },
+              { "emoji": "🕐", "valor": "tarde", "texto": "Ya es de tarde" },
+              { "emoji": "😋", "valor": "ricas", "texto": "Las galletas son muy ricas" }
+            ],
+            "correcta": "migas",
+            "pista": "¿Qué rastro deja comerse las galletas?"
+          }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "Afirmación: 'El perro salió al jardín.' ¿Qué lo prueba?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🐾", "valor": "huellas", "texto": "Hay huellas de patas en el barro" },
+              { "emoji": "🟤", "valor": "color", "texto": "El perro es de color café" },
+              { "emoji": "🌡️", "valor": "calor", "texto": "Hoy hace calor" }
+            ],
+            "correcta": "huellas",
+            "pista": "¿Qué deja el perro al caminar en el barro?"
+          }
+        }
+      ]
+    }
+  }
+}

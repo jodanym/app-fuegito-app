@@ -1,0 +1,53 @@
+{
+  "id": "chispas-logica-u1-l1",
+  "version": 2,
+  "paquete": "chispas",
+  "habilidad": "logica",
+  "objetivo": "Encontrar el que es diferente",
+  "lectura": { "dosis": "palabra", "texto": "Diferente." },
+  "personaje": "acidito",
+  "recompensa": "medalla_ojo",
+  "modos": {
+    "interactivo": {
+      "gancho": "¡Hola! Soy Acidito. Toca el que es diferente a los demás.",
+      "retos": [
+        {
+          "tipo": "cual_no_encaja",
+          "enunciado": "¿Cuál es diferente?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🐶", "valor": "perro1", "texto": "Perro" },
+              { "emoji": "🐶", "valor": "perro2", "texto": "Perro" },
+              { "emoji": "🐱", "valor": "gato", "texto": "Gato" }
+            ],
+            "correcta": "gato"
+          }
+        },
+        {
+          "tipo": "cual_no_encaja",
+          "enunciado": "¿Cuál es diferente?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🍎", "valor": "manzana1", "texto": "Manzana" },
+              { "emoji": "🍌", "valor": "banana", "texto": "Banana" },
+              { "emoji": "🍎", "valor": "manzana2", "texto": "Manzana" }
+            ],
+            "correcta": "banana"
+          }
+        },
+        {
+          "tipo": "cual_no_encaja",
+          "enunciado": "¿Cuál es diferente?",
+          "datos": {
+            "opciones": [
+              { "emoji": "⭐", "valor": "estrella1", "texto": "Estrella" },
+              { "emoji": "🌙", "valor": "luna", "texto": "Luna" },
+              { "emoji": "⭐", "valor": "estrella2", "texto": "Estrella" }
+            ],
+            "correcta": "luna"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "id": "chispas-critica-u1-l4",
+  "version": 2,
+  "paquete": "chispas",
+  "habilidad": "critica",
+  "objetivo": "Ver qué no va en el lugar",
+  "lectura": { "dosis": "palabra", "texto": "Lugar." },
+  "personaje": "desconocido",
+  "recompensa": "medalla_detective",
+  "modos": {
+    "interactivo": {
+      "gancho": "¿Qué cosa no va en este lugar?",
+      "retos": [
+        {
+          "tipo": "cual_no_encaja",
+          "enunciado": "En el baño, ¿qué NO va?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🛁", "valor": "tina", "texto": "Tina" },
+              { "emoji": "🚿", "valor": "ducha", "texto": "Ducha" },
+              { "emoji": "🍕", "valor": "pizza", "texto": "Pizza" }
+            ],
+            "correcta": "pizza"
+          }
+        },
+        {
+          "tipo": "cual_no_encaja",
+          "enunciado": "En el cielo, ¿qué NO va?",
+          "datos": {
+            "opciones": [
+              { "emoji": "☁️", "valor": "nube", "texto": "Nube" },
+              { "emoji": "🐟", "valor": "pez", "texto": "Pez" },
+              { "emoji": "🌈", "valor": "arcoiris", "texto": "Arcoíris" }
+            ],
+            "correcta": "pez"
+          }
+        },
+        {
+          "tipo": "cual_no_encaja",
+          "enunciado": "En el jardín, ¿qué NO va?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🌻", "valor": "flor", "texto": "Flor" },
+              { "emoji": "🌳", "valor": "arbol", "texto": "Árbol" },
+              { "emoji": "🛏️", "valor": "cama", "texto": "Cama" }
+            ],
+            "correcta": "cama"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "id": "llamas-resolucion-u1-l4",
+  "version": 2,
+  "paquete": "llamas",
+  "habilidad": "resolucion",
+  "objetivo": "Planificar antes de actuar",
+  "lectura": { "dosis": "parrafo", "texto": "Un buen plan piensa en lo que necesitas y en el orden correcto, antes de empezar." },
+  "personaje": "fueguito",
+  "recompensa": "medalla_plan",
+  "modos": {
+    "interactivo": {
+      "gancho": "El reto final: arma el mejor plan. Piensa antes de actuar.",
+      "retos": [
+        {
+          "tipo": "seleccion",
+          "enunciado": "Para armar un sándwich, ¿cuál es el orden correcto?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🥪", "valor": "ok", "texto": "Pan, relleno y otro pan" },
+              { "emoji": "🔁", "valor": "mal1", "texto": "Relleno, pan y pan" },
+              { "emoji": "🔀", "valor": "mal2", "texto": "Pan, pan y relleno" }
+            ],
+            "correcta": "ok",
+            "pista": "El relleno va en medio de los dos panes."
+          }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "Quieres regar las plantas con una regadera vacía. ¿Qué haces PRIMERO?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🚰", "valor": "llenar", "texto": "Llenar la regadera con agua" },
+              { "emoji": "💦", "valor": "regar", "texto": "Echar el agua a las plantas" },
+              { "emoji": "🌱", "valor": "mirar", "texto": "Ver si crecieron" }
+            ],
+            "correcta": "llenar",
+            "pista": "Sin agua en la regadera no puedes regar."
+          }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "Para llegar a la salida cruzas 3 puertas y cada una abre con una llave distinta. ¿Cuántas llaves necesitas como mínimo?",
+          "datos": {
+            "opciones": [
+              { "emoji": "3️⃣", "valor": "3", "texto": "3 llaves" },
+              { "emoji": "1️⃣", "valor": "1", "texto": "1 llave" },
+              { "emoji": "2️⃣", "valor": "2", "texto": "2 llaves" }
+            ],
+            "correcta": "3",
+            "pista": "Una llave distinta por cada puerta."
+          }
+        }
+      ]
+    }
+  }
+}

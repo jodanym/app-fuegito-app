@@ -1,0 +1,3 @@
+Fondos / banners de marca (opcional, Kling).
+  - banner.png   (banner ancho para la pantalla "Elige tu aventura")
+Por ahora la app no requiere fondo; este es decorativo y opcional.

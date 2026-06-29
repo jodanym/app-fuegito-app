@@ -1,0 +1,56 @@
+{
+  "id": "brasas-resolucion-u2-l1",
+  "version": 2,
+  "paquete": "brasas",
+  "habilidad": "resolucion",
+  "objetivo": "Resolver problemas de dos pasos",
+  "lectura": { "dosis": "frase", "texto": "Primero un paso, después el otro." },
+  "personaje": "fueguito",
+  "recompensa": "medalla_estrella",
+  "modos": {
+    "interactivo": {
+      "gancho": "Estos problemas tienen dos partes. Resuelve una y luego la otra.",
+      "retos": [
+        {
+          "tipo": "seleccion",
+          "enunciado": "Tienes 3 globos, te dan 2 más y luego se revienta 1. ¿Cuántos quedan?",
+          "datos": {
+            "opciones": [
+              { "emoji": "4️⃣", "valor": "4", "texto": "4" },
+              { "emoji": "5️⃣", "valor": "5", "texto": "5" },
+              { "emoji": "6️⃣", "valor": "6", "texto": "6" }
+            ],
+            "correcta": "4",
+            "pista": "3 + 2 = 5, y luego quita 1."
+          }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "Hay 6 sillas. Llegan 6 niños y 2 adultos. ¿Alcanzan las sillas?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🚫", "valor": "faltan", "texto": "No, faltan 2 sillas" },
+              { "emoji": "✅", "valor": "sobran", "texto": "Sí, sobran sillas" },
+              { "emoji": "🟰", "valor": "justas", "texto": "Sí, quedan justas" }
+            ],
+            "correcta": "faltan",
+            "pista": "Cuenta las personas: 6 + 2 = 8, y solo hay 6 sillas."
+          }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "Compras 2 panes de $2 cada uno y pagas con $5. ¿Cuánto te devuelven?",
+          "datos": {
+            "opciones": [
+              { "emoji": "1️⃣", "valor": "1", "texto": "$1" },
+              { "emoji": "2️⃣", "valor": "2", "texto": "$2" },
+              { "emoji": "3️⃣", "valor": "3", "texto": "$3" }
+            ],
+            "correcta": "1",
+            "pista": "2 panes cuestan $4. $5 - $4 = ?"
+          }
+        }
+      ]
+    }
+  }
+}

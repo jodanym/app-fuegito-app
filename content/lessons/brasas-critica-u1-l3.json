@@ -1,51 +1,43 @@
 {
   "id": "brasas-critica-u1-l3",
+  "version": 2,
   "paquete": "brasas",
   "habilidad": "critica",
-  "objetivo": "Reconocer si algo se puede comprobar",
-  "lectura": { "dosis": "frase", "texto": "¿Cómo lo sabemos?" },
+  "objetivo": "Distinguir un hecho de una opinión",
+  "lectura": { "dosis": "frase", "texto": "Un hecho es verdad para todos; una opinión es lo que a alguien le gusta." },
+  "personaje": "desconocido",
+  "recompensa": "medalla_juez",
   "modos": {
     "interactivo": {
-      "gancho": "Desconocido pregunta: ¿podemos comprobarlo de verdad o solo lo creemos?",
+      "gancho": "Un hecho lo puede comprobar cualquiera. Una opinión cambia según la persona. ¿Sabes separarlos?",
       "retos": [
         {
           "tipo": "clasificar",
-          "enunciado": "¿Se puede comprobar (sí) o no?",
+          "enunciado": "¿Hecho u opinión?",
           "datos": {
-            "frases": [
-              { "texto": "Cuento cuántas sillas hay.", "categoria": "sí" },
-              { "texto": "Adivino qué soñó mi amigo.", "categoria": "no" },
-              { "texto": "Mido cuánto mide la mesa.", "categoria": "sí" }
+            "items": [
+              { "emoji": "🐟", "texto": "Los peces viven en el agua", "categoria": "hecho" },
+              { "emoji": "🍦", "texto": "El helado es lo más rico", "categoria": "opinion" },
+              { "emoji": "☀️", "texto": "El sol sale de día", "categoria": "hecho" },
+              { "emoji": "🎨", "texto": "El azul es el mejor color", "categoria": "opinion" }
             ],
-            "categorias": ["sí", "no"]
+            "categorias": ["hecho", "opinion"]
           }
         },
         {
-          "tipo": "seleccion",
-          "enunciado": "¿Cuál sí podemos comprobar?",
-          "datos": { "opciones": ["la pelota es roja", "los lunes son aburridos"], "correcta": "la pelota es roja" }
-        },
-        {
-          "tipo": "seleccion",
-          "enunciado": "Para saber si llueve, ¿qué hacemos?",
-          "datos": { "opciones": ["mirar por la ventana", "preguntarle a un dibujo"], "correcta": "mirar por la ventana" }
+          "tipo": "clasificar",
+          "enunciado": "Esta vez es más difícil: ¿hecho u opinión?",
+          "datos": {
+            "items": [
+              { "emoji": "🐘", "texto": "El elefante pesa más que un gato", "categoria": "hecho" },
+              { "emoji": "🥦", "texto": "El brócoli sabe horrible", "categoria": "opinion" },
+              { "emoji": "🌙", "texto": "La luna se ve de noche", "categoria": "hecho" },
+              { "emoji": "🐶", "texto": "Los perros son mejores que los gatos", "categoria": "opinion" }
+            ],
+            "categorias": ["hecho", "opinion"]
+          }
         }
       ]
-    },
-    "audio_narrativo": {
-      "gancho_audio": "brasas/critica/u1l3/gancho.mp3",
-      "retos": [
-        { "tipo": "respuesta_voz", "enunciado": "Di cómo comprobarías si hay leche en la nevera.", "datos": { "audio": "brasas/critica/u1l3/reto.mp3", "respuesta_esperada": "abrir la nevera y mirar" } }
-      ]
-    },
-    "manual": {
-      "instruccion": "Elige algo de tu casa y compruébalo midiendo o contando con tu adulto.",
-      "ficha_pdf": "brasas/critica/u1l3/ficha.pdf",
-      "retos": [
-        { "tipo": "manual_autoconfirmado", "enunciado": "Comprueba algo contando o midiendo y marca cuando termines.", "datos": { "confirmacion": "adulto" } }
-      ]
     }
-  },
-  "personaje": "desconocido",
-  "recompensa": "medalla_comprobar"
+  }
 }

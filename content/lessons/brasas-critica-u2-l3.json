@@ -1,0 +1,56 @@
+{
+  "id": "brasas-critica-u2-l3",
+  "version": 2,
+  "paquete": "brasas",
+  "habilidad": "critica",
+  "objetivo": "Adivinar la pregunta correcta",
+  "lectura": { "dosis": "frase", "texto": "Cada respuesta encaja con una sola pregunta." },
+  "personaje": "desconocido",
+  "recompensa": "medalla_alreves",
+  "modos": {
+    "interactivo": {
+      "gancho": "Te doy la respuesta; tú eliges qué pregunta encaja de verdad.",
+      "retos": [
+        {
+          "tipo": "seleccion",
+          "enunciado": "La respuesta es: 'Tres veces por semana'. ¿Cuál fue la pregunta?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🏀", "valor": "frecuencia", "texto": "¿Cada cuánto entrenas?" },
+              { "emoji": "🏠", "valor": "lugar", "texto": "¿Dónde vives?" },
+              { "emoji": "🍎", "valor": "comida", "texto": "¿Qué te gusta comer?" }
+            ],
+            "correcta": "frecuencia",
+            "pista": "La respuesta habla de cuántas veces."
+          }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "La respuesta es: 'Porque se acabó la pila'. ¿Cuál fue la pregunta?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🎮", "valor": "control", "texto": "¿Por qué se apagó el control?" },
+              { "emoji": "🎂", "valor": "edad", "texto": "¿Cuántos años tienes?" },
+              { "emoji": "🎨", "valor": "color", "texto": "¿De qué color es?" }
+            ],
+            "correcta": "control",
+            "pista": "Las pilas hacen funcionar aparatos."
+          }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "La respuesta es: 'En la cima de la montaña'. ¿Cuál fue la pregunta?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🚩", "valor": "donde", "texto": "¿Dónde pusieron la bandera?" },
+              { "emoji": "⏰", "valor": "cuando", "texto": "¿Cuándo llegaste?" },
+              { "emoji": "🧑", "valor": "quien", "texto": "¿Quién es tu amigo?" }
+            ],
+            "correcta": "donde",
+            "pista": "La cima de la montaña es un lugar."
+          }
+        }
+      ]
+    }
+  }
+}

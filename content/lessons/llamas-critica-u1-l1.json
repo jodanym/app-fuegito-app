@@ -1,0 +1,43 @@
+{
+  "id": "llamas-critica-u1-l1",
+  "version": 2,
+  "paquete": "llamas",
+  "habilidad": "critica",
+  "objetivo": "Separar hechos de opiniones difíciles",
+  "lectura": { "dosis": "parrafo", "texto": "Un hecho se puede comprobar. Una opinión depende de quién la dice, aunque suene muy segura." },
+  "personaje": "desconocido",
+  "recompensa": "medalla_juez",
+  "modos": {
+    "interactivo": {
+      "gancho": "Soy Desconocido. Algunas frases parecen hechos pero son opiniones. ¿Las distingues?",
+      "retos": [
+        {
+          "tipo": "clasificar",
+          "enunciado": "¿Hecho u opinión?",
+          "datos": {
+            "items": [
+              { "emoji": "🌡️", "texto": "El agua hierve cuando está muy caliente", "categoria": "hecho" },
+              { "emoji": "🎬", "texto": "Esta película es aburridísima", "categoria": "opinion" },
+              { "emoji": "📏", "texto": "Una semana tiene siete días", "categoria": "hecho" },
+              { "emoji": "🍕", "texto": "La pizza es mejor que la pasta", "categoria": "opinion" }
+            ],
+            "categorias": ["hecho", "opinion"]
+          }
+        },
+        {
+          "tipo": "clasificar",
+          "enunciado": "Más difícil: ¿hecho u opinión?",
+          "datos": {
+            "items": [
+              { "emoji": "🪐", "texto": "La Tierra gira alrededor del Sol", "categoria": "hecho" },
+              { "emoji": "🎨", "texto": "El arte moderno no tiene sentido", "categoria": "opinion" },
+              { "emoji": "🦴", "texto": "Los perros tienen huesos", "categoria": "hecho" },
+              { "emoji": "🏖️", "texto": "La playa es más divertida que la montaña", "categoria": "opinion" }
+            ],
+            "categorias": ["hecho", "opinion"]
+          }
+        }
+      ]
+    }
+  }
+}

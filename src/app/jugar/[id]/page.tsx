@@ -12,6 +12,11 @@ import { getNinoActivoId, LIMITE_DIARIO_FREE } from "@/lib/ninos";
 
 const PERFIL_NEUTRO: PerfilVector = { modalidad: 50, entrada: 50, dinamica: 50, ritmo: 50 };
 
+// Medalla por habilidad (logica/critica/resolucion).
+function imagenMedalla(habilidad: string): string {
+  return `/medallas/${habilidad}.png`;
+}
+
 export default async function JugarLeccionPage({
   params,
 }: {
@@ -29,19 +34,27 @@ export default async function JugarLeccionPage({
   if (!data) notFound();
 
   const leccion = data.content as Leccion;
+  // El personaje DUEÑO del mundo manda en la presentacion, para que cada mundo
+  // sea consistente: Acertijos=Acidito, Misterios=Desconocido, Retos=Fueguito.
+  const DUENO_MUNDO = {
+    logica: "acidito",
+    critica: "desconocido",
+    resolucion: "fueguito",
+  } as const;
+  leccion.personaje = DUENO_MUNDO[leccion.habilidad];
   const errores = validarLeccion(leccion);
   if (errores.length > 0) {
     return (
-      <main className="flex min-h-screen flex-col items-center justify-center gap-4 bg-orange-50 p-6 text-center">
-        <p className="text-lg font-semibold text-amber-700">
+      <main className="flex min-h-screen flex-col items-center justify-center gap-4 bg-papel p-6 text-center">
+        <p className="text-lg font-bold text-llama">
           Esta leccion tiene datos incompletos.
         </p>
-        <ul className="text-sm text-gray-500">
+        <ul className="text-sm text-carbon/60">
           {errores.map((e) => (
             <li key={e}>• {e}</li>
           ))}
         </ul>
-        <Link href="/jugar" className="text-orange-600 underline">Volver</Link>
+        <Link href="/jugar" className="font-semibold text-fuego underline">Volver</Link>
       </main>
     );
   }
@@ -81,31 +94,33 @@ export default async function JugarLeccionPage({
 
   const modoNombre = elegirModo(perfil, modosDisponibles);
 
+  const medalla = imagenMedalla(leccion.habilidad);
+
   // Lecciones nuevas (version 2) usan el reproductor visual con audio.
   if (leccion.version === 2) {
-    return <ReproductorV2 leccion={leccion} modoNombre={modoNombre} />;
+    return <ReproductorV2 leccion={leccion} modoNombre={modoNombre} medalla={medalla} />;
   }
   return <ReproductorLeccion leccion={leccion} modoNombre={modoNombre} />;
 }
 
 function MuroDiario() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center gap-4 bg-orange-50 p-6 text-center">
+    <main className="flex min-h-screen flex-col items-center justify-center gap-4 bg-papel p-6 text-center">
       <p className="text-5xl">🔥</p>
-      <h1 className="text-2xl font-extrabold text-orange-600">
+      <h1 className="text-2xl font-extrabold text-llama">
         ¡Ya jugaste mucho hoy!
       </h1>
-      <p className="max-w-xs text-gray-600">
+      <p className="max-w-xs text-carbon/70">
         En el plan gratis puedes hacer {LIMITE_DIARIO_FREE} lecciones por día.
         Fueguito quiere seguir contigo... ¡desbloquea más con Premium!
       </p>
       <Link
         href="/padres/suscripcion"
-        className="mt-2 rounded-2xl bg-orange-500 px-6 py-3 font-bold text-white hover:bg-orange-600"
+        className="mt-2 rounded-2xl bg-fuego px-6 py-3 font-bold text-white hover:bg-llama"
       >
         Ver Premium
       </Link>
-      <Link href="/jugar" className="text-sm text-gray-400 underline">
+      <Link href="/jugar" className="text-sm font-semibold text-carbon/45 underline">
         Volver al mapa
       </Link>
     </main>

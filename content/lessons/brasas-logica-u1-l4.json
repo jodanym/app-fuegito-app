@@ -1,44 +1,57 @@
 {
   "id": "brasas-logica-u1-l4",
+  "version": 2,
   "paquete": "brasas",
   "habilidad": "logica",
-  "objetivo": "Encontrar el elemento que no pertenece al grupo",
-  "lectura": { "dosis": "frase", "texto": "Uno no es como los demás." },
+  "objetivo": "Agrupar cosas según una regla",
+  "lectura": { "dosis": "frase", "texto": "Cada cosa va en el grupo que le toca." },
+  "personaje": "acidito",
+  "recompensa": "medalla_grupos",
   "modos": {
     "interactivo": {
-      "gancho": "Desconocido escondió un intruso en cada grupo. ¡Encuéntralo!",
+      "gancho": "Mezclé todo a propósito. Descubre la regla de cada grupo y pon cada cosa en su lugar.",
       "retos": [
         {
-          "tipo": "seleccion",
-          "enunciado": "¿Cuál NO es un animal?",
-          "datos": { "opciones": ["perro", "gato", "silla"], "correcta": "silla" }
+          "tipo": "clasificar",
+          "enunciado": "¿Fruta o verdura?",
+          "datos": {
+            "items": [
+              { "emoji": "🍎", "texto": "manzana", "categoria": "fruta" },
+              { "emoji": "🥕", "texto": "zanahoria", "categoria": "verdura" },
+              { "emoji": "🍌", "texto": "banana", "categoria": "fruta" },
+              { "emoji": "🥦", "texto": "brócoli", "categoria": "verdura" }
+            ],
+            "categorias": ["fruta", "verdura"]
+          }
         },
         {
-          "tipo": "seleccion",
-          "enunciado": "¿Cuál NO es una fruta?",
-          "datos": { "opciones": ["manzana", "zanahoria", "pera"], "correcta": "zanahoria" }
+          "tipo": "clasificar",
+          "enunciado": "¿Vuela o no vuela?",
+          "datos": {
+            "items": [
+              { "emoji": "🦅", "texto": "águila", "categoria": "vuela" },
+              { "emoji": "🐢", "texto": "tortuga", "categoria": "no vuela" },
+              { "emoji": "🦋", "texto": "mariposa", "categoria": "vuela" },
+              { "emoji": "🐘", "texto": "elefante", "categoria": "no vuela" }
+            ],
+            "categorias": ["vuela", "no vuela"]
+          }
         },
         {
-          "tipo": "seleccion",
-          "enunciado": "¿Cuál NO va con los que vuelan?",
-          "datos": { "opciones": ["pájaro", "avión", "pez"], "correcta": "pez" }
+          "tipo": "cual_no_encaja",
+          "enunciado": "¿Cuál NO es un instrumento de música?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🎸", "valor": "guitarra", "texto": "Guitarra" },
+              { "emoji": "🥁", "valor": "tambor", "texto": "Tambor" },
+              { "emoji": "🎺", "valor": "trompeta", "texto": "Trompeta" },
+              { "emoji": "🪑", "valor": "silla", "texto": "Silla" }
+            ],
+            "correcta": "silla",
+            "pista": "Tres hacen música."
+          }
         }
       ]
-    },
-    "audio_narrativo": {
-      "gancho_audio": "brasas/logica/u1l4/gancho.mp3",
-      "retos": [
-        { "tipo": "respuesta_voz", "enunciado": "Escucha los nombres y di cuál no encaja.", "datos": { "audio": "brasas/logica/u1l4/grupo.mp3", "respuesta_esperada": "martillo" } }
-      ]
-    },
-    "manual": {
-      "instruccion": "Pon 4 objetos donde uno sea distinto y pídele a tu adulto que adivine el intruso.",
-      "ficha_pdf": "brasas/logica/u1l4/ficha.pdf",
-      "retos": [
-        { "tipo": "manual_autoconfirmado", "enunciado": "Arma tu grupo con un intruso y marca cuando termines.", "datos": { "confirmacion": "adulto" } }
-      ]
     }
-  },
-  "personaje": "desconocido",
-  "recompensa": "medalla_intruso"
+  }
 }

@@ -1,0 +1,53 @@
+{
+  "id": "chispas-logica-u1-l2",
+  "version": 2,
+  "paquete": "chispas",
+  "habilidad": "logica",
+  "objetivo": "Seguir un patrón cortito",
+  "lectura": { "dosis": "palabra", "texto": "Sigue." },
+  "personaje": "acidito",
+  "recompensa": "medalla_patron",
+  "modos": {
+    "interactivo": {
+      "gancho": "¿Qué sigue? Mira los colores y toca el correcto.",
+      "retos": [
+        {
+          "tipo": "patron_visual",
+          "enunciado": "¿Qué sigue?",
+          "datos": {
+            "secuencia": ["🔴", "🔵", "🔴", "❓"],
+            "opciones": [
+              { "emoji": "🔵", "valor": "azul", "texto": "Azul" },
+              { "emoji": "🔴", "valor": "rojo", "texto": "Rojo" }
+            ],
+            "correcta": "azul"
+          }
+        },
+        {
+          "tipo": "patron_visual",
+          "enunciado": "¿Qué sigue?",
+          "datos": {
+            "secuencia": ["🟡", "🟢", "🟡", "❓"],
+            "opciones": [
+              { "emoji": "🟢", "valor": "verde", "texto": "Verde" },
+              { "emoji": "🟡", "valor": "amarillo", "texto": "Amarillo" }
+            ],
+            "correcta": "verde"
+          }
+        },
+        {
+          "tipo": "patron_visual",
+          "enunciado": "¿Qué animalito sigue?",
+          "datos": {
+            "secuencia": ["🐶", "🐱", "🐶", "❓"],
+            "opciones": [
+              { "emoji": "🐱", "valor": "gato", "texto": "Gato" },
+              { "emoji": "🐶", "valor": "perro", "texto": "Perro" }
+            ],
+            "correcta": "gato"
+          }
+        }
+      ]
+    }
+  }
+}

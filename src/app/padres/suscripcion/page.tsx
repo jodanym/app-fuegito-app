@@ -24,16 +24,16 @@ export default async function SuscripcionPage({
   const tier = subs?.[0]?.tier ?? "free";
 
   return (
-    <main className="min-h-screen bg-gray-50 px-4 py-10">
+    <main className="min-h-screen bg-papel px-4 py-10">
       <div className="mx-auto max-w-sm">
-        <Link href="/padres" className="text-sm text-gray-400 underline">
+        <Link href="/padres" className="text-sm text-carbon/45 underline">
           ← Volver al panel
         </Link>
 
-        <h1 className="mt-4 text-2xl font-extrabold text-gray-800">Tu plan</h1>
+        <h1 className="mt-4 text-2xl font-extrabold text-carbon">Tu plan</h1>
 
         {stripe === "falta" && (
-          <p className="mt-4 rounded-xl bg-amber-50 p-3 text-sm text-amber-700">
+          <p className="mt-4 rounded-xl bg-chispa/25 p-3 text-sm text-llama">
             Los pagos aún no están conectados. Falta configurar Stripe (claves del
             adulto dueño del negocio). El código ya está listo para enchufarlo.
           </p>
@@ -41,16 +41,16 @@ export default async function SuscripcionPage({
 
         <div className="mt-6 space-y-4">
           {/* Plan gratis */}
-          <div className={`rounded-2xl border-2 p-5 ${tier === "free" ? "border-orange-400 bg-white" : "border-gray-200 bg-white"}`}>
+          <div className={`rounded-2xl border-2 p-5 ${tier === "free" ? "border-fuego bg-white" : "border-humo bg-white"}`}>
             <div className="flex items-center justify-between">
-              <p className="text-lg font-bold text-gray-800">Gratis</p>
+              <p className="text-lg font-bold text-carbon">Gratis</p>
               {tier === "free" && (
-                <span className="rounded-full bg-orange-100 px-3 py-1 text-xs font-bold text-orange-600">
+                <span className="rounded-full bg-chispa/25 px-3 py-1 text-xs font-bold text-llama">
                   Plan actual
                 </span>
               )}
             </div>
-            <ul className="mt-3 space-y-1 text-sm text-gray-600">
+            <ul className="mt-3 space-y-1 text-sm text-carbon/70">
               <li>• Onboarding y perfilado</li>
               <li>• 5 lecciones por día</li>
               <li>• 1 perfil de niño</li>
@@ -58,16 +58,16 @@ export default async function SuscripcionPage({
           </div>
 
           {/* Plan premium */}
-          <div className={`rounded-2xl border-2 p-5 ${tier === "premium" ? "border-orange-400 bg-white" : "border-gray-200 bg-white"}`}>
+          <div className={`rounded-2xl border-2 p-5 ${tier === "premium" ? "border-fuego bg-white" : "border-humo bg-white"}`}>
             <div className="flex items-center justify-between">
-              <p className="text-lg font-bold text-gray-800">Premium ✨</p>
+              <p className="text-lg font-bold text-carbon">Premium ✨</p>
               {tier === "premium" && (
-                <span className="rounded-full bg-orange-100 px-3 py-1 text-xs font-bold text-orange-600">
+                <span className="rounded-full bg-chispa/25 px-3 py-1 text-xs font-bold text-llama">
                   Plan actual
                 </span>
               )}
             </div>
-            <ul className="mt-3 space-y-1 text-sm text-gray-600">
+            <ul className="mt-3 space-y-1 text-sm text-carbon/70">
               <li>• Todo el contenido, sin límite diario</li>
               <li>• Todos los modos de cada lección</li>
               <li>• Varios niños y reportes para padres</li>
@@ -77,7 +77,7 @@ export default async function SuscripcionPage({
               <form action="/api/stripe/checkout" method="post" className="mt-4">
                 <button
                   type="submit"
-                  className="w-full rounded-xl bg-orange-500 px-4 py-3 font-bold text-white transition hover:bg-orange-600"
+                  className="w-full rounded-xl bg-fuego px-4 py-3 font-bold text-white transition hover:bg-llama"
                 >
                   Mejorar a Premium
                 </button>

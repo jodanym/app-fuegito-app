@@ -1,44 +1,59 @@
 {
   "id": "brasas-logica-u1-l2",
+  "version": 2,
   "paquete": "brasas",
   "habilidad": "logica",
-  "objetivo": "Continuar un patrón de dos elementos",
-  "lectura": { "dosis": "frase", "texto": "El patrón se repite igual." },
+  "objetivo": "Encontrar lo que no pertenece al grupo",
+  "lectura": { "dosis": "frase", "texto": "Busco en qué se parecen para hallar al distinto." },
+  "personaje": "acidito",
+  "recompensa": "medalla_intruso",
   "modos": {
     "interactivo": {
-      "gancho": "Desconocido dejó un camino a medio pintar. ¿Qué color sigue?",
+      "gancho": "¡Ja! Escondí un intruso en cada grupo. Para cazarlo, primero descubre qué tienen en común los demás.",
       "retos": [
         {
-          "tipo": "seleccion",
-          "enunciado": "Rojo, azul, rojo, azul, rojo, ... ¿qué sigue?",
-          "datos": { "opciones": ["rojo", "azul", "verde"], "correcta": "azul" }
+          "tipo": "cual_no_encaja",
+          "enunciado": "¿Cuál NO es un ser vivo?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🌳", "valor": "arbol", "texto": "Árbol" },
+              { "emoji": "🐶", "valor": "perro", "texto": "Perro" },
+              { "emoji": "🪨", "valor": "piedra", "texto": "Piedra" },
+              { "emoji": "🌻", "valor": "flor", "texto": "Flor" }
+            ],
+            "correcta": "piedra",
+            "pista": "Tres crecen y necesitan agua."
+          }
         },
         {
-          "tipo": "arrastrar_soltar",
-          "enunciado": "Toca la pieza que completa el patrón.",
-          "datos": { "secuencia": ["sol", "luna", "sol", "luna", "?"], "piezas": ["sol", "luna", "estrella"], "correcta": "sol" }
+          "tipo": "cual_no_encaja",
+          "enunciado": "¿Cuál NO puede volar?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🦅", "valor": "aguila", "texto": "Águila" },
+              { "emoji": "🦋", "valor": "mariposa", "texto": "Mariposa" },
+              { "emoji": "✈️", "valor": "avion", "texto": "Avión" },
+              { "emoji": "🐍", "valor": "serpiente", "texto": "Serpiente" }
+            ],
+            "correcta": "serpiente",
+            "pista": "Tres se elevan por el aire."
+          }
         },
         {
-          "tipo": "ordenar_secuencia",
-          "enunciado": "Ordena para repetir el patrón: arriba, abajo, arriba, abajo.",
-          "datos": { "elementos": ["arriba", "abajo", "arriba", "abajo"], "orden_correcto": ["arriba", "abajo", "arriba", "abajo"] }
+          "tipo": "cual_no_encaja",
+          "enunciado": "¿Cuál NO es redondo?",
+          "datos": {
+            "opciones": [
+              { "emoji": "⚽", "valor": "pelota", "texto": "Pelota" },
+              { "emoji": "🍊", "valor": "naranja", "texto": "Naranja" },
+              { "emoji": "📕", "valor": "libro", "texto": "Libro" },
+              { "emoji": "🪙", "valor": "moneda", "texto": "Moneda" }
+            ],
+            "correcta": "libro",
+            "pista": "Piensa en la forma, no en para qué sirve."
+          }
         }
       ]
-    },
-    "audio_narrativo": {
-      "gancho_audio": "brasas/logica/u1l2/gancho.mp3",
-      "retos": [
-        { "tipo": "respuesta_voz", "enunciado": "Escucha el ritmo y di qué sonido sigue.", "datos": { "audio": "brasas/logica/u1l2/ritmo.mp3", "respuesta_esperada": "tambor" } }
-      ]
-    },
-    "manual": {
-      "instruccion": "Haz un collar de papel con dos colores que se repitan: rojo-azul-rojo-azul.",
-      "ficha_pdf": "brasas/logica/u1l2/ficha.pdf",
-      "retos": [
-        { "tipo": "manual_autoconfirmado", "enunciado": "Arma tu collar y marca cuando termines.", "datos": { "confirmacion": "adulto" } }
-      ]
     }
-  },
-  "personaje": "desconocido",
-  "recompensa": "medalla_ritmo"
+  }
 }

@@ -1,0 +1,56 @@
+{
+  "id": "brasas-logica-u2-l4",
+  "version": 2,
+  "paquete": "brasas",
+  "habilidad": "logica",
+  "objetivo": "Deducir siguiendo una regla",
+  "lectura": { "dosis": "frase", "texto": "Si la regla vale para todos, vale para cada uno." },
+  "personaje": "acidito",
+  "recompensa": "medalla_deduccion",
+  "modos": {
+    "interactivo": {
+      "gancho": "El reto final de Acidito: usa la regla para descubrir la respuesta.",
+      "retos": [
+        {
+          "tipo": "seleccion",
+          "enunciado": "Todos los pájaros tienen plumas. El loro es un pájaro. ¿El loro tiene...?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🪶", "valor": "plumas", "texto": "Plumas" },
+              { "emoji": "🦷", "valor": "dientes", "texto": "Dientes" },
+              { "emoji": "🐚", "valor": "concha", "texto": "Concha" }
+            ],
+            "correcta": "plumas",
+            "pista": "La regla vale para TODOS los pájaros."
+          }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "Si toco la estufa caliente, me quemo. La estufa está caliente y la toco. ¿Qué pasa?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🔥", "valor": "quemo", "texto": "Me quemo" },
+              { "emoji": "❄️", "valor": "congelo", "texto": "Me congelo" },
+              { "emoji": "😴", "valor": "nada", "texto": "No pasa nada" }
+            ],
+            "correcta": "quemo",
+            "pista": "Aplica la regla tal cual."
+          }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "Beto es más bajo que Ana. ¿Quién es más alto?",
+          "datos": {
+            "opciones": [
+              { "emoji": "👧", "valor": "ana", "texto": "Ana" },
+              { "emoji": "👦", "valor": "beto", "texto": "Beto" },
+              { "emoji": "🟰", "valor": "iguales", "texto": "Son iguales" }
+            ],
+            "correcta": "ana",
+            "pista": "Si Beto es más bajo, el otro es más alto."
+          }
+        }
+      ]
+    }
+  }
+}

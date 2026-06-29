@@ -1,0 +1,54 @@
+{
+  "id": "brasas-critica-u2-l4",
+  "version": 2,
+  "paquete": "brasas",
+  "habilidad": "critica",
+  "objetivo": "Notar cuando algo no cuadra",
+  "lectura": { "dosis": "frase", "texto": "Que alguien lo diga no lo hace verdad." },
+  "personaje": "desconocido",
+  "recompensa": "medalla_escudo",
+  "modos": {
+    "interactivo": {
+      "gancho": "Reto final: piensa bien antes de creer. ¿Cuadra o no cuadra?",
+      "retos": [
+        {
+          "tipo": "seleccion",
+          "enunciado": "Pedro dice: 'Nunca digo mentiras, ¡créeme!'. ¿Puedes estar seguro solo porque lo dice?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🚫", "valor": "no", "texto": "No, decirlo no lo prueba" },
+              { "emoji": "✅", "valor": "si", "texto": "Sí, si lo dice es verdad" }
+            ],
+            "correcta": "no",
+            "pista": "Cualquiera puede decir eso, sea cierto o no."
+          }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "El pastel desapareció y el gato tiene crema en los bigotes. ¿Qué es lo MÁS probable?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🐱", "valor": "gato", "texto": "El gato se acercó al pastel" },
+              { "emoji": "🪁", "valor": "volo", "texto": "El pastel salió volando solo" },
+              { "emoji": "👻", "valor": "fantasma", "texto": "Un fantasma se lo llevó" }
+            ],
+            "correcta": "gato",
+            "pista": "Sigue la pista de la crema."
+          }
+        },
+        {
+          "tipo": "seleccion",
+          "enunciado": "'Hoy no hubo clases, así que SEGURO era domingo.' ¿Es seguro?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🚫", "valor": "no", "texto": "No, hay otros días sin clases" },
+              { "emoji": "📅", "valor": "si", "texto": "Sí, sin clases siempre es domingo" }
+            ],
+            "correcta": "no",
+            "pista": "También hay feriados o vacaciones."
+          }
+        }
+      ]
+    }
+  }
+}

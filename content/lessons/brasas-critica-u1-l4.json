@@ -1,44 +1,56 @@
 {
   "id": "brasas-critica-u1-l4",
+  "version": 2,
   "paquete": "brasas",
   "habilidad": "critica",
-  "objetivo": "Elegir una buena pregunta para entender algo",
-  "lectura": { "dosis": "frase", "texto": "Preguntar ayuda a entender." },
+  "objetivo": "Pensar al revés: de la respuesta a la pregunta",
+  "lectura": { "dosis": "frase", "texto": "Si esta es la respuesta, ¿cuál era la pregunta?" },
+  "personaje": "desconocido",
+  "recompensa": "medalla_alreves",
   "modos": {
     "interactivo": {
-      "gancho": "Desconocido adora preguntar '¿y por qué?'. Elige la mejor pregunta.",
+      "gancho": "Hoy jugamos al revés: yo te doy la respuesta y tú eliges qué pregunta la haría correcta.",
       "retos": [
         {
           "tipo": "seleccion",
-          "enunciado": "Tu amigo está triste. ¿Qué le preguntas?",
-          "datos": { "opciones": ["¿qué te pasó?", "¿de qué color es tu camisa?"], "correcta": "¿qué te pasó?" }
+          "enunciado": "La respuesta es: 'Tengo 7 años'. ¿Cuál fue la pregunta?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🎂", "valor": "edad", "texto": "¿Cuántos años tienes?" },
+              { "emoji": "🏠", "valor": "casa", "texto": "¿Dónde vives?" },
+              { "emoji": "🍎", "valor": "comida", "texto": "¿Qué te gusta comer?" }
+            ],
+            "correcta": "edad",
+            "pista": "La respuesta habla de años."
+          }
         },
         {
           "tipo": "seleccion",
-          "enunciado": "Quieres saber si un juego es divertido. ¿Qué preguntas?",
-          "datos": { "opciones": ["¿cómo se juega?", "¿quién hizo la caja?"], "correcta": "¿cómo se juega?" }
+          "enunciado": "La respuesta es: 'Porque tenía mucho sueño'. ¿Cuál fue la pregunta?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🥱", "valor": "bostezo", "texto": "¿Por qué bostezaste?" },
+              { "emoji": "🏃", "valor": "corrio", "texto": "¿Por qué corriste?" },
+              { "emoji": "😂", "valor": "reir", "texto": "¿Por qué te reíste?" }
+            ],
+            "correcta": "bostezo",
+            "pista": "El sueño te hace bostezar."
+          }
         },
         {
           "tipo": "seleccion",
-          "enunciado": "No sabes a dónde ir. ¿Qué pregunta sirve más?",
-          "datos": { "opciones": ["¿por dónde es el camino?", "¿qué hora era ayer?"], "correcta": "¿por dónde es el camino?" }
+          "enunciado": "La respuesta es: 'En la mochila'. ¿Cuál fue la pregunta?",
+          "datos": {
+            "opciones": [
+              { "emoji": "🎒", "valor": "donde", "texto": "¿Dónde guardaste los libros?" },
+              { "emoji": "⏰", "valor": "cuando", "texto": "¿Cuándo te despertaste?" },
+              { "emoji": "🧮", "valor": "cuanto", "texto": "¿Cuántos años tienes?" }
+            ],
+            "correcta": "donde",
+            "pista": "La mochila es un lugar donde guardas cosas."
+          }
         }
       ]
-    },
-    "audio_narrativo": {
-      "gancho_audio": "brasas/critica/u1l4/gancho.mp3",
-      "retos": [
-        { "tipo": "respuesta_voz", "enunciado": "Inventa una buena pregunta para saber qué comió tu amigo.", "datos": { "audio": "brasas/critica/u1l4/reto.mp3", "respuesta_esperada": "¿qué comiste?" } }
-      ]
-    },
-    "manual": {
-      "instruccion": "Hazle 3 preguntas curiosas a tu adulto sobre su día y dibújalo.",
-      "ficha_pdf": "brasas/critica/u1l4/ficha.pdf",
-      "retos": [
-        { "tipo": "manual_autoconfirmado", "enunciado": "Haz tus 3 preguntas y marca cuando termines.", "datos": { "confirmacion": "adulto" } }
-      ]
     }
-  },
-  "personaje": "desconocido",
-  "recompensa": "medalla_pregunton"
+  }
 }

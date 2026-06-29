@@ -1,26 +1,79 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* =====================================================================
+   IDENTIDAD DE MARCA — Universo de Fueguito
+   Tokens de diseño (colores + tipografia). Definidos como tokens de
+   Tailwind v4 (@theme) para poder usarlos como utilidades:
+   bg-fuego, text-carbon, bg-papel, text-logica, font-display, etc.
+   Paleta derivada de los tres personajes (Fueguito / Desconocido / Acidito).
+   ===================================================================== */
+@theme {
+  /* Nucleo — Fueguito (marca, recompensas, racha) */
+  --color-llama: #f23a1e;
+  --color-fuego: #ff7a1a;
+  --color-chispa: #ffc22e;
+
+  /* Acentos de personaje */
+  --color-noche: #2a2154; /* Desconocido */
+  --color-aura: #b9a6ff;
+  --color-slime: #5bb561; /* Acidito */
+  --color-burbuja: #8e7ce8;
+
+  /* Color por habilidad (las tres con igual peso) */
+  --color-logica: #2e9bda;
+  --color-critica: #7a6bd4;
+  --color-resolucion: #4fa86b;
+
+  /* Neutros (fondo calido tipo "papel", texto "carbon") */
+  --color-papel: #fff6ec;
+  --color-humo: #ede7e0;
+  --color-carbon: #241f2b;
+
+  /* Semanticos amables: refuerzo positivo, cero castigo (PRD 5.1).
+     El error nunca usa rojo de alarma; usa un naranja calido. */
+  --color-acierto: #4fa86b;
+  --color-reintenta: #ff9a3c;
+
+  /* Tipografia mono (rara vez usada) */
+  --font-mono: ui-monospace, "SFMono-Regular", Menlo, monospace;
 }
 
+/* Las fuentes vienen de next/font (layout.tsx) como variables CSS.
+   Se mapean "inline" para que las utilidades font-display / font-sans
+   resuelvan esas variables. */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-display-src);
+  --font-sans: var(--font-body-src);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --background: var(--color-papel);
+  --foreground: var(--color-carbon);
 }
 
+/* App infantil con identidad calida fija: no auto-invertimos a modo
+   oscuro (el fondo "papel" es parte de la marca). */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Todos los titulos usan la tipografia jugueton de marca (Baloo 2). */
+h1,
+h2,
+h3 {
+  font-family: var(--font-display), var(--font-sans), system-ui, sans-serif;
+}
+
+/* Confeti de celebracion (componente Confeti). */
+@keyframes confeti-caida {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(240px) rotate(540deg);
+    opacity: 0;
+  }
 }
