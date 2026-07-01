@@ -25,7 +25,9 @@ export async function POST(request: Request) {
     const fila: Record<string, string> = {};
     for (const c of CAMPOS) {
       const v = body[c];
-      if (typeof v === "string" && v.trim()) fila[c] = v.trim().slice(0, 600);
+      // El comentario libre admite mas texto (es la data mas valiosa).
+      const max = c === "comentario" ? 3000 : 600;
+      if (typeof v === "string" && v.trim()) fila[c] = v.trim().slice(0, max);
     }
 
     const supabase = await createClient();

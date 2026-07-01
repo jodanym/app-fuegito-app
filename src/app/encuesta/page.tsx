@@ -169,7 +169,7 @@ export default function EncuestaPage() {
             value={comentario}
             onChange={(e) => setComentario(e.target.value)}
             rows={3}
-            maxLength={600}
+            maxLength={3000}
             placeholder="Lo que sea: algo que no se entendió, una idea, un error..."
             className="mt-2 w-full rounded-xl border-2 border-humo px-4 py-3 text-carbon focus:border-fuego focus:outline-none"
           />
