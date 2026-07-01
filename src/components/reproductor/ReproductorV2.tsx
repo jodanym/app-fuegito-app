@@ -13,7 +13,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Leccion, ModoLeccion, Reto } from "@/lib/lessons/schema";
 import { PERSONAJES } from "@/lib/lessons/personajes";
-import BotonAudio, { hablar } from "@/components/audio/BotonAudio";
+import BotonAudio from "@/components/audio/BotonAudio";
 import { guardarProgreso } from "@/app/actions/progreso";
 import Confeti from "@/components/ui/Confeti";
 import { sonarAcierto, sonarLogro } from "@/lib/ui/celebracion";
@@ -49,13 +49,15 @@ export default function ReproductorV2({
   const paso = ORDEN[pasoIdx];
   const avanzar = () => setPasoIdx((p) => Math.min(p + 1, ORDEN.length - 1));
 
-  // Audio del gancho al entrar (ayuda a quien no lee).
+  // El audio SOLO suena al tocar la bocina (feedback de testers: nada de voz
+  // automatica). Al cambiar de paso o reto se corta cualquier voz pendiente.
   useEffect(() => {
-    if (paso === "gancho") {
-      const t = setTimeout(() => hablar(gancho, leccion.personaje), 400);
-      return () => clearTimeout(t);
-    }
-  }, [paso, gancho, leccion.personaje]);
+    return () => {
+      if (typeof window !== "undefined" && window.speechSynthesis) {
+        window.speechSynthesis.cancel();
+      }
+    };
+  }, [pasoIdx, retoIdx]);
 
   function onResuelto(primerIntento: boolean) {
     if (primerIntento) setBuenos((b) => b + 1);
@@ -148,6 +150,7 @@ export default function ReproductorV2({
             personajeId={leccion.personaje}
             recompensa={leccion.recompensa}
             medalla={medalla}
+            habilidad={leccion.habilidad}
             buenos={buenos}
             total={retos.length}
           />
@@ -161,6 +164,17 @@ export default function ReproductorV2({
 function bonito(s: string): string {
   const t = s.replace(/_/g, " ");
   return t.charAt(0).toUpperCase() + t.slice(1);
+}
+
+// Baraja un arreglo (Fisher-Yates). Evita que la respuesta correcta siga un
+// patron predecible (feedback de testers: "siempre era la primera opcion").
+function mezclar<T>(arr: T[]): T[] {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
 }
 
 // ---------------- Un reto (cualquier tipo) ----------------
@@ -187,8 +201,7 @@ function RetoVisual({
 
   function acertar() {
     setEstado("bien");
-    sonarAcierto();
-    hablar("¡Correcto!", personaje);
+    sonarAcierto(); // campanita corta; sin voz automatica
   }
   function fallar() {
     setHuboError(true);
@@ -343,6 +356,8 @@ function Opciones({
   onError: () => void;
 }) {
   const [errada, setErrada] = useState<string | null>(null);
+  // Orden aleatorio, estable mientras dura el reto.
+  const barajadas = useMemo(() => mezclar(opciones), [opciones]);
 
   function elegir(op: Opcion) {
     if (op.valor === correcta) onAcierto();
@@ -354,7 +369,7 @@ function Opciones({
 
   return (
     <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-      {opciones.map((op) => (
+      {barajadas.map((op) => (
         <button
           key={op.valor}
           onClick={() => elegir(op)}
@@ -419,17 +434,19 @@ function Clasificar({
   onError: () => void;
 }) {
   const [asign, setAsign] = useState<Record<number, string>>({});
-  const completo = items.every((_, i) => asign[i]);
+  // Orden aleatorio de los items (evita el patron hecho/opinion alternado).
+  const barajados = useMemo(() => mezclar(items), [items]);
+  const completo = barajados.every((_, i) => asign[i]);
 
   function comprobar() {
-    const ok = items.every((it, i) => asign[i] === it.categoria);
+    const ok = barajados.every((it, i) => asign[i] === it.categoria);
     if (ok) onAcierto();
     else onError();
   }
 
   return (
     <div className="space-y-3">
-      {items.map((it, i) => (
+      {barajados.map((it, i) => (
         <div key={i} className="flex items-center justify-between rounded-2xl border border-chispa/50 p-3">
           <span className="flex items-center gap-2 text-lg">
             <span className="text-3xl">{it.emoji}</span>
@@ -500,6 +517,7 @@ function Recompensa({
   personajeId,
   recompensa,
   medalla,
+  habilidad,
   buenos,
   total,
 }: {
@@ -507,14 +525,13 @@ function Recompensa({
   personajeId: import("@/lib/lessons/schema").Personaje;
   recompensa: string;
   medalla?: string | null;
+  habilidad: string;
   buenos: number;
   total: number;
 }) {
   useEffect(() => {
-    sonarLogro();
-    const t = setTimeout(() => hablar(personaje.celebra, personajeId), 300);
-    return () => clearTimeout(t);
-  }, [personaje.celebra, personajeId]);
+    sonarLogro(); // arpegio corto; la voz solo con la bocina
+  }, []);
 
   return (
     <div className="relative text-center">
@@ -527,7 +544,10 @@ function Recompensa({
         className="mx-auto h-36 w-36 object-contain"
       />
       <p className="mt-2 text-2xl font-extrabold text-llama">¡Lo lograste! 🎉</p>
-      <p className="mt-1 text-carbon/70">{personaje.celebra}</p>
+      <div className="mt-1 flex items-center justify-center gap-2">
+        <p className="text-carbon/70">{personaje.celebra}</p>
+        <BotonAudio texto={personaje.celebra} personaje={personajeId} />
+      </div>
       <div className="mt-5 rounded-2xl bg-papel p-4">
         <p className="text-sm text-carbon/60">Ganaste la medalla</p>
         {medalla ? (
@@ -548,10 +568,13 @@ function Recompensa({
         </p>
       </div>
       <Link
-        href="/jugar"
+        href={`/jugar?mundo=${habilidad}`}
         className="mt-6 block w-full rounded-2xl bg-fuego px-6 py-4 text-lg font-bold text-white transition hover:bg-llama"
       >
-        Volver al mapa
+        Siguiente misión 🔥
+      </Link>
+      <Link href="/jugar" className="mt-3 block text-sm font-semibold text-carbon/45 underline">
+        Elegir otro mundo
       </Link>
     </div>
   );
